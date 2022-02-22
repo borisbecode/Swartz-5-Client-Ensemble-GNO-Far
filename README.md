@@ -23,7 +23,7 @@ For this to work you need to have both the node server and the react project run
 To start the server you need to call these commands
 ```sh
 $ cd server
-$ node index
+$ npm start
 ```
 This server should now be running on port 5000.
 There is only just route created in this project which is /getjson. This returns the json data from data/data.json. You can create more routes which return data from other API's like twitter. Look back on previous node repos to see how this is done.
