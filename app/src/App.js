@@ -1,23 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-class App extends Component {
-  constructor(props) {
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+
+import About from "./pages/about";
+import Actions from "./pages/actions";
+import Admin from "./pages/admin";
+import Home from "./pages/home";
+import NotFound from "./pages/notfound";
+import Parrainage from "./pages/parrainage";
+
+function App() {
+  /*  constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
     };
   }
 
   componentDidMount() {
     fetch("http://192.168.33.10:5000/getjson")
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result
+            items: result,
           });
         },
         // Note: it's important to handle errors here
@@ -26,14 +35,26 @@ class App extends Component {
         (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error,
           });
         }
-      )
-  }
+      );
+  } */
 
-  render() {
-    const { error, isLoaded, items } = this.state;
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="actions" element={<Actions />} />
+        <Route path="admin" element={<Admin />} />
+        <Route path="notfound" element={<NotFound />} />
+        <Route path="parrainage" element={<Parrainage />} />
+      </Routes>
+    </div>
+  );
+
+  /*   const { error, isLoaded, items } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -41,15 +62,14 @@ class App extends Component {
     } else {
       return (
         <ul>
-          {items.map(item => (
+          {items.map((item) => (
             <li key={item.first_name}>
               {item.first_name} {item.last_name}
             </li>
           ))}
         </ul>
       );
-    }
-  }
+    } */
 }
 
 export default App;
