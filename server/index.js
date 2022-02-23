@@ -1,22 +1,22 @@
 const express = require('express');
-const data = require('./data/data.json');
-const cors = require('cors');
-
 const app = express();
+const cors = require('cors');
+const connection = require('./db')
+const userRoutes = require('./routes/users');
+const authRoutes = require('./routes/auth');
+require("dotenv").config();
 
+// DATABASE CONNECTION 
+connection();
+
+// MIDDLEWARE
 app.use(cors());
+app.use(express.json())
 
-app.use(function(req, res, next){
-    console.log(`${req.method} requrest for ${req.url}`);
-    next();
-});
+// ROUTES 
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
-app.get('/getjson', function(req, res){
-    res.json(data);
-});
+const port =  process.env.PORT || 5000;
+app.listen(port, () => console.log(`Listening on port ${port}...`));
 
-
-app.set('port', (process.env.PORT || 5000));
-app.listen(app.get('port'), function(){
-    console.log(`Server is running on port ${app.get('port')}`);
-});
