@@ -1,3 +1,16 @@
+
+
+
+
+
+import About from "./pages/about";
+import Actions from "./pages/actions";
+import Admin from "./pages/admin";
+import Home from "./pages/home";
+import NotFound from "./pages/notfound";
+import Parrainage from "./pages/parrainage";
+
+
 import {Route, Routes, Navigate } from "react-router-dom";
 import React, { Component }  from 'react';
 import Signup from "./components/Signup/Signup";
@@ -16,6 +29,7 @@ function App() {
 		</Routes>
 
 	);
+
 }
 
 export default App;
