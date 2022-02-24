@@ -5,6 +5,7 @@ const connection = require('./db')
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const actionRoutes = require('./routes/actions')
+const articlesRoutes = require('./routes/articles');
 require("dotenv").config();
 
 // DATABASE CONNECTION 
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/actions", actionRoutes);
+app.use("/api/articles", articlesRoutes);
 
 
 const port = process.env.PORT || 5000;
