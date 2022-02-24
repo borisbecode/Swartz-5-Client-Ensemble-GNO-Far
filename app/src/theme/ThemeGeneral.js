@@ -6,7 +6,7 @@ export const ThemeGeneral = createTheme({
     primary: {
       light: '#A1FFB6',
       main: '#70DD88',
-      dark: '#34D958',
+      dark: '#1AC064',
       contrastText: '#000000',
     },
     // Reds
