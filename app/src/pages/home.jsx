@@ -1,5 +1,12 @@
 import React from "react";
+import Footer from "../components/Footer/Footer";
 
-const Home = () => <p>home works!</p>;
+function home() {
+  return (
+    <div>
+      <Footer />
+    </div>
+  );
+}
 
-export default Home;
+export default home;
