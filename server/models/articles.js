@@ -3,12 +3,15 @@ const Schema = mongoose.Schema
 
 const articlesSchema = new Schema({
 
-    title: {type: String, required: true},
-    subTitle: {type: String, required: false},
-    content: {type: String, required: false},
-    image: {type: String, required: false},
-    date: {type: String, required: true},
-    emailUser: {type: String, required: true}
+    user_id: { type: String, unique: true },
+    title: { type: String, trim: true, required: true},
+    subTitle: {type: String, required: true},
+    contenu: { type: String, required: true, trim: true},
+    status: { type: String, enum: ['created', 'edited', 'draft', 'deleted'], default: 'draft' },
+    pictures: {type: String},
+    isDeleted: {type: Boolean, default: false},
+    createdAt: {type: Date},
+    updatedAt: {type: Date}
 })
 
 const Articles = mongoose.model("Articles", articlesSchema);

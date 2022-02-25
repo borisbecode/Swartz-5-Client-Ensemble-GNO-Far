@@ -13,12 +13,15 @@ router.get('/', (req, res) => {
 //REQUESTS ADD NEW ARTICLE
 router.post('/add', (req, res) => {
     const newArticle = new Articles({
+        user_id: req.body.user_id,
         title: req.body.title,
         subTitle: req.body.subTitle,
-        content: req.body.content,
-        image: req.body.image,
-        date: req.body.date,
-        emailUser: req.body.emailUser
+        contenu: req.body.contenu,
+        tags: req.body.tags,
+        status: req.body.status,
+        pictures: req.body.pictures,
+        createdAt: req.body.createdAt,
+        updateAt: req.body.updateAt
     })
 
     newArticle.save()
@@ -29,22 +32,25 @@ router.post('/add', (req, res) => {
 //REQUEST FIND ARTICLE BY ID
 router.get("/:id", (req, res) => {
     Articles.findById(req.params.id)
-        .then(article => res.json(article))
+        .then(article => res.status(200).json({article:article, ok:"Article is found"}))
         .catch(error => res.status(400).json(`Error: ${error}`))
 })
 
 //REQUEST FIND ARTICLE BY ID AND UPDATE
 router.put("/update/:id", (req, res) => {
     Articles.findById(req.params.id)
+    
         .then(article => {
+            const IS_EDITED = 'edited'
             article.title = req.body.title;
             article.subTitle = req.body.subTitle;
-            article.content = req.body.content;
+            article.contenu = req.body.contenu;
             article.image = req.body.image;
+            article.status = IS_EDITED;
 
             article
                 .save()
-                .then(() => res.json("The article is updated successfully!!"))
+                .then(() => res.status(200).json({article:article, ok:"Article is updated successfully!!"}))
                 .catch(error => res.status(400).json(`Error: ${error}`))
         })
         .catch(error => res.status(400).json(`Error: ${error}`))
