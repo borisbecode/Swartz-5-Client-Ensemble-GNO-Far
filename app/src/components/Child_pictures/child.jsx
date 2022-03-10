@@ -5,6 +5,7 @@ import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
 import { ThemeProvider } from '@mui/material/styles'
 import { ThemeTitres } from '../../theme/ThemeTitres'
+import Grid from '@mui/material/Grid'
 import './child.css'
 
 function Child() {
@@ -21,6 +22,47 @@ function Child() {
           </Typography>
         </ThemeProvider>
         <Divider sx={{ my: 4 }} />
+
+        <Grid className="align" container spacing={1}>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            item
+            xs={2}
+          >
+            <Grid className="premier">aaaa</Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            item
+            xs={2}
+          >
+            <Grid className="deuxieme">ddd</Grid>
+            <Grid className="troisieme">aaaa</Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            item
+            xs={2}
+          >
+            <Grid className="deuxieme">ddd</Grid>
+            <Grid className="troisieme">aaaa</Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            item
+            xs={2}
+          >
+            <Grid className="sixieme">aaaa</Grid>
+          </Grid>
+        </Grid>
       </Box>
     </div>
   )
