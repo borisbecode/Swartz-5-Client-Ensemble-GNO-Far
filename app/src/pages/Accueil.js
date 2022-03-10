@@ -9,9 +9,9 @@ const Accueil = () => {
   return (
     <Box id="accueil" sx={{ width: '100%', m: 0 }}>
       <BannerHome />
+
       <Articles />
       <Child />
-      <Footer />
     </Box>
   )
 }

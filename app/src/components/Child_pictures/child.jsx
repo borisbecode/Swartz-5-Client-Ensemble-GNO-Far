@@ -21,15 +21,16 @@ function Child() {
             Nos enfants parrainés
           </Typography>
         </ThemeProvider>
-        <Divider sx={{ my: 4 }} />
+        <Divider sx={{ my: 4, mx: 'auto' }} />
 
-        <Grid className="align" container spacing={1}>
+        <Grid className="align" container spacing={1} sx={{ mx: 'auto' }}>
           <Grid
             container
             spacing={1}
             sx={{ display: 'flex', flexDirection: 'column' }}
             item
-            xs={4}
+            lg={4}
+            xs={10}
           >
             <Grid className="premier">aaaa</Grid>
           </Grid>
@@ -38,7 +39,8 @@ function Child() {
             spacing={1}
             sx={{ display: 'flex', flexDirection: 'column' }}
             item
-            xs={2}
+            xs={10}
+            lg={2}
           >
             <Grid className="deuxieme">ddd</Grid>
             <Grid className="troisieme">aaaa</Grid>
@@ -48,17 +50,19 @@ function Child() {
             spacing={1}
             sx={{ display: 'flex', flexDirection: 'column' }}
             item
-            xs={2}
+            xs={10}
+            lg={2}
           >
-            <Grid className="deuxieme">ddd</Grid>
-            <Grid className="troisieme">aaaa</Grid>
+            <Grid className="quattrieme">ddd</Grid>
+            <Grid className="cinquieme">aaaa</Grid>
           </Grid>
           <Grid
             container
             spacing={1}
             sx={{ display: 'flex', flexDirection: 'column' }}
             item
-            xs={2}
+            xs={10}
+            lg={2}
           >
             <Grid className="sixieme">aaaa</Grid>
           </Grid>
@@ -67,10 +71,11 @@ function Child() {
             spacing={1}
             sx={{ display: 'flex', flexDirection: 'column' }}
             item
-            xs={2}
+            xs={8}
+            lg={1}
           >
-            <Grid className="deuxieme">ddd</Grid>
-            <Grid className="troisieme">aaaa</Grid>
+            <Grid className="septieme">ddd</Grid>
+            <Grid className="huitieme">aaaa</Grid>
           </Grid>
         </Grid>
       </Box>

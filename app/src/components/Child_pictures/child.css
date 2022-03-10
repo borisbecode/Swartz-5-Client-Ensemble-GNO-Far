@@ -23,9 +23,16 @@
 
 .quattrieme {
   background-color: grey;
+  margin-bottom: 1vh;
+
+  height: 19vh;
+  width: 12vw;
 }
 .cinquieme {
-  background-color: blueviolet;
+  margin-top: 1vh;
+  background-color: rgb(61, 0, 61);
+  height: 19vh;
+  width: 12vw;
 }
 
 .sixieme {
@@ -36,8 +43,36 @@
 
 .septieme {
   background-color: chocolate;
+  height: 19vh;
+  width: 12vw;
+  margin-bottom: 1vh;
 }
 
 .huitieme {
-  background-color: indigo;
+  margin-top: 1vh;
+  background-color: rgb(197, 194, 0);
+  height: 19vh;
+  width: 12vw;
+}
+
+@media screen and (max-width: 900px) {
+  .align {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+  }
+
+  .premier {
+    width: auto;
+    margin-right: 0;
+  }
+
+  .deuxieme {
+    width: auto;
+    margin: 0;
+  }
+  .troisieme {
+    width: auto;
+    margin: 0;
+  }
 }
