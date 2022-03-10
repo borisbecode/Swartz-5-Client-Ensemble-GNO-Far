@@ -13,7 +13,21 @@ const storage = multer.diskStorage({
     }
 })
 // param pour multer
-const upload = multer({ storage: storage })
+const upload = multer({
+    storage: storage,
+    fileFilter: function (req, file, cb) {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true)
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    },
+    limits: {
+        fileSize: 1024 * 1024 * 3
+    }
+
+})
 
 // Get all acions
 router.get("/", (req, res) => {
@@ -28,17 +42,19 @@ router.get("/", (req, res) => {
 // Add new action
 router.post('/add', upload.single("image"), (req, res) => {
 
-    const newAction = new Actions({
+    let action = {
         title: req.body.title,
         content: req.body.content,
         location: req.body.location,
         link: req.body.location,
-        image: req.file.filename,
         status: req.body.status,
         isDeleted: req.body.isDeleted,
         createdAt: req.body.createdAt,
         updatedAt: req.body.updatedAt
-    })
+    }
+    if (req.file && req.file.filename) action.image = req.file.filename
+
+    const newAction = new Actions(action)
 
     newAction.save()
         .then(() => res.json('Nouvelle action ajoutée'))
@@ -61,7 +77,7 @@ router.put('/update/:id', upload.single("image"), (req, res) => {
             action.content = req.body.content
             action.location = req.body.location
             action.link = req.body.link
-            action.image = req.file.filename
+            if (req.file && req.file.filename) action.image = req.file.filename
             action.status = IS_EDITED
 
             action
