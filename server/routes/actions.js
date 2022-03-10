@@ -77,7 +77,7 @@ router.put('/update/:id', upload.single("image"), (req, res) => {
             action.content = req.body.content
             action.location = req.body.location
             action.link = req.body.link
-            action.image = req.file.filename
+            if (req.file && req.file.filename) action.image = req.file.filename
             action.status = IS_EDITED
 
             action

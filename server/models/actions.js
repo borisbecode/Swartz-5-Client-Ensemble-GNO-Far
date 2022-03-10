@@ -8,7 +8,7 @@ const actionsSchema = new Schema({
     link: { type: String, required: false },
     image: { type: String, required: false },
     status: {
-        type: String, enum: ['created', 'published', 'draft', 'deleted'], default:
+        type: String, enum: ['created', 'published', 'draft', 'deleted', 'edited'], default:
             'draft'
     },
     isDeleted: { type: Boolean, default: false },
