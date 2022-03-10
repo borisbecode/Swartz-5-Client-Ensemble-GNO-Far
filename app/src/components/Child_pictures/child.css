@@ -1,7 +1,7 @@
 .premier {
   background-color: green;
   height: 40vh;
-  margin-right: 1vw;
+  margin-right: 1.5vw;
 }
 
 .align {
@@ -47,13 +47,15 @@
   height: 19vh;
 
   margin-bottom: 1vh;
+  margin-left: 0.5vw;
 }
 
 .huitieme {
   margin-top: 1vh;
   background-color: rgb(197, 194, 0);
   height: 19vh;
-  width: 13vw;
+  width: 12.5vw;
+  margin-left: 0.5vw;
 }
 
 @media screen and (max-width: 900px) {
@@ -67,41 +69,43 @@
   .premier {
     width: 80vw;
 
-    margin-bottom: 1vh;
     margin-left: 0;
+    margin-bottom: 2vh;
   }
 
   .deuxieme {
     width: 38vw;
     margin: 0;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
   }
   .troisieme {
     width: 38vw;
     margin: 0;
-    margin-bottom: 1vh;
   }
   .quattrieme {
     width: 38vw;
     margin: 0;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     margin-left: 8vw;
   }
   .cinquieme {
     width: 38vw;
     margin: 0;
-    margin-bottom: 1vh;
+
     margin-left: 8vw;
   }
 
   .sixieme {
     width: 80vw;
 
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
   }
 
   .septieme {
     width: 38vw;
+    margin: 0;
+    padding: 0;
 
     margin-right: 2vw;
   }
