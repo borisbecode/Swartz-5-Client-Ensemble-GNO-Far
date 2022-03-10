@@ -1,0 +1,43 @@
+.premier {
+  background-color: green;
+  height: 40vh;
+  margin-right: 1vw;
+}
+
+.align {
+  height: 40vh;
+}
+
+.deuxieme {
+  background-color: rgb(128, 0, 0);
+  height: 19vh;
+  width: 12vw;
+  margin-bottom: 1vh;
+}
+.troisieme {
+  margin-top: 1vh;
+  background-color: blue;
+  height: 19vh;
+  width: 12vw;
+}
+
+.quattrieme {
+  background-color: grey;
+}
+.cinquieme {
+  background-color: blueviolet;
+}
+
+.sixieme {
+  background-color: aqua;
+  height: 40vh;
+  margin-right: 1vw;
+}
+
+.septieme {
+  background-color: chocolate;
+}
+
+.huitieme {
+  background-color: indigo;
+}
