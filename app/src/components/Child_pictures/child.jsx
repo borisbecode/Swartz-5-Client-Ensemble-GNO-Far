@@ -11,7 +11,7 @@ import './child.css'
 function Child() {
   return (
     <div>
-      <Box sx={{ flexGrow: 1, width: '80%', mx: 'auto' }}>
+      <Box sx={{ flexGrow: 1, width: '80vw', mx: 'auto' }}>
         <ThemeProvider theme={ThemeTitres}>
           <Typography
             variant="h1"
@@ -27,12 +27,37 @@ function Child() {
           <Grid
             container
             spacing={1}
-            sx={{ display: 'flex', flexDirection: 'column' }}
+            sx={{ display: 'flex', flexDirection: 'column', maxWidth: 345 }}
             item
             lg={4}
             xs={10}
+            md={4}
           >
-            <Grid className="premier">aaaa</Grid>
+            <Grid className="premier"></Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            item
+            xs={5}
+            lg={2}
+            md={2}
+          >
+            <Grid className="deuxieme"></Grid>
+            <Grid className="troisieme"></Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            item
+            xs={5}
+            lg={2}
+            md={2}
+          >
+            <Grid className="quattrieme"></Grid>
+            <Grid className="cinquieme"></Grid>
           </Grid>
           <Grid
             container
@@ -41,41 +66,24 @@ function Child() {
             item
             xs={10}
             lg={2}
+            md={2}
           >
-            <Grid className="deuxieme">ddd</Grid>
-            <Grid className="troisieme">aaaa</Grid>
+            <Grid className="sixieme"></Grid>
           </Grid>
           <Grid
             container
             spacing={1}
-            sx={{ display: 'flex', flexDirection: 'column' }}
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'row', lg: 'column' },
+            }}
             item
-            xs={10}
-            lg={2}
-          >
-            <Grid className="quattrieme">ddd</Grid>
-            <Grid className="cinquieme">aaaa</Grid>
-          </Grid>
-          <Grid
-            container
-            spacing={1}
-            sx={{ display: 'flex', flexDirection: 'column' }}
-            item
-            xs={10}
-            lg={2}
-          >
-            <Grid className="sixieme">aaaa</Grid>
-          </Grid>
-          <Grid
-            container
-            spacing={1}
-            sx={{ display: 'flex', flexDirection: 'column' }}
-            item
-            xs={8}
+            xs={12}
             lg={1}
+            md={2}
           >
-            <Grid className="septieme">ddd</Grid>
-            <Grid className="huitieme">aaaa</Grid>
+            <Grid className="septieme"></Grid>
+            <Grid className="huitieme"></Grid>
           </Grid>
         </Grid>
       </Box>

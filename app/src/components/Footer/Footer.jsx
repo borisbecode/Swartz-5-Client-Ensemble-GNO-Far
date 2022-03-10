@@ -19,10 +19,12 @@ function Footer() {
         sx={{
           justifyContent: 'space-around',
           display: 'flex',
+          flexDirection: { xs: 'column', lg: 'row' },
+          pt: 2,
           /* alignItems: 'center', */
         }}
       >
-        <Grid item xs={4}>
+        <Grid item xs={12} lg={4} sx={{ pb: 2 }}>
           {' '}
           <Typography sx={{ mb: 2 }}>Soutenez notre projet</Typography>{' '}
           <Typography sx={{ mt: 2 }}>
@@ -32,7 +34,7 @@ function Footer() {
           </Typography>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item lg={4}>
           {' '}
           <Typography>Suivez nous sur Facebook </Typography>
         </Grid>
@@ -40,7 +42,10 @@ function Footer() {
       <Container
         sx={{ pt: 3, pb: 5, alignItems: 'center', justifyContent: 'center' }}
       >
-        <Typography> plus d'informations </Typography>
+        <Typography xs={10} lg={4}>
+          {' '}
+          plus d'informations{' '}
+        </Typography>
       </Container>
     </Box>
   )

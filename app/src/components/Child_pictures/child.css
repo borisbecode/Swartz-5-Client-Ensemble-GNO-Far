@@ -30,9 +30,10 @@
 }
 .cinquieme {
   margin-top: 1vh;
-  background-color: rgb(61, 0, 61);
+  background-color: rgb(255, 5, 255);
   height: 19vh;
   width: 12vw;
+  margin-bottom: 1vh;
 }
 
 .sixieme {
@@ -44,7 +45,7 @@
 .septieme {
   background-color: chocolate;
   height: 19vh;
-  width: 12vw;
+
   margin-bottom: 1vh;
 }
 
@@ -52,7 +53,7 @@
   margin-top: 1vh;
   background-color: rgb(197, 194, 0);
   height: 19vh;
-  width: 12vw;
+  width: 13vw;
 }
 
 @media screen and (max-width: 900px) {
@@ -60,19 +61,54 @@
     display: flex;
     flex-direction: row;
     height: auto;
+    margin: auto;
   }
 
   .premier {
-    width: auto;
-    margin-right: 0;
+    width: 80vw;
+
+    margin-bottom: 1vh;
+    margin-left: 0;
   }
 
   .deuxieme {
-    width: auto;
+    width: 38vw;
     margin: 0;
+    margin-bottom: 1vh;
   }
   .troisieme {
-    width: auto;
+    width: 38vw;
     margin: 0;
+    margin-bottom: 1vh;
+  }
+  .quattrieme {
+    width: 38vw;
+    margin: 0;
+    margin-bottom: 1vh;
+    margin-left: 8vw;
+  }
+  .cinquieme {
+    width: 38vw;
+    margin: 0;
+    margin-bottom: 1vh;
+    margin-left: 8vw;
+  }
+
+  .sixieme {
+    width: 80vw;
+
+    margin-bottom: 1vh;
+  }
+
+  .septieme {
+    width: 38vw;
+
+    margin-right: 2vw;
+  }
+  .huitieme {
+    width: 38vw;
+    margin: 0;
+    padding: 0;
+    margin-left: 2vw;
   }
 }
