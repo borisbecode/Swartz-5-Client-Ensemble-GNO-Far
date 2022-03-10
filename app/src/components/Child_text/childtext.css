@@ -1,0 +1,10 @@
+.responsive {
+  text-align: right;
+  align-items: flex-end;
+}
+
+@media screen and (max-width: 900px) {
+  .responsive {
+    text-align: center;
+  }
+}

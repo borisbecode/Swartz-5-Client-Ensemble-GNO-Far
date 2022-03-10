@@ -1,13 +1,19 @@
 #footer {
   bottom: 0;
   width: 100%;
-  height: 20vh;
-  background: #18cb3e;
-  padding-top: 2vh;
+  height: 30%;
+
   margin-top: 2vh;
   text-align: center;
   color: rgb(252, 249, 228);
 }
+
+@media screen and (max-width: 900px) {
+  #footer {
+    height: auto;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
