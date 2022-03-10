@@ -4,23 +4,17 @@ export const ThemeGeneral = createTheme({
   palette: {
     // Greens
     primary: {
-      light: '#A1FFB6',
-      main: '#17CB3F',
-      dark: '#0B8742',
+      main: '#0B8742',
       contrastText: '#000000',
     },
     // Reds
     secondary: {
-      light: '#FF7171',
-      main: '#F52525',
-      dark: '#E11D23',
+      main: '#E11D23',
       contrastText: '#000000',
     },
     // Yellows
     third: {
-      light: '#FCFF7F',
-      main: '#FAFD61',
-      dark: '#FFE600',
+      main: '#F7EB4B',
       contrastText: '#000000',
       },
       // Greys
