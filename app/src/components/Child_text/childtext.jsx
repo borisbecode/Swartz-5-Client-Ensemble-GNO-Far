@@ -39,8 +39,7 @@ function Childtext() {
         sx={{ pr: 0, mr: 0, alignItems: 'flex-end' }}
       >
         {' '}
-        <Button variant="contained">
-          {' '}
+        <Button variant="contained" sx={{ bgcolor: 'secondary.main' }}>
           <Typography> Parrainer un enfant</Typography>{' '}
         </Button>
       </Grid>
