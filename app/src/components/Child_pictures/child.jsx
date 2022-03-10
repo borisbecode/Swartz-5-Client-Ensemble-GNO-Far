@@ -29,7 +29,7 @@ function Child() {
             spacing={1}
             sx={{ display: 'flex', flexDirection: 'column' }}
             item
-            xs={2}
+            xs={4}
           >
             <Grid className="premier">aaaa</Grid>
           </Grid>
@@ -61,6 +61,16 @@ function Child() {
             xs={2}
           >
             <Grid className="sixieme">aaaa</Grid>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            item
+            xs={2}
+          >
+            <Grid className="deuxieme">ddd</Grid>
+            <Grid className="troisieme">aaaa</Grid>
           </Grid>
         </Grid>
       </Box>

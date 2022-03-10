@@ -1,6 +1,7 @@
 .premier {
   background-color: green;
-  height: 30vh;
+  height: 40vh;
+  margin-right: 1vw;
 }
 
 .align {
@@ -30,6 +31,7 @@
 .sixieme {
   background-color: aqua;
   height: 40vh;
+  margin-right: 1vw;
 }
 
 .septieme {
