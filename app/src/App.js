@@ -1,6 +1,6 @@
 import About from "./pages/about";
 import Actions from "./pages/actions";
-import Admin from "./pages/admin";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/notfound";
 import React from "react";
 import './App.css';
