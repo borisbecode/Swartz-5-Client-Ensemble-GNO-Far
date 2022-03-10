@@ -15,12 +15,18 @@ const storage = multer.diskStorage({
 // param pour multer
 const upload = multer({
     storage: storage,
-    fileFilter: function (file, cb) {
+    fileFilter: function (req, file, cb) {
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
             cb(null, true)
         } else {
             cb(null, false);
-            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+            return cb(new Error('Seul les formats .png, .jpg and .jpeg sont admis!'));
+        }
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true)
+        } else {
+            cb(null, false);
+            return cb(new Error('Seul les formats .png, .jpg and .jpeg sont admis!'));
         }
     },
     limits: {
@@ -29,7 +35,7 @@ const upload = multer({
 
 })
 
-// Get all acions
+// Get all actions
 router.get("/", (req, res) => {
     Actions.find()
         .then((action) => {
@@ -39,18 +45,34 @@ router.get("/", (req, res) => {
         });
 })
 
+// Get  actions  delete
+router.get("/inactif", (req, res) => {
+    Actions.find({ isDeleted: true }, function (err, action) {
+        if (err) res.status(400).json(`Error: ${err}`)
+        res.json(action)
+    })
+})
+
+// Get  actions  not delete
+router.get("/actif", (req, res) => {
+    Actions.find({ isDeleted: false }, function (err, action) {
+        if (err) res.status(400).json(`Error: ${err}`)
+        res.json(action)
+    })
+})
+
 // Add new action
 router.post('/add', upload.single("image"), (req, res) => {
+
+    const IS_PUBLISHED = 'published'
 
     let action = {
         title: req.body.title,
         content: req.body.content,
         location: req.body.location,
         link: req.body.location,
-        status: req.body.status,
+        status: IS_PUBLISHED,
         isDeleted: req.body.isDeleted,
-        createdAt: req.body.createdAt,
-        updatedAt: req.body.updatedAt
     }
     if (req.file && req.file.filename) action.image = req.file.filename
 
@@ -79,7 +101,7 @@ router.put('/update/:id', upload.single("image"), (req, res) => {
             action.link = req.body.link
             if (req.file && req.file.filename) action.image = req.file.filename
             action.status = IS_EDITED
-
+            action.updatedAt = Date.now()
             action
                 .save()
                 .then(() => res.status(200).json({ action: action, ok: "L'action est mise à jour" }))
@@ -88,10 +110,26 @@ router.put('/update/:id', upload.single("image"), (req, res) => {
         .catch(err => res.status(400).json(`Error: ${err}`))
 })
 
-// Find action by id and delete
-router.delete('/:id', (req, res) => {
-    Actions.findByIdAndDelete(req.params.id)
-        .then(() => res.json("L'action est supprimée"))
+// Find action by id and delete of db
+// router.delete('/:id', (req, res) => {
+//     Actions.findByIdAndDelete(req.params.id)
+//         .then(() => res.json("L'action est supprimée"))
+//         .catch(err => res.status(400).json(`Error: ${err}`))
+// })
+
+// Find action by id and delete = true (reste en backup dans la db)
+router.put('/delete/:id', (req, res) => {
+    Actions.findById(req.params.id)
+        .then(action => {
+            const IS_DELETED = true
+            const DELETED = 'deleted'
+            action.status = DELETED
+            action.updatedAt = Date.now()
+            action.isDeleted = IS_DELETED
+            action
+                .save()
+                .then(() => res.status(200).json({ action: action, ok: "L'action est supprimée" }))
+        })
         .catch(err => res.status(400).json(`Error: ${err}`))
 })
 
