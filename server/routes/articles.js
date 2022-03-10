@@ -1,7 +1,32 @@
 const express = require('express');
 const router = express.Router();
 const Articles = require('../models/articles');
-const { route } = require('./users');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, "../app/public/uploads/");
+    },
+    filename: (req, file, callback) => {
+        callback(null, Date.now() + file.originalname)
+    }
+})
+// PARAM MULTER 
+const upload = multer({
+    storage: storage,
+    fileFilter: function (req, file, cb) {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true)
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    },
+    limits: {
+        fileSize: 1024 * 1024 * 3
+    }
+
+})
 
 //REQUEST GET ALL ARTICLES
 router.get('/', (req, res) => {
@@ -11,19 +36,20 @@ router.get('/', (req, res) => {
 })
 
 //REQUESTS ADD NEW ARTICLE
-router.post('/add', (req, res) => {
-    const newArticle = new Articles({
+router.post('/add', upload.single("articleImage"), (req, res) => {
+    let article = {
         user_id: req.body.user_id,
         title: req.body.title,
         subTitle: req.body.subTitle,
         contenu: req.body.contenu,
         tags: req.body.tags,
         status: req.body.status,
-        pictures: req.body.pictures,
         createdAt: req.body.createdAt,
-        updateAt: req.body.updateAt
-    })
+        updateAt: req.body.updateAt,
+    }
+    if (req.file && req.file.filename) article.articleImage = req.file.filename
 
+    const newArticle = new Articles(article)
     newArticle.save()
         .then(() => res.json("The new article added successfully!!!"))
         .catch(error => res.status(400).json(`Error: ${error}`))
@@ -37,7 +63,7 @@ router.get("/:id", (req, res) => {
 })
 
 //REQUEST FIND ARTICLE BY ID AND UPDATE
-router.put("/update/:id", (req, res) => {
+router.put("/update/:id", upload.single("articleName"), (req, res) => {
     Articles.findById(req.params.id)
     
         .then(article => {
@@ -47,6 +73,8 @@ router.put("/update/:id", (req, res) => {
             article.contenu = req.body.contenu;
             article.image = req.body.image;
             article.status = IS_EDITED;
+            if (req.file && req.file.filename) article.articleImage = req.file.filename
+
 
             article
                 .save()
