@@ -30,7 +30,9 @@ function Footer() {
           <h2>Suivez nous sur Facebook </h2>
         </Grid>
       </Container>
-      <Container sx={{ pt: 3, pb: 5 }}>
+      <Container
+        sx={{ pt: 3, pb: 5, alignItems: 'center', justifyContent: 'center' }}
+      >
         <h4> plus d'informations </h4>
       </Container>
     </div>
