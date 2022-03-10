@@ -27,12 +27,17 @@ router.get("/", (req, res) => {
 
 // Add new action
 router.post('/add', upload.single("image"), (req, res) => {
+
     const newAction = new Actions({
         title: req.body.title,
         content: req.body.content,
         location: req.body.location,
         link: req.body.location,
-        image: req.file.filename
+        image: req.file.filename,
+        status: req.body.status,
+        isDeleted: req.body.isDeleted,
+        createdAt: req.body.createdAt,
+        updatedAt: req.body.updatedAt
     })
 
     newAction.save()
@@ -51,15 +56,17 @@ router.get('/:id', (req, res) => {
 router.put('/update/:id', upload.single("image"), (req, res) => {
     Actions.findById(req.params.id)
         .then(action => {
+            const IS_EDITED = 'edited'
             action.title = req.body.title
             action.content = req.body.content
             action.location = req.body.location
             action.link = req.body.link
             action.image = req.file.filename
+            action.status = IS_EDITED
 
             action
                 .save()
-                .then(() => res.json("L'action est mise à jour"))
+                .then(() => res.status(200).json({ action: action, ok: "L'action est mise à jour" }))
                 .catch(err => res.status(400).json(`Error: ${err}`))
         })
         .catch(err => res.status(400).json(`Error: ${err}`))
