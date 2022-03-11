@@ -6,7 +6,7 @@ const actionsSchema = new Schema({
     content: { type: String, required: true, trim: true, },
     location: { type: String, required: false },
     link: { type: String, required: false },
-    image: { type: String, required: false },
+    image: { type: String, required: true },
     status: {
         type: String, enum: ['created', 'published', 'draft', 'deleted', 'edited'], default:
             'draft'
