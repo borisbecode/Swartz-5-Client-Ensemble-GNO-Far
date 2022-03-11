@@ -12,9 +12,11 @@ const actionsSchema = new Schema({
             'draft'
     },
     isDeleted: { type: Boolean, default: false },
-    createdAt: { type: Date },
-    updatedAt: { type: Date }
-})
+},
+    {
+        timestamps: true,
+    }
+)
 
 const Actions = mongoose.model("Actions", actionsSchema)
 

@@ -1,13 +1,19 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import Box from '@mui/material/Box';
+import * as React from 'react'
+import Card from '@mui/material/Card'
+import CardMedia from '@mui/material/CardMedia'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import Divider from '@mui/material/Divider'
+import Box from '@mui/material/Box'
 
-export default function ArticleModele({img, title, subTitle, content, auteur, date}) {
-
+export default function ArticleModele({
+  img,
+  title,
+  subTitle,
+  content,
+  auteur,
+  date,
+}) {
   return (
     <Card elevation={0} sx={{ position:"relative", bgcolor:"white", m:{xs:0, sm:1} }} style={{border:"unset"}} >
         <Box sx={{position:"absolute", p:1, bgcolor:"primary.main", right:0, top:0, textAlign:"right"}}>
@@ -25,17 +31,25 @@ export default function ArticleModele({img, title, subTitle, content, auteur, da
         <Typography variant="h6" color="text.secondary">
           {title}
         </Typography>
-        <Typography variant="subtitle2" color="primary.main" sx={{textTransform:"uppercase", fontWeight:"600"}}>
+        <Typography
+          variant="subtitle2"
+          color="primary.main"
+          sx={{ textTransform: 'uppercase', fontWeight: '600' }}
+        >
           {subTitle}
         </Typography>
-        <Divider sx={{my:3}} />
-        <Typography variant="body2" color="text.secondary" sx={{mb:2}}>
+        <Divider sx={{ my: 3 }} />
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           {content}
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{fontStyle:"italic", fontWeight:"700"}}>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ fontStyle: 'italic', fontWeight: '700' }}
+        >
           {auteur}
         </Typography>
       </CardContent>
     </Card>
-  );
+  )
 }
