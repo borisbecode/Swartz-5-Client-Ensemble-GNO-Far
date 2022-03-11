@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
+import axios from "axios";
 
 const Input = styled('input')({
     display: 'none',
@@ -19,6 +20,7 @@ const CreationArticle = () => {
   const [titre, setTitre] = useState('');
   const [soustitre, setSoustitre] = useState('');
   const [contenu, setContenu] = useState('');
+  const [articleImage, setArticleImage] = useState('');
 
   const [titreError, setTitreError] = useState(false);  
   const [soustitreError, setSoustitreError] = useState(false);
@@ -50,6 +52,29 @@ const CreationArticle = () => {
         setContenuHelper("Ce champ est obligatoire.");
         setContenuColor("secondary");
       }
+
+
+
+      const data = {
+        title: titre,
+        subTitle: soustitre,
+        contenu: contenu,
+        articleImage: articleImage,
+      }
+
+
+      axios.post(`http://localhost:5000/api/articles/add`,data)
+        .then(function (response) {
+            window.location.reload();
+        })
+        .catch(function (error) {
+            console.log(error);
+            setContenuHelper(
+            "L'article n'a pas pu être ajouté."
+            );
+  });
+
+
     }
 
   return (
@@ -112,11 +137,17 @@ const CreationArticle = () => {
         />
 
         {/** Option ajout image */}
-        <label htmlFor="contained-button-file" sx={{alignSelf:"flex-end"}}>
-            <Input accept=".jpg,.jpeg,.png" id="contained-button-file" multiple type="file"  />
+        <label 
+            htmlFor="contained-button-file" 
+        >
+            <Input accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" onChange={(event) => {
+                setArticleImage(event.target.value);
+                }}  />
+            
             <Button variant="contained" component="span" endIcon={<PhotoCamera />} sx={{color:"white"}}>
             Image
             </Button>
+            <Typography variant="caption" gutterBottom>{articleImage}</Typography>
         </label>
 
         <Button 

@@ -15,26 +15,18 @@ export default function ArticleModele({
   date,
 }) {
   return (
-    <Card
-      elevation={0}
-      sx={{ maxWidth: 345, position: 'relative', bgcolor: 'white' }}
-      style={{ border: 'unset' }}
-    >
-      <Box
-        sx={{
-          position: 'absolute',
-          p: 1,
-          bgcolor: 'primary.main',
-          right: 0,
-          top: 0,
-          textAlign: 'right',
-        }}
-      >
-        <Typography variant="body2" color="white" sx={{ bgcolor: 'inherit' }}>
-          {date}
-        </Typography>
-      </Box>
-      <CardMedia component="img" height="300" image={img} alt={title} />
+    <Card elevation={0} sx={{ position:"relative", bgcolor:"white", m:{xs:0, sm:1} }} style={{border:"unset"}} >
+        <Box sx={{position:"absolute", p:1, bgcolor:"primary.main", right:0, top:0, textAlign:"right"}}>
+            <Typography variant="body2" color="white" sx={{bgcolor:"inherit"}}>
+                {date}
+            </Typography>
+        </Box>
+      <CardMedia
+        component="img"
+        height="300"
+        image={img}
+        alt={title}
+      />
       <CardContent>
         <Typography variant="h6" color="text.secondary">
           {title}

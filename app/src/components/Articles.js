@@ -18,8 +18,8 @@ const Articles = () => {
         </ThemeProvider>
     <Divider sx={{my:4}}/>
     {/** Articles du blog */}
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6} lg={4}>
+      <Grid container sx={{mx:"auto"}}>
+        <Grid item xs={12} sm={6} md={4} lg={4} >
           <ArticleModele 
             img="https://picsum.photos/id/237/200/300"
             title="Je veux vivre à Hogwarts!"
@@ -28,7 +28,7 @@ const Articles = () => {
             date="VEN 02/03"
             auteur="Harry Potter" />
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} sm={6} md={4} lg={4}>
           <ArticleModele 
             img="https://picsum.photos/id/237/200/300"
             title="Je veux vivre à Hogwarts!"
@@ -37,7 +37,7 @@ const Articles = () => {
             date="VEN 02/03"
             auteur="Harry Potter" />
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} sm={6} md={4} lg={4}>
           <ArticleModele 
             img="https://picsum.photos/id/237/200/300"
             title="Je veux vivre à Hogwarts!"
@@ -46,7 +46,7 @@ const Articles = () => {
             date="VEN 02/03"
             auteur="Harry Potter" />
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} sm={6} md={4} lg={4}>
           <ArticleModele 
             img="https://picsum.photos/id/237/200/300"
             title="Je veux vivre à Hogwarts!"

@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import logo from '../Assets/gno-far_baseline.svg';
 import Typography from '@mui/material/Typography';
+import { ThemeProvider } from '@mui/material/styles';
+import { ThemeTitres } from '../../theme/ThemeTitres';
+import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
 
 const BannerAdmin = () => {
+
+    const [adminName, setAdminName] = useState("inconnu")
+
   return (
-    <Box id="banner_home" sx={{bgcolor:"rgba(255, 230, 0, 0.6)", width:"100%", minHeight:"20%", display:"flex", justifyContent:"center"}}>
-        <Typography>Lorem</Typography>
+    <Box sx={{bgcolor:"primary.main", width:"100%", minHeight:"20%", display:"flex", justifyContent:"center", flexDirection:"column", textAlign:"center", p:3}}>
+        <ThemeProvider theme={ThemeTitres}>
+            <Typography color="white" variant="h4" gutterBottom component="div" sx={{mb:2}}>Espace admin</Typography>
+        </ThemeProvider>
+        <AdminPanelSettingsRoundedIcon sx={{color:"white", alignSelf:"center", mx:"auto", width:"40px", height:"auto"}} />
+        <Typography color="white" variant="subtitle1" gutterBottom component="div">Admin connecté(e): {adminName}</Typography>
     </Box>
   )
 }
