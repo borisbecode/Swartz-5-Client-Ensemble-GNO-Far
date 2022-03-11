@@ -8,7 +8,7 @@ const articlesSchema = new Schema({
     subTitle: {type: String, required: true},
     contenu: { type: String, required: true, trim: true},
     status: { type: String, enum: ['created', 'edited', 'draft', 'deleted'], default: 'draft' },
-    articleImage: {type: String, required: true},
+    articleImage: {type: String, required: false},
     isDeleted: {type: Boolean, default: false},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date}
