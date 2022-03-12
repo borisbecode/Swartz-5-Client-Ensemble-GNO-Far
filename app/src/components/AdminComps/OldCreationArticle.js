@@ -20,7 +20,7 @@ const CreationArticle = () => {
   const [titre, setTitre] = useState('');
   const [soustitre, setSoustitre] = useState('');
   const [contenu, setContenu] = useState('');
-  const [imageNom, setImageNom] = useState("Choisissez une image");
+  const [imageNom, setImageNom] = useState("");
   const [articleImage, setArticleImage] = useState("");
 
   const [titreError, setTitreError] = useState(false);  
@@ -38,7 +38,6 @@ const CreationArticle = () => {
   // à la soumission du form
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (titre === "") {
       setTitreError(true);
       setTitreHelper("Ce champ est obligatoire.");
@@ -62,14 +61,18 @@ const CreationArticle = () => {
       formData.append("contenu", contenu)
       formData.append("articleImage", articleImage);
 
-      setTitre("");
-      setSoustitre("");
-      setContenu("");
-      setImageNom("Choisissez une image");
 
-      axios.post(`http://localhost:5000/api/articles/add`, formData)
+      const data = {
+        title: titre,
+        subTitle: soustitre,
+        contenu: contenu,
+        articleImage: articleImage,
+      }
+
+
+      axios.post(`http://localhost:5000/api/articles/add`,data)
         .then(function (response) {
-            setContenuHelper(response.data)
+            window.location.reload();
         })
         .catch(function (error) {
             console.log(error);
@@ -93,7 +96,6 @@ const CreationArticle = () => {
     {/** Form pour créer nouvel article */}
     <Box
       component="form"
-      encType='multipart/form-data'
       onSubmit={handleSubmit}
       sx={{
         display:"flex", flexDirection:"column",
@@ -101,8 +103,7 @@ const CreationArticle = () => {
         '& .MuiTextField-root': { m: 1 },
         '& .MuiButton-root': { m: 1 },
         justifyContent:"center",
-        mx:"auto",
-        encType:'multipart/form-data'
+        mx:"auto"
       }}
       noValidate
       autoComplete="off"
@@ -147,8 +148,7 @@ const CreationArticle = () => {
             htmlFor="contained-button-file" 
         >
             <Input accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" filename="articleImage" onChange={(event) => {
-                setImageNom(event.target.value);
-                setArticleImage(event.target.files[0]);
+                setImageNom(event.target.file[0]);
                 }}  />
             
             <Button variant="contained" component="span" endIcon={<PhotoCamera />} sx={{color:"white"}}>
