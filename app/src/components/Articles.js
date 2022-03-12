@@ -56,14 +56,14 @@ const Articles = () => {
     {/** Articles du blog */}
       <Grid container sx={{mx:"auto"}}>
       { data ?
-          data.map((article) => {
+          data.slice(0).reverse().map((article) => {
             return <Grid item key={article._id} xs={12} sm={6} md={4} lg={4} >
               <ArticleModele 
-                img="https://picsum.photos/id/237/200/300"
+                img={article.articleImage? `/uploads/${article.articleImage}` :"https://picsum.photos/id/173/400/400" }
                 title={article.title}
                 subTitle={article.subTitle}
                 content={article.contenu}
-                date={article.updatedAt? article.updatedAt.slice(9,10) + "/" + article.updatedAt.slice(6,7) + "/" + article.updatedAt.slice(0,4): "pas de date"}
+                date={article.updatedAt? article.updatedAt.slice(8,10) + "/" + article.updatedAt.slice(5,7) + "/" + article.updatedAt.slice(0,4): article.createdAt.slice(8,10) + "/" + article.createdAt.slice(5,7) + "/" + article.createdAt.slice(0,4)}
                 auteur={article.emailUser} />
             </Grid>
           }) :
