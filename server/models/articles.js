@@ -10,9 +10,11 @@ const articlesSchema = new Schema({
     status: { type: String, enum: ['created', 'edited', 'draft', 'deleted'], default: 'draft' },
     articleImage: {type: String, required: false},
     isDeleted: {type: Boolean, default: false},
-    createdAt: {type: Date, default: Date.now},
-    updatedAt: {type: Date}
-})
+},
+    {
+        timestamps: true,
+    }
+)
 
 const Articles = mongoose.model("Articles", articlesSchema);
 
