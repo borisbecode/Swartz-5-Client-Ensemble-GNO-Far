@@ -49,7 +49,10 @@ function Child() {
             lg={2}
             md={2}
           >
-            <Grid className="deuxieme"></Grid>
+            <Grid className="deuxieme">
+              {' '}
+              <input type="file" name="picture1" />
+            </Grid>
             <Grid className="troisieme"></Grid>
           </Grid>
           <Grid

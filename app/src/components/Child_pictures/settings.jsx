@@ -17,6 +17,7 @@ const Settings = () => {
       <Button color="primary">
         {' '}
         <SettingsIcon />
+        <input type="file" name="picture1" />
       </Button>
     </Box>
   )
