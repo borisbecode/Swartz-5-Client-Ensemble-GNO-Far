@@ -7,6 +7,8 @@ import { ThemeProvider } from '@mui/material/styles'
 import { ThemeTitres } from '../../theme/ThemeTitres'
 import Grid from '@mui/material/Grid'
 import './child.css'
+import './settings.jsx'
+import Settings from './settings.jsx'
 
 function Child() {
   return (
@@ -33,7 +35,10 @@ function Child() {
             xs={10}
             md={4}
           >
-            <Grid className="premier"></Grid>
+            <Grid className="premier">
+              {' '}
+              <Settings />{' '}
+            </Grid>
           </Grid>
           <Grid
             container
