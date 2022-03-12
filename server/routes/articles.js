@@ -84,12 +84,28 @@ router.put("/update/:id", upload.single("articleName"), (req, res) => {
         .catch(error => res.status(400).json(`Error: ${error}`))
 })
 
-//REQUEST FIND ARTICLE BY ID AND DELETE
-router.delete("/:id", (req, res) => {
-    Articles.findByIdAndDelete(req.params.id)
-        .then(() => res.json("The article is deleted!!"))
+//MODIFY VALUE OF FALSE IF DELETED
+router.put('/delete/:id', (req, res) => {
+    Actions.findById(req.params.id)
+        .then(article => {
+            const IS_DELETED = true
+            const DELETED = 'deleted'
+            article.status = DELETED
+            article.updatedAt = Date.now()
+            article.isDeleted = IS_DELETED
+            article
+                .save()
+                .then(() => res.status(200).json({ article: article, ok: "L'action est supprimée" }))
+        })
         .catch(error => res.status(400).json(`Error: ${error}`))
-
 })
+
+//REQUEST FIND ARTICLE BY ID AND DELETE
+// router.delete("/:id", (req, res) => {
+//     Articles.findByIdAndDelete(req.params.id)
+//         .then(() => res.json("The article is deleted!!"))
+//         .catch(error => res.status(400).json(`Error: ${error}`))
+
+// })
 
 module.exports = router;

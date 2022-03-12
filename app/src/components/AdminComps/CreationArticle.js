@@ -20,6 +20,7 @@ const CreationArticle = () => {
   const [titre, setTitre] = useState('');
   const [soustitre, setSoustitre] = useState('');
   const [contenu, setContenu] = useState('');
+  const [imageNom, setImageNom] = useState('');
   const [articleImage, setArticleImage] = useState('');
 
   const [titreError, setTitreError] = useState(false);  
@@ -140,14 +141,15 @@ const CreationArticle = () => {
         <label 
             htmlFor="contained-button-file" 
         >
-            <Input accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" onChange={(event) => {
-                setArticleImage(event.target.value);
+            <Input accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" name="articleImage" onChange={(event) => {
+                setImageNom(event.target.value);
+                console.log(file);
                 }}  />
             
             <Button variant="contained" component="span" endIcon={<PhotoCamera />} sx={{color:"white"}}>
             Image
             </Button>
-            <Typography variant="caption" gutterBottom>{articleImage}</Typography>
+            <Typography variant="caption" gutterBottom>{imageNom}</Typography>
         </label>
 
         <Button 

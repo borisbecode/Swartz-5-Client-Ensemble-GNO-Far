@@ -10,7 +10,7 @@ const BannerAdmin = () => {
     const [adminName, setAdminName] = useState("inconnu")
 
   return (
-    <Box sx={{bgcolor:"primary.main", width:"100%", minHeight:"20%", display:"flex", justifyContent:"center", flexDirection:"column", textAlign:"center", p:3}}>
+    <Box sx={{bgcolor:"primary.main", minHeight:"20%", display:"flex", justifyContent:"center", flexDirection:"column", textAlign:"center", p:3}}>
         <ThemeProvider theme={ThemeTitres}>
             <Typography color="white" variant="h4" gutterBottom component="div" sx={{mb:2}}>Espace admin</Typography>
         </ThemeProvider>
