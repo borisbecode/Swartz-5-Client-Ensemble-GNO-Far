@@ -1,26 +1,54 @@
+import { Box } from '@mui/material/node_modules/@mui/system'
 import React from 'react'
-
-import Box from '@mui/material/Box'
-import Divider from '@mui/material/Divider'
-
-import Typography from '@mui/material/Typography'
-import { ThemeProvider } from '@mui/material/styles'
-import { ThemeTitres } from '../../theme/ThemeTitres'
-import Grid from '@mui/material/Grid'
-import './child.css'
 import Button from '@mui/material/Button'
-import SettingsIcon from '@mui/icons-material/Settings'
+import Typography from '@mui/material/Typography'
+import axios from 'axios'
 
-const Settings = () => {
-  return (
-    <Box sx={{ flexDirection: 'row-reverse' }}>
-      <Button color="primary">
+class Settings extends React.Component {
+  state = {
+    Lefichier: null,
+  }
+  fichierAEnvoyer = (event) => {
+    this.setState({
+      Lefichier: event.target.files[0],
+    })
+  }
+
+  EnvoiDuFichier = () => {
+    const formulaire = new FormData()
+    formulaire.append('image', this.state.Lefichier, this.state.Lefichier.name)
+
+    axios.post(`http://localhost:5000/....`).then((res) => {
+      console.log(res)
+    })
+  }
+  render() {
+    return (
+      <Box>
         {' '}
-        <SettingsIcon />
-        <input type="file" name="picture1" />
-      </Button>
-    </Box>
-  )
+        <input
+          style={{ display: 'none' }}
+          type="file"
+          onChange={this.fichierAEnvoyer}
+          ref={(fileInput) => (this.fileInput = fileInput)}
+        />{' '}
+        <Button
+          onClick={() => this.fileInput.click()}
+          variant="contained"
+          sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5, mr: 3 }}
+        >
+          <Typography> Choisir une image </Typography>{' '}
+        </Button>
+        <Button
+          onClick={this.EnvoiDuFichier}
+          variant="contained"
+          sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5, ml: 3 }}
+        >
+          <Typography> Valider </Typography>{' '}
+        </Button>
+      </Box>
+    )
+  }
 }
 
 export default Settings

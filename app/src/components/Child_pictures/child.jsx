@@ -1,14 +1,16 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
-
+import { useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography'
 import { ThemeProvider } from '@mui/material/styles'
 import { ThemeTitres } from '../../theme/ThemeTitres'
 import Grid from '@mui/material/Grid'
 import './child.css'
-import './settings.jsx'
-import Settings from './settings.jsx'
+import axios from 'axios'
+
+import BasicModal from './modal'
+import Dashboard from './settingtest'
 
 function Child() {
   return (
@@ -34,10 +36,10 @@ function Child() {
             lg={4}
             xs={10}
             md={4}
+            /*     style={{ backgroundImage: `url(${this.state.bgImg})` }} */
           >
             <Grid className="premier">
-              {' '}
-              <Settings />{' '}
+              <Dashboard />
             </Grid>
           </Grid>
           <Grid
@@ -51,7 +53,7 @@ function Child() {
           >
             <Grid className="deuxieme">
               {' '}
-              <input type="file" name="picture1" />
+              <BasicModal />{' '}
             </Grid>
             <Grid className="troisieme"></Grid>
           </Grid>

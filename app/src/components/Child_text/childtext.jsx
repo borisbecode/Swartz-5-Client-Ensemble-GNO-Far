@@ -42,6 +42,7 @@ function Childtext() {
         <Button
           variant="contained"
           sx={{ bgcolor: 'secondary.main', color: 'white' }}
+          href="/parrainage"
         >
           <Typography> Parrainer un enfant</Typography>{' '}
         </Button>
