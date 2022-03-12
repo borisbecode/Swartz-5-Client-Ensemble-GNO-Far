@@ -63,7 +63,7 @@ const Articles = () => {
                 title={article.title}
                 subTitle={article.subTitle}
                 content={article.contenu}
-                date={article.updatedAt? article.updatedAt.slice(8,10) + "/" + article.updatedAt.slice(5,7) + "/" + article.updatedAt.slice(0,4): article.createdAt.slice(8,10) + "/" + article.createdAt.slice(5,7) + "/" + article.createdAt.slice(0,4)}
+                date={article.createdAt? article.createdAt.slice(8,10) + "/" + article.createdAt.slice(5,7) + "/" + article.createdAt.slice(0,4): "non daté"}
                 auteur={article.emailUser} />
             </Grid>
           }) :
