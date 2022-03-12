@@ -4,7 +4,8 @@ import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
-import Box from '@mui/material/Box'
+//import Box from '@mui/material/Box'
+import Chip from '@mui/material/Chip';
 
 export default function ArticleModele({
   img,
@@ -15,12 +16,7 @@ export default function ArticleModele({
   date,
 }) {
   return (
-    <Card elevation={0} sx={{ position:"relative", bgcolor:"white", m:{xs:0, sm:1}, my:{xs:1} }} style={{border:"unset"}} >
-        <Box sx={{position:"absolute", p:1, bgcolor:"primary.main", right:0, top:0, textAlign:"right"}}>
-            <Typography variant="body2" color="white" sx={{bgcolor:"inherit"}}>
-                {date}
-            </Typography>
-        </Box>
+    <Card elevation={0} sx={{ bgcolor:"white", m:{xs:0, sm:1}, my:{xs:1}, height:"97%" }} style={{border:"unset"}} >
       <CardMedia
         component="img"
         height="300"
@@ -38,7 +34,7 @@ export default function ArticleModele({
         >
           {subTitle}
         </Typography>
-        <Divider sx={{ my: 3 }} />
+        <Divider sx={{ my: 3}} textAlign="right"><Chip label={date} sx={{fontSize:"12px", letterSpacing:"1px"}} /></Divider>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           {content}
         </Typography>
