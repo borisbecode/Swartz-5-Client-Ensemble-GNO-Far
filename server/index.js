@@ -6,6 +6,7 @@ const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const actionRoutes = require('./routes/actions')
 const articlesRoutes = require('./routes/articles');
+const parrainesRoutes = require('./routes/parraines')
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const Articles = require('../server/models/articles');
@@ -26,17 +27,19 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/actions", actionRoutes);
 app.use("/api/articles", articlesRoutes);
+app.use("/api/parraines", parrainesRoutes);
+
 
 const options = {
     definition: {
-        openapi : '3.0.0',
-        info : {
+        openapi: '3.0.0',
+        info: {
             title: 'node JS API Project for mongoDB',
             version: '1.0.0'
         },
         servers: [
             {
-               url: 'http://localhost:5000'
+                url: 'http://localhost:5000'
             }
         ]
     },
