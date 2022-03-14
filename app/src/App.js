@@ -1,5 +1,5 @@
 import About from './pages/about'
-import Actions from './pages/actions'
+import Actions from './pages/Actions'
 import Admin from './pages/Admin'
 import NotFound from './pages/notfound'
 import React from 'react'

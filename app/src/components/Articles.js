@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import ArticleModele from './ArticleModele';
@@ -6,8 +6,44 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import { ThemeTitres } from '../theme/ThemeTitres';
+import axios from "axios";
+
+
+// Fetch data => ARTICLES
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [url]);
+
+  return { data, loading, error };}
+
+
 
 const Articles = () => {
+
+  const {data, loading, error } = useFetch(
+    `http://localhost:5000/api/articles`
+  );
+
+  if (loading) return (<Box>Loading</Box>);
+
+  if (error) return (<Box>There's been an error</Box>);
+
   return (
     <Box sx={{ flexGrow: 1, width:"80%", mx:"auto" }}>
         {/** Titre du blog */}
@@ -19,42 +55,19 @@ const Articles = () => {
     <Divider sx={{my:4}}/>
     {/** Articles du blog */}
       <Grid container sx={{mx:"auto"}}>
-        <Grid item xs={12} sm={6} md={4} lg={4} >
-          <ArticleModele 
-            img="https://picsum.photos/id/237/200/300"
-            title="Je veux vivre à Hogwarts!"
-            subTitle="Test sous-titre"
-            content="Curabitur ac mi faucibus erat scelerisque condimentum. Integer efficitur sapien magna, eget congue nisl ultrices blandit. Vivamus aliquet eros et mollis posuere. Integer dolor tortor, porttitor id finibus eu, mattis in turpis. Nunc eget aliquet risus. In consectetur nibh ac sollicitudin eleifend. Suspendisse potenti. Mauris pellentesque dolor vitae sapien porta interdum in vel nisl. Nam at scelerisque dui. Quisque vel imperdiet odio. Aenean dictum justo nec mi rutrum consequat. Nullam ac lectus aliquam dolor tincidunt tincidunt. Suspendisse hendrerit consequat mauris quis blandit. Etiam et lectus sem."
-            date="VEN 02/03"
-            auteur="Harry Potter" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={4}>
-          <ArticleModele 
-            img="https://picsum.photos/id/237/200/300"
-            title="Je veux vivre à Hogwarts!"
-            subTitle="Test sous-titre"
-            content="Curabitur ac mi faucibus erat scelerisque condimentum. Integer efficitur sapien magna, eget congue nisl ultrices blandit. Vivamus aliquet eros et mollis posuere. Integer dolor tortor, porttitor id finibus eu, mattis in turpis. Nunc eget aliquet risus. In consectetur nibh ac sollicitudin eleifend. Suspendisse potenti. Mauris pellentesque dolor vitae sapien porta interdum in vel nisl. Nam at scelerisque dui. Quisque vel imperdiet odio. Aenean dictum justo nec mi rutrum consequat. Nullam ac lectus aliquam dolor tincidunt tincidunt. Suspendisse hendrerit consequat mauris quis blandit. Etiam et lectus sem."
-            date="VEN 02/03"
-            auteur="Harry Potter" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={4}>
-          <ArticleModele 
-            img="https://picsum.photos/id/237/200/300"
-            title="Je veux vivre à Hogwarts!"
-            subTitle="Test sous-titre"
-            content="Curabitur ac mi faucibus erat scelerisque condimentum. Integer efficitur sapien magna, eget congue nisl ultrices blandit. Vivamus aliquet eros et mollis posuere. Integer dolor tortor, porttitor id finibus eu, mattis in turpis. Nunc eget aliquet risus. In consectetur nibh ac sollicitudin eleifend. Suspendisse potenti. Mauris pellentesque dolor vitae sapien porta interdum in vel nisl. Nam at scelerisque dui. Quisque vel imperdiet odio. Aenean dictum justo nec mi rutrum consequat. Nullam ac lectus aliquam dolor tincidunt tincidunt. Suspendisse hendrerit consequat mauris quis blandit. Etiam et lectus sem."
-            date="VEN 02/03"
-            auteur="Harry Potter" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={4}>
-          <ArticleModele 
-            img="https://picsum.photos/id/237/200/300"
-            title="Je veux vivre à Hogwarts!"
-            subTitle="Test sous-titre"
-            content="Curabitur ac mi faucibus erat scelerisque condimentum. Integer efficitur sapien magna, eget congue nisl ultrices blandit. Vivamus aliquet eros et mollis posuere. Integer dolor tortor, porttitor id finibus eu, mattis in turpis. Nunc eget aliquet risus. In consectetur nibh ac sollicitudin eleifend. Suspendisse potenti. Mauris pellentesque dolor vitae sapien porta interdum in vel nisl. Nam at scelerisque dui. Quisque vel imperdiet odio. Aenean dictum justo nec mi rutrum consequat. Nullam ac lectus aliquam dolor tincidunt tincidunt. Suspendisse hendrerit consequat mauris quis blandit. Etiam et lectus sem."
-            date="VEN 02/03"
-            auteur="Harry Potter" />
-        </Grid>
+      { data ?
+          data.slice(0).reverse().map((article) => {
+            return <Grid item key={article._id} xs={12} sm={6} md={4} lg={4} >
+              <ArticleModele 
+                img={article.articleImage? `/uploads/${article.articleImage}` :"https://picsum.photos/id/173/400/400" }
+                title={article.title}
+                subTitle={article.subTitle}
+                content={article.contenu}
+                date={article.createdAt? article.createdAt.slice(8,10) + "/" + article.createdAt.slice(5,7) + "/" + article.createdAt.slice(0,4): "non daté"}
+                auteur={article.emailUser} />
+            </Grid>
+          }) :
+          <div>On a un soucis!</div>}
       </Grid>
     </Box>
   )

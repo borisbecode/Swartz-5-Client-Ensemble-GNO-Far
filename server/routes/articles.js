@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Articles = require('../models/articles');
 const multer = require('multer');
+const { application } = require('express');
+
+
+
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -11,6 +15,8 @@ const storage = multer.diskStorage({
         callback(null, Date.now() + file.originalname)
     }
 })
+
+
 // PARAM MULTER 
 const upload = multer({
     storage: storage,
@@ -73,6 +79,7 @@ router.put("/update/:id", upload.single("articleName"), (req, res) => {
             article.contenu = req.body.contenu;
             article.image = req.body.image;
             article.status = IS_EDITED;
+            action.updatedAt = Date.now()
             if (req.file && req.file.filename) article.articleImage = req.file.filename
 
 
