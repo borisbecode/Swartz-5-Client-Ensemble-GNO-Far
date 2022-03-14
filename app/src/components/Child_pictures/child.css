@@ -1,6 +1,7 @@
 .premier {
   height: 40vh;
   margin-right: 1.5vw;
+  background-color: darkslateblue;
 }
 
 .fileUploadButton > input {

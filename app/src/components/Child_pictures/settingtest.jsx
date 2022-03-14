@@ -6,7 +6,7 @@ class Dashboard extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/api/articles//uploads/`, {
+      .get(`http://localhost:5000/api/articles/uploads/`, {
         responseType: 'arraybuffer',
       })
       .then((response) => {

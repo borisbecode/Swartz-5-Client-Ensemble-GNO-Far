@@ -18,9 +18,15 @@ class Settings extends React.Component {
     const formulaire = new FormData()
     formulaire.append('image', this.state.Lefichier, this.state.Lefichier.name)
 
-    axios.post(`http://localhost:5000/....`).then((res) => {
-      console.log(res)
-    })
+    axios
+      .post(`http://localhost:5000/....`)
+      .then((res) => {
+        console.log(res)
+      })
+      .catch(function (error) {
+        console.log(error)
+        setContenuHelper("L'article n'a pas pu être ajouté.")
+      })
   }
   render() {
     return (
