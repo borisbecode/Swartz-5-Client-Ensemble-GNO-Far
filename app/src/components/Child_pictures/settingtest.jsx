@@ -6,10 +6,9 @@ class Dashboard extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(
-        `https://cdn0.iconfinder.com/data/icons/business-line-vol-1-1/52/blub__idea__solution__creative__process__design__education-512.png`,
-        { responseType: 'arraybuffer' }
-      )
+      .get(`http://localhost:5000/api/articles//uploads/`, {
+        responseType: 'arraybuffer',
+      })
       .then((response) => {
         const image = btoa(
           new Uint8Array(response.data).reduce(

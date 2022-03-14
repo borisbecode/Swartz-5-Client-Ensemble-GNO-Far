@@ -35,18 +35,6 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {/*    <Typography id="modal-modal-title" variant="h6" component="h2">
-            Changer d'image
-          </Typography>
-          <input type="file" onChange={this.fileSelected} />
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{ color: 'white' }}
-            size="large"
-          >
-            Valider
-          </Button> */}
           <Settings />
         </Box>
       </Modal>
