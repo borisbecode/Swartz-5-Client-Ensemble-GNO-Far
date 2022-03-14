@@ -73,8 +73,16 @@ router.post('/add', upload.single("image"), (req, res) => {
         link: req.body.location,
         status: IS_PUBLISHED,
         isDeleted: req.body.isDeleted,
+        // image: req.file.filename
     }
-    if (req.file && req.file.filename) action.image = req.file.filename
+    // pour que l'image ne soit pas required
+    // if (req.file && req.file.filename) action.image = req.file.filename
+
+    if (req.file.filename === 'undefined') {
+        return new Error('Not Found')
+    } else {
+        action.image = req.file.filename
+    }
 
     const newAction = new Actions(action)
 
