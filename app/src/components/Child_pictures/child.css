@@ -1,7 +1,10 @@
 .premier {
-  background-color: green;
   height: 40vh;
   margin-right: 1.5vw;
+}
+
+.fileUploadButton > input {
+  display: none;
 }
 
 .align {
