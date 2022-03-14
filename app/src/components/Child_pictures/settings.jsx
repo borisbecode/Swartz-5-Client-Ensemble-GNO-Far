@@ -17,9 +17,10 @@ class Settings extends React.Component {
   EnvoiDuFichier = () => {
     const formulaire = new FormData()
     formulaire.append('image', this.state.Lefichier, this.state.Lefichier.name)
+    formData.append('title', titre)
 
     axios
-      .post(`http://localhost:5000/....`)
+      .post(`http://localhost:5000/...`, formulaire)
       .then((res) => {
         console.log(res)
       })
