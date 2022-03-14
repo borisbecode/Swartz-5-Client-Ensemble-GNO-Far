@@ -19,11 +19,12 @@ class Settings extends React.Component {
 
   Nomdelenfant = (event) => {
     this.setState({
-      NomDeLenfant: event.target.values,
+      NomDeLenfant: event.target.value,
     })
   }
 
   EnvoiDuFichier = () => {
+    console.log(this.state.NomDeLenfant)
     const formulaire = new FormData()
     formulaire.append('image', this.state.Lefichier, this.state.Lefichier.name)
     formulaire.append('childName', this.state.NomDeLenfant)
@@ -35,7 +36,6 @@ class Settings extends React.Component {
       })
       .catch(function (error) {
         console.log(error)
-        setContenuHelper("L'article n'a pas pu être ajouté.")
       })
   }
   render() {
@@ -55,7 +55,16 @@ class Settings extends React.Component {
         >
           <Typography> Choisir une image </Typography>{' '}
         </Button>
-        <input onChange={this.Nomdelenfant} />{' '}
+        <input type="text" onChange={this.Nomdelenfant} />{' '}
+        {/*    <TextField
+          required
+          label="Nom de l'enfant"
+          multiline
+          rows={2}
+          onChange={(event) => {
+            setContenu(event.target.value)
+          }}
+        /> */}
         <Button
           onClick={this.EnvoiDuFichier}
           variant="contained"

@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal'
 import SettingsIcon from '@mui/icons-material/Settings'
 import Settings from './settings'
 import Dashboard from './settingtest'
+import Settingstest from './settingtest'
 
 const style = {
   position: 'absolute',
@@ -36,6 +37,7 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <Settings />
+          {/*  <Settingstest /> */}
         </Box>
       </Modal>
     </div>
