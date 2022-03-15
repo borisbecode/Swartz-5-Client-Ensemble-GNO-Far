@@ -6,6 +6,10 @@
   background-size: cover;
 }
 
+.premier:hover {
+  background-color: rgba(0, 0, 0, 0.335) !important;
+}
+
 .fileUploadButton > input {
   display: none;
 }
