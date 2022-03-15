@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd app && npm run build",
-    "install-app": "cd app && npm install",
-    "heroku-postbuild": "npm run install-app && npm run build",
-    "server": "cd server && nodemon server.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix app\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix app\""
+    "install-client": "cd app && npm install",
+    "install-serveur": "cd server && npm install",
+    "start": "cd server && nodemon index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix app && npm run build --prefix app"
   },
   "author": "",
   "license": "ISC",
