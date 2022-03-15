@@ -1,22 +1,21 @@
-import * as React from 'react'
+import React from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import SettingsIcon from '@mui/icons-material/Settings'
 import Settings from './settings'
-import Dashboard from './settingtest'
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 600,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border: '1px solid #000',
   boxShadow: 24,
-  p: 4,
+  p: 1,
 }
 
 export default function BasicModal() {
@@ -36,6 +35,7 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <Settings />
+          {/*  <Settingstest /> */}
         </Box>
       </Modal>
     </div>

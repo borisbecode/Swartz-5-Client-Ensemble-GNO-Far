@@ -36,7 +36,12 @@ function Childtext() {
         item
         xs={12}
         lg={2}
-        sx={{ pr: 0, mr: 0, alignItems: 'flex-end' }}
+        sx={{
+          pr: 0,
+          mr: 0,
+          alignItems: 'flex-end',
+          justifyContent: 'flex-end',
+        }}
       >
         {' '}
         <Button

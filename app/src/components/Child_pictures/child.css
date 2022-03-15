@@ -1,6 +1,13 @@
 .premier {
   height: 40vh;
   margin-right: 1.5vw;
+  /*  background-color: darkslateblue; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.premier:hover {
+  background-color: rgba(0, 0, 0, 0.335) !important;
 }
 
 .fileUploadButton > input {
@@ -12,53 +19,63 @@
 }
 
 .deuxieme {
-  background-color: rgb(128, 0, 0);
   height: 19vh;
   width: 12vw;
   margin-bottom: 1vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .troisieme {
   margin-top: 1vh;
-  background-color: blue;
+
   height: 19vh;
   width: 12vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .quattrieme {
-  background-color: grey;
   margin-bottom: 1vh;
 
   height: 19vh;
   width: 12vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .cinquieme {
   margin-top: 1vh;
-  background-color: rgb(255, 5, 255);
+
   height: 19vh;
   width: 12vw;
   margin-bottom: 1vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .sixieme {
-  background-color: aqua;
   height: 40vh;
   margin-right: 1vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .septieme {
-  background-color: chocolate;
   height: 19vh;
 
   margin-bottom: 1vh;
   margin-left: 0.5vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .huitieme {
   margin-top: 1vh;
-  background-color: rgb(197, 194, 0);
+
   height: 19vh;
   width: 12.5vw;
   margin-left: 0.5vw;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media screen and (max-width: 900px) {
