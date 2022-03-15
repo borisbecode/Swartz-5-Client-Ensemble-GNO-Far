@@ -11,11 +11,12 @@ const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const Articles = require("./server/models/articles");
 const path = require("path");
+require("dotenv").config({ path: "./server/.env" });
+require("./server/db");
 
 const mongoose = require("mongoose");
-require("dotenv").config();
 
-module.exports = () => {
+/* module.exports = () => {
   const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -27,7 +28,7 @@ module.exports = () => {
     console.log(error);
     console.log("There is a problem somewhere!");
   }
-};
+}; */
 
 // DATABASE CONNECTION
 /* connection(); */
