@@ -9,7 +9,7 @@
     "install-client": "cd app && npm install",
     "install-serveur": "cd server && npm install",
     "heroku-postbuild": "npm run install-serveur && npm run install-client && npm run build",
-    "start": "cd server && nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
