@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.4.2",
+    "@mui/material": "^5.4.3",
     "axios": "^0.26.0",
+    "dayjs": "^1.10.8",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-router-dom": "^6.2.1",

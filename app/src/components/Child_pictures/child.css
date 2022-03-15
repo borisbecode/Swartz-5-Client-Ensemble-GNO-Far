@@ -1,0 +1,134 @@
+.premier {
+  height: 40vh;
+  margin-right: 1.5vw;
+  /*  background-color: darkslateblue; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fileUploadButton > input {
+  display: none;
+}
+
+.align {
+  height: 40vh;
+}
+
+.deuxieme {
+  height: 19vh;
+  width: 12vw;
+  margin-bottom: 1vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.troisieme {
+  margin-top: 1vh;
+
+  height: 19vh;
+  width: 12vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.quattrieme {
+  margin-bottom: 1vh;
+
+  height: 19vh;
+  width: 12vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.cinquieme {
+  margin-top: 1vh;
+
+  height: 19vh;
+  width: 12vw;
+  margin-bottom: 1vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sixieme {
+  height: 40vh;
+  margin-right: 1vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.septieme {
+  height: 19vh;
+
+  margin-bottom: 1vh;
+  margin-left: 0.5vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.huitieme {
+  margin-top: 1vh;
+
+  height: 19vh;
+  width: 12.5vw;
+  margin-left: 0.5vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 900px) {
+  .align {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    margin: auto;
+  }
+
+  .premier {
+    width: 80vw;
+
+    margin-left: 0;
+    margin-bottom: 2vh;
+  }
+
+  .deuxieme {
+    width: 38vw;
+    margin: 0;
+    margin-bottom: 2vh;
+  }
+  .troisieme {
+    width: 38vw;
+    margin: 0;
+  }
+  .quattrieme {
+    width: 38vw;
+    margin: 0;
+    margin-bottom: 2vh;
+    margin-left: 8vw;
+  }
+  .cinquieme {
+    width: 38vw;
+    margin: 0;
+
+    margin-left: 8vw;
+  }
+
+  .sixieme {
+    width: 80vw;
+
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+  }
+
+  .septieme {
+    width: 38vw;
+    margin: 0;
+    padding: 0;
+
+    margin-right: 2vw;
+  }
+  .huitieme {
+    width: 38vw;
+    margin: 0;
+    padding: 0;
+    margin-left: 2vw;
+  }
+}
