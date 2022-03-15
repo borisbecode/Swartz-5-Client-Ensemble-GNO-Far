@@ -21,6 +21,7 @@ function useFetch(url) {
   useEffect(() => {
     setLoading(true)
     axios
+
       .get(url)
       .then((response) => {
         setData(response.data.map((e) => e.image))
@@ -39,7 +40,7 @@ function useFetch(url) {
 
 function Child() {
   const { data, loading, error, name } = useFetch(
-    `${process.env.REACT_APP_API_URL}api/parraines/`
+    `${process.env.REACT_APP_API_URL}api/parraines`
   )
 
   if (loading) return <Box>Loading</Box>
