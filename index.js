@@ -1,21 +1,36 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const connection = require("./server/db");
+/* const connection = require("./server/db"); */
 const userRoutes = require("./server/routes/users");
 const authRoutes = require("./server/routes/auth");
 const actionRoutes = require("./server/routes/actions");
 const articlesRoutes = require("./server/routes/articles");
 const parrainesRoutes = require("./server/routes/parraines");
-/* const swaggerJSDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express"); */
+const swaggerJSDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 const Articles = require("./server/models/articles");
 const path = require("path");
 
-require("./server/dotenv").config();
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+module.exports = () => {
+  const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  };
+  try {
+    mongoose.connect(process.env.MONGO_URL_PRODUCTION, connectionParams);
+    console.log("connected to mongoDB!");
+  } catch (error) {
+    console.log(error);
+    console.log("There is a problem somewhere!");
+  }
+};
 
 // DATABASE CONNECTION
-connection();
+/* connection(); */
 
 // MIDDLEWARE
 app.use(cors());
