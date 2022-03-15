@@ -62,7 +62,12 @@ if (process.env.NODE_ENV === "production") {
 /* const swaggerSpec = swaggerJSDoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec)); */
 
-const server = app.listen(process.env.PORT || 5000, () => {
+/* const server = app.listen(process.env.PORT || 5000, () => {
   const port = server.address().port;
   console.log(`Express is working on port ${port}`);
-});
+}); */
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () =>
+  console.log(`Listening on PORT ${PORT}...🤓🤓🤓🤓🤓🤓🤓`)
+);
