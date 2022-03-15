@@ -11,8 +11,8 @@ const parrainesRoutes = require('./routes/parraines')
 const swaggerUi = require('swagger-ui-express') */
 const Articles = require('./models/articles')
 const path = require('path')
-require('dotenv').config({ path: './server/.env' })
-/* require("./db");  */
+/* require('dotenv').config({ path: './server/.env' }) */
+require('./db')
 
 const mongoose = require('mongoose')
 /* require("dotenv").config(); */
