@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-/* const connection = require("./server/db"); */
+const connection = require("./server/db");
 const userRoutes = require("./server/routes/users");
 const authRoutes = require("./server/routes/auth");
 const actionRoutes = require("./server/routes/actions");
@@ -12,7 +12,7 @@ const swaggerUi = require("swagger-ui-express");
 const Articles = require("./server/models/articles");
 const path = require("path");
 require("dotenv").config({ path: "./server/.env" });
-require("./server/db");
+/* require("./db");  */
 
 const mongoose = require("mongoose");
 /* require("dotenv").config(); */
@@ -32,7 +32,7 @@ const mongoose = require("mongoose");
 }; */
 
 // DATABASE CONNECTION
-/* connection(); */
+connection();
 
 // MIDDLEWARE
 app.use(cors());
