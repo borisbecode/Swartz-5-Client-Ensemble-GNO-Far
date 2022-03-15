@@ -8,7 +8,7 @@
     "build": "cd app && npm run build",
     "install-client": "cd app && npm install",
     "install-serveur": "cd server && npm install",
-    "heroku-postbuild": "npm run install-client && npm run install-serveur && npm run build && npm run start",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-serveur && npm install --prefix app && npm run build --prefix app",
     "start": "cd server && nodemon index.js"
   },
   "author": "",
