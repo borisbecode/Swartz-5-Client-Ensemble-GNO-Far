@@ -7,12 +7,12 @@ const authRoutes = require("./server/routes/auth");
 const actionRoutes = require("./server/routes/actions");
 const articlesRoutes = require("./server/routes/articles");
 const parrainesRoutes = require("./server/routes/parraines");
-const swaggerJSDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
+/* const swaggerJSDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express"); */
 const Articles = require("./server/models/articles");
 const path = require("path");
 
-require("dotenv").config();
+require("./server/dotenv").config();
 
 // DATABASE CONNECTION
 connection();
