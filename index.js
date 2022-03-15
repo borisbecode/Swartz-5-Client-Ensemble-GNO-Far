@@ -10,7 +10,7 @@ const parrainesRoutes = require("./server/routes/parraines");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const Articles = require("./server/models/articles");
-/* const path = require('path') */
+const path = require("path");
 
 require("dotenv").config();
 
@@ -28,21 +28,12 @@ app.use("/api/actions", actionRoutes);
 app.use("/api/articles", articlesRoutes);
 app.use("/api/parraines", parrainesRoutes);
 
-/* if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'app/build')))
-  app.get('*', function (req, res) {
-    res.status(200).sendFile(path.join(__dirname, 'app/build', 'index.html'))
-  })
-} */
-
-const path = require("path");
-
-// Step 1:
-app.use(express.static(path.resolve(__dirname, "app/build")));
-// Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "app/build", "index.html"));
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "app/build")));
+  app.get("*", function (req, res) {
+    res.status(200).sendFile(path.join(__dirname, "app/build", "index.html"));
+  });
+}
 
 /* if (process.env.NODE_ENV === 'production') {
   app.use(express.static("app/build"))
