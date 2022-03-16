@@ -6,14 +6,14 @@ const Parraines = require('../models/parraines')
 // definis le storage pour l'image
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, 'app/public/uploads/')
+    callback(null, 'app/build/uploads/')
   },
   filename: (req, file, callback) => {
     callback(null, Date.now() + file.originalname)
   },
 })
 
-if (process.env.NODE_ENV === 'production') {
+/* if (process.env.NODE_ENV === 'production') {
   const storage = multer.diskStorage({
     destination: (req, file, callback) => {
       callback(null, '../app/build/uploads/')
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
       callback(null, Date.now() + file.originalname)
     },
   })
-}
+} */
 // param pour multer
 const upload = multer({
   storage: storage,
