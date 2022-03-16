@@ -3,6 +3,8 @@ const router = express.Router();
 const Articles = require('../models/articles');
 const multer = require('multer');
 const { application } = require('express');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 
 
@@ -34,6 +36,7 @@ const upload = multer({
 
 })
 
+
 //REQUEST GET ALL ARTICLES
 router.get('/', (req, res) => {
     Articles.find()
@@ -44,7 +47,7 @@ router.get('/', (req, res) => {
 //REQUESTS ADD NEW ARTICLE
 router.post('/add', upload.single("articleImage"), (req, res) => {
     let article = {
-        user_id: req.body.user_id,
+        id: req.body.user_id,
         title: req.body.title,
         subTitle: req.body.subTitle,
         contenu: req.body.contenu,
@@ -69,7 +72,7 @@ router.get("/:id", (req, res) => {
 })
 
 //REQUEST FIND ARTICLE BY ID AND UPDATE
-router.put("/update/:id", upload.single("articleName"), (req, res) => {
+router.put("/update/:", upload.single("articleName"), (req, res) => {
     Articles.findById(req.params.id)
     
         .then(article => {
@@ -79,7 +82,7 @@ router.put("/update/:id", upload.single("articleName"), (req, res) => {
             article.contenu = req.body.contenu;
             article.image = req.body.image;
             article.status = IS_EDITED;
-            action.updatedAt = Date.now()
+            article.updatedAt = Date.now()
             if (req.file && req.file.filename) article.articleImage = req.file.filename
 
 
@@ -93,7 +96,7 @@ router.put("/update/:id", upload.single("articleName"), (req, res) => {
 
 //MODIFY VALUE OF FALSE IF DELETED
 router.put('/delete/:id', (req, res) => {
-    Actions.findById(req.params.id)
+    Articles.findById(req.params.id)
         .then(article => {
             const IS_DELETED = true
             const DELETED = 'deleted'
