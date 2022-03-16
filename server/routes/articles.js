@@ -6,22 +6,22 @@ const { application } = require('express')
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
 
-const storage = multer.diskStorage({
+/* const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, 'app/public/uploads/')
   },
   filename: (req, file, callback) => {
     callback(null, Date.now() + file.originalname)
   },
-})
-/* const storage = multer.diskStorage({
+}) */
+const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, 'app/build/uploads/')
   },
   filename: (req, file, callback) => {
     callback(null, Date.now() + file.originalname)
   },
-}) */
+})
 
 /* if (process.env.NODE_ENV === 'production') {
   const storage = multer.diskStorage({
