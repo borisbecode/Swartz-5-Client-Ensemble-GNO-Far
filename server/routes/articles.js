@@ -14,8 +14,16 @@ const storage = multer.diskStorage({
     callback(null, Date.now() + file.originalname)
   },
 })
+/* const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, 'app/build/uploads/')
+  },
+  filename: (req, file, callback) => {
+    callback(null, Date.now() + file.originalname)
+  },
+}) */
 
-if (process.env.NODE_ENV === 'production') {
+/* if (process.env.NODE_ENV === 'production') {
   const storage = multer.diskStorage({
     destination: (req, file, callback) => {
       callback(null, 'app/build/uploads/')
@@ -24,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
       callback(null, Date.now() + file.originalname)
     },
   })
-}
+} */
 
 // PARAM MULTER
 const upload = multer({
