@@ -56,7 +56,7 @@ router.get('/', (req, res) => {
 //REQUESTS ADD NEW ARTICLE
 router.post('/add', upload.single('articleImage'), (req, res) => {
   let article = {
-    id: req.body.user_id,
+    /* id: req.body.user_id, */
     title: req.body.title,
     subTitle: req.body.subTitle,
     contenu: req.body.contenu,
