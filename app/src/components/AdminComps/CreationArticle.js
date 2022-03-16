@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
@@ -62,14 +62,15 @@ const CreationArticle = () => {
       formData.append("contenu", contenu)
       formData.append("articleImage", articleImage);
 
-      setTitre("");
-      setSoustitre("");
-      setContenu("");
-      setImageNom("Choisissez une image");
 
-      axios.post(`http://localhost:5000/api/articles/add`, formData)
-        .then(function (response) {
-            setContenuHelper(response.data)
+      axios.post(`${process.env.REACT_APP_API_URL}/api/articles/add`, formData)
+        .then(function () {
+            window.location.reload();
+            setContenuHelper("L'article a été publié avec succès!");
+            // setTitre("");
+            // setSoustitre("");
+            // setContenu("");
+            // setImageNom("Choisissez une image");
         })
         .catch(function (error) {
             console.log(error);
