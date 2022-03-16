@@ -1,0 +1,90 @@
+{
+    "articles": [
+        {
+    "_id": "6217b09894cc6ad690fc2c10",
+    "title": "Hello",
+    "subTitle": "HelloBISISISYYYYY",
+    "content": "Mern",
+    "image": "string",
+    "date": "010101",
+    "emailUser": "aurel@gmail.com",
+    "contenu": "Mern",
+    "isDeleted": false,
+    "status": "edited"
+  },
+  {
+    "status": "draft",
+    "isDeleted": false,
+    "_id": "6217b66ef4c02cffde710a42",
+    "title": "Hello",
+    "subTitle": "Hello",
+    "content": "Mern",
+    "image": "string",
+    "date": "010101",
+    "emailUser": "aurel@gmail.com",
+    "__v": 0
+  },
+  {
+    "_id": "6218e0daca66e2239bf3a517",
+    "title": "HelloAAAAADDD",
+    "subTitle": "Hello",
+    "contenu": "Hello from test",
+    "tags": [],
+    "status": "draft",
+    "pictures": [],
+    "isDeleted": false,
+    "__v": 0
+  },
+  {
+    "_id": "6218e62e94f2179a230b9812",
+    "title": "HelloAAAAADDD",
+    "subTitle": "Hello",
+    "contenu": "Hello from test",
+    "tags": [],
+    "status": "draft",
+    "isDeleted": false,
+    "__v": 0
+  },
+  {
+    "_id": "62265899256fdb7b158b0ebf",
+    "title": "Hello kamil",
+    "subTitle": "HelloBISISISYYYYY",
+    "contenu": "Mern",
+    "status": "edited",
+    "isDeleted": false,
+    "__v": 0
+  },
+  {
+    "_id": "622a0df6059ab5118f055765",
+    "user_id": "",
+    "title": "Hello",
+    "subTitle": "Yoo",
+    "contenu": "TEst",
+    "status": "draft",
+    "articleImage": "1646923254819fleur.jpeg",
+    "isDeleted": false,
+    "createdAt": "2022-03-10T14:40:54.834Z",
+    "__v": 0
+  },
+  {
+    "_id": "622a3f4a2837ca166ff02646",
+    "title": "test Clara",
+    "subTitle": "sous-titre ",
+    "contenu": "Lorem ...",
+    "status": "draft",
+    "isDeleted": false,
+    "createdAt": "2022-03-10T18:11:22.269Z",
+    "__v": 0
+  },
+  {
+    "_id": "622a405c2837ca166ff02649",
+    "title": "Le back-end ça pue",
+    "subTitle": ":-P",
+    "contenu": "Les front-end sont les plus cools",
+    "status": "draft",
+    "isDeleted": false,
+    "createdAt": "2022-03-10T18:15:56.970Z",
+    "__v": 0
+  }
+    ]
+}
