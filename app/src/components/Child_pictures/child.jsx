@@ -39,7 +39,7 @@ function useFetch(url) {
 
 function Child() {
   const { data, loading, error, name } = useFetch(
-    `http://localhost:5000/api/parraines/`
+    `${process.env.REACT_APP_API_URL}/api/parraines/`
   )
 
   if (loading) return <Box>Loading</Box>

@@ -30,7 +30,7 @@ class Settings extends React.Component {
     formulaire.append('childName', this.state.NomDeLenfant)
 
     axios
-      .post(`http://localhost:5000/api/parraines/add`, formulaire)
+      .post(`${process.env.REACT_APP_API_URL}/api/parraines/add`, formulaire)
       .then((res) => {
         console.log(res)
         window.location.reload()
