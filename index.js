@@ -10,6 +10,7 @@ const parrainesRoutes = require("./server/routes/parraines");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const Articles = require("./server/models/articles");
+const path = require("path");
 
 const multer = require("multer");
 
