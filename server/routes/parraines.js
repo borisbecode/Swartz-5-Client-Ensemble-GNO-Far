@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 if (process.env.NODE_ENV === 'production') {
   const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-      callback(null, 'app/build/uploads/')
+      callback(null, '../app/build/uploads/')
     },
     filename: (req, file, callback) => {
       callback(null, Date.now() + file.originalname)
