@@ -95,11 +95,24 @@ function Child() {
             md={4}
           >
             <Grid
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              alignItems="flex-end"
               className="premier"
               style={{
                 backgroundImage: `url(/uploads/${premierephoto})`,
               }}
-            ></Grid>
+            >
+              <Typography
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                {' '}
+                {premierephoto_nom}{' '}
+              </Typography>
+            </Grid>
           </Grid>
           <Grid
             container

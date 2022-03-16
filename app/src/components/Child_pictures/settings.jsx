@@ -33,6 +33,7 @@ class Settings extends React.Component {
       .post(`http://localhost:5000/api/parraines/add`, formulaire)
       .then((res) => {
         console.log(res)
+        window.location.reload()
       })
       .catch(function (error) {
         console.log(error)
@@ -41,37 +42,44 @@ class Settings extends React.Component {
   render() {
     return (
       <Box>
-        {' '}
-        <input
-          style={{ display: 'none' }}
-          type="file"
-          onChange={this.fichierAEnvoyer}
-          ref={(fileInput) => (this.fileInput = fileInput)}
-        />{' '}
-        <Button
-          onClick={() => this.fileInput.click()}
-          variant="contained"
-          sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5, mr: 3 }}
+        <Box display="flex" alignItems="center" justifyContent="center">
+          {' '}
+          <Typography variant="h5"> Ajouter une image : </Typography>{' '}
+        </Box>
+        <Box
+          display="flex"
+          alignItems="center"
+          sx={{ justifyContent: 'space-around' }}
         >
-          <Typography> Choisir une image </Typography>{' '}
-        </Button>
-        <input type="text" onChange={this.Nomdelenfant} />{' '}
-        {/*    <TextField
-          required
-          label="Nom de l'enfant"
-          multiline
-          rows={2}
-          onChange={(event) => {
-            setContenu(event.target.value)
-          }}
-        /> */}
-        <Button
-          onClick={this.EnvoiDuFichier}
-          variant="contained"
-          sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5, ml: 3 }}
-        >
-          <Typography> Valider </Typography>{' '}
-        </Button>
+          {' '}
+          <input
+            style={{ display: 'none' }}
+            type="file"
+            onChange={this.fichierAEnvoyer}
+            ref={(fileInput) => (this.fileInput = fileInput)}
+          />{' '}
+          <Button
+            onClick={() => this.fileInput.click()}
+            variant="contained"
+            sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5, mr: 3 }}
+          >
+            <Typography> Choisir une image </Typography>{' '}
+          </Button>
+          <Box sx={{ mt: 4 }}>
+            {' '}
+            <Typography variant="h6"> Nom de l'enfant : </Typography>
+            <input type="text" onChange={this.Nomdelenfant} />{' '}
+          </Box>
+        </Box>
+        <Box display="flex" alignItems="center" justifyContent="center">
+          <Button
+            onClick={this.EnvoiDuFichier}
+            variant="contained"
+            sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5 }}
+          >
+            <Typography> Valider </Typography>{' '}
+          </Button>
+        </Box>
       </Box>
     )
   }
