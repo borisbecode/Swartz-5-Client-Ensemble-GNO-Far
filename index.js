@@ -122,11 +122,11 @@ app.use("/api/parraines", parrainesRoutes);
  *                              items:
  *                                  $ref: '#components/schemas/Article'
  */
-app.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
   Articles.find()
     .then((article) => res.json(article))
     .catch((error) => res.status(400).json(`Error ${error}`));
-});
+}); */
 
 //PARAMETER TO GET THE ARTICLE BY ID
 /**
