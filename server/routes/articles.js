@@ -79,7 +79,7 @@ router.put("/update/:id", upload.single("articleName"), (req, res) => {
             article.contenu = req.body.contenu;
             article.image = req.body.image;
             article.status = IS_EDITED;
-            action.updatedAt = Date.now()
+            article.updatedAt = Date.now()
             if (req.file && req.file.filename) article.articleImage = req.file.filename
 
 
