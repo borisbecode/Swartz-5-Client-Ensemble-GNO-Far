@@ -31,7 +31,7 @@ app.use("/api/articles", articlesRoutes);
 app.use("/api/parraines", parrainesRoutes);
 
 // OPTION PARAMETRE SWAGGER
-const options = {
+/* const options = {
   definition: {
     openapi: "3.0.0",
     info: {
@@ -45,7 +45,7 @@ const options = {
     ],
   },
   apis: ["./index.js"],
-};
+}; */
 
 //COMPONTENTS SCHEMA ARTICLE FOR SWAGGER
 /**
