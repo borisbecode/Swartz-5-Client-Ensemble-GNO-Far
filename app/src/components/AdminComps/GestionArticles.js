@@ -29,7 +29,7 @@ const GestionArticles = () => {
         .then(res => res.json());
         setFetchedData(data);
       })()
-    }, [api])
+    }, [])
 
 
   return (

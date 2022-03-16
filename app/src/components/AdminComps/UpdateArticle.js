@@ -41,7 +41,7 @@ const UpdateArticle = ({data}) => {
   const [soustitre, setSoustitre] = useState(data.subTitle? data.subTitle:"");
   const [contenu, setContenu] = useState(data.contenu?data.contenu:"");
   const [imageNom, setImageNom] = useState(data.articleImage?data.articleImage:"");
-  const [articleImage, setArticleImage] = useState("");
+  const [articleImage, setArticleImage] = useState(data.articleImage?data.articleImage:"");
 
   const [titreError, setTitreError] = useState(false);  
   const [soustitreError, setSoustitreError] = useState(false);
@@ -85,7 +85,7 @@ const UpdateArticle = ({data}) => {
 
       axios.put(`${process.env.REACT_APP_API_URL}/api/articles/update/${data._id}`, formData)
         .then(function (response) {
-            setContenuHelper(response.data)
+            setContenuHelper(response.data.ok)
             
         })
         .catch(function (error) {
