@@ -14,6 +14,8 @@ const path = require("path");
 require("dotenv").config({ path: "./server/.env" });
 /* require("./server/db"); */
 
+const mongoose = require("mongoose");
+
 /* const mongoose = require('mongoose') */
 /* require('dotenv').config() */
 
