@@ -12,10 +12,10 @@ const swaggerUi = require('swagger-ui-express') */
 const Articles = require('./models/articles')
 const path = require('path')
 /* require('dotenv').config({ path: './server/.env' }) */
-require('./db')
+/* require("./server/db"); */
 
 const mongoose = require('mongoose')
-/* require("dotenv").config(); */
+require('dotenv').config()
 
 /* module.exports = () => {
   const connectionParams = {
