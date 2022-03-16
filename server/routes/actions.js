@@ -6,7 +6,7 @@ const Actions = require('../models/actions')
 // definis le storage pour l'image
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, 'app/public/uploads/')
+    callback(null, '../app/public/uploads/')
   },
   filename: (req, file, callback) => {
     callback(null, Date.now() + file.originalname)
