@@ -34,6 +34,8 @@ const storage = multer.diskStorage({
   })
 } */
 
+
+
 // PARAM MULTER
 const upload = multer({
   storage: storage,
@@ -46,7 +48,7 @@ const upload = multer({
       cb(null, true)
     } else {
       cb(null, false)
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'))
+      return cb(new Error('Seul les formats .png, .jpg and .jpeg sont admis!'))
     }
   },
   limits: {
@@ -61,17 +63,44 @@ router.get('/', (req, res) => {
     .catch((error) => res.status(400).json(`Error ${error}`))
 })
 
+// Get  actions  delete
+router.get("/inactif", (req, res) => {
+  Articles.find({ isDeleted: true }, function (err, article) {
+    if (err) res.status(400).json(`Error: ${err}`)
+    res.json(article)
+  })
+})
+
+// Get  actions  not delete
+router.get("/actif", (req, res) => {
+  Articles.find({ isDeleted: false }, function (err, article) {
+    if (err) res.status(400).json(`Error: ${err}`)
+    res.json(article)
+  })
+})
+
 //REQUESTS ADD NEW ARTICLE
 router.post('/add', upload.single('articleImage'), (req, res) => {
+
+  const IS_PUBLISHED = 'published'
+
+  let newUser = {
+    id: req.body.id,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    status: IS_PUBLISHED
+  }
+
   let article = {
-    /* id: req.body.user_id, */
     title: req.body.title,
     subTitle: req.body.subTitle,
     contenu: req.body.contenu,
-    tags: req.body.tags,
-    status: req.body.status,
+    status: IS_PUBLISHED,
+    isDeleted: req.body.isDeleted,
     createdAt: req.body.createdAt,
     updateAt: req.body.updateAt,
+    users: [newUser],
   }
   if (req.file && req.file.filename) article.articleImage = req.file.filename
 
@@ -92,26 +121,37 @@ router.get('/:id', (req, res) => {
 })
 
 //REQUEST FIND ARTICLE BY ID AND UPDATE
-router.put('/update/:', upload.single('articleName'), (req, res) => {
+router.put('/update/:id', upload.single('articleImage'), (req, res) => {
   Articles.findById(req.params.id)
 
     .then((article) => {
+
       const IS_EDITED = 'edited'
+
+      let newUser = {
+        id: req.body.id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        status: IS_EDITED
+      }
+
       article.title = req.body.title
       article.subTitle = req.body.subTitle
       article.contenu = req.body.contenu
-      article.image = req.body.image
-      article.status = IS_EDITED
-      article.updatedAt = Date.now()
       if (req.file && req.file.filename)
         article.articleImage = req.file.filename
+      article.status = IS_EDITED
+      article.updatedAt = Date.now()
+      article.users.push(newUser)
+
 
       article
         .save()
         .then(() =>
           res
             .status(200)
-            .json({ article: article, ok: 'Article is updated successfully!!' })
+            .json({ article: article, ok: 'L\'article est mise à jour' })
         )
         .catch((error) => res.status(400).json(`Error: ${error}`))
     })
@@ -119,24 +159,26 @@ router.put('/update/:', upload.single('articleName'), (req, res) => {
 })
 
 //MODIFY VALUE OF FALSE IF DELETED
-router.put('/delete/:id', (req, res) => {
-  Articles.findById(req.params.id)
-    .then((article) => {
-      const IS_DELETED = true
-      const DELETED = 'deleted'
-      article.status = DELETED
-      article.updatedAt = Date.now()
-      article.isDeleted = IS_DELETED
-      article
-        .save()
-        .then(() =>
-          res
-            .status(200)
-            .json({ article: article, ok: "L'action est supprimée" })
-        )
-    })
-    .catch((error) => res.status(400).json(`Error: ${error}`))
-})
+// router.put('/delete/:id', (req, res) => {
+//   Articles.findById(req.params.id)
+//     .then((article) => {
+//       const IS_DELETED = true
+//       const DELETED = 'deleted'
+//       article.status = DELETED
+//       article.updatedAt = Date.now()
+//       article.isDeleted = IS_DELETED
+//       article
+//         .save()
+//         .then(() =>
+//           res
+//             .status(200)
+//             .json({ article: article, ok: "L'action est supprimée" })
+//         )
+//     })
+//     .catch((error) => res.status(400).json(`Error: ${error}`))
+// })
+
+
 
 //REQUEST FIND ARTICLE BY ID AND DELETE
 // router.delete("/:id", (req, res) => {
@@ -145,5 +187,32 @@ router.put('/delete/:id', (req, res) => {
 //         .catch(error => res.status(400).json(`Error: ${error}`))
 
 // })
+
+// Find action by id and delete = true (reste en backup dans la db)
+router.put('/delete/:id', upload.single("articleImage"), (req, res) => {
+  Articles.findById(req.params.id)
+    .then(article => {
+      const IS_DELETED = true
+      const DELETED = 'deleted'
+
+      let newUser = {
+        id: req.body.id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        status: DELETED
+      }
+
+      article.status = DELETED
+      article.updatedAt = Date.now()
+      article.isDeleted = IS_DELETED
+      article.users.push(newUser)
+      article
+        .save()
+        .then(() => res.status(200).json({ article: article, ok: "L'article est supprimée" }))
+        .catch(err => res.status(400).json(`Error: ${err}`))
+    })
+    .catch(err => res.status(400).json(`Error: ${err}`))
+})
 
 module.exports = router
