@@ -1,4 +1,4 @@
-import About from './pages/about'
+import About from './pages/Quinoussommes'
 import Actions from './pages/Actions'
 import Admin from './pages/Admin'
 import NotFound from './pages/notfound'

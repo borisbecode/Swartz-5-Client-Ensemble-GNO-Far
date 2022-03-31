@@ -18,11 +18,12 @@ function Childtext() {
         justifyContent: 'space-between',
         display: 'flex',
         flexDirection: { xs: 'column', lg: 'row' },
+        mb:5
       }}
     >
       <Grid item xs={12} lg={10}>
         {' '}
-        <Typography sx={{ mt: 2, mb: 5 }}>
+        <Typography sx={{ mt: 2 }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
           mollitia, molestiae quas vel sint commodi repudiandae consequuntur
           voluptatum laborum numquam blanditiis harum quisquam eius sed odit
@@ -41,7 +42,7 @@ function Childtext() {
         {' '}
         <Button
           variant="contained"
-          sx={{ bgcolor: 'secondary.main', color: 'white' }}
+          sx={{ bgcolor: 'secondary.main', color: 'white', m:4 }}
           href="/parrainage"
         >
           <Typography> Parrainer un enfant</Typography>{' '}
