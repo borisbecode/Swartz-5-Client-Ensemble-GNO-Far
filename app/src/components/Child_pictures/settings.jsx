@@ -4,6 +4,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import axios from 'axios'
 import TextField from '@mui/material/TextField'
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 
 class Settings extends React.Component {
   state = {
@@ -61,13 +62,14 @@ class Settings extends React.Component {
           <Button
             onClick={() => this.fileInput.click()}
             variant="contained"
-            sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5, mr: 3 }}
+            sx={{ bgcolor: 'secondary.main',color: 'white', mt: 5, mr: 3 }}
+            startIcon={<AddAPhotoIcon />}
           >
-            <Typography> Choisir une image </Typography>{' '}
+             Choisir une image
           </Button>
           <Box sx={{ mt: 4 }}>
             {' '}
-            <Typography variant="h6"> Nom de l'enfant : </Typography>
+            <Typography variant="body2"> Nom de l'enfant : </Typography>
             <input type="text" onChange={this.Nomdelenfant} />{' '}
           </Box>
         </Box>
@@ -77,7 +79,7 @@ class Settings extends React.Component {
             variant="contained"
             sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5 }}
           >
-            <Typography> Valider </Typography>{' '}
+            Valider
           </Button>
         </Box>
       </Box>

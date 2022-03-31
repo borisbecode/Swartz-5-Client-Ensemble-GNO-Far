@@ -17,10 +17,10 @@ const ActionModele = ({
     image
 }) => {
   return (
-    <Card elevation={0} sx={{ borderRadius:"20px", display:"flex", width:"100%", flexDirection:{xs:"column", sm:"row", md:"row", lg:"row"}, bgcolor:"white", my:{xs:2, sm:2} }} style={{border:"unset"}} >
+    <Card elevation={0} sx={{ display:"flex", width:"100%", flexDirection:{xs:"column", sm:"row", md:"row", lg:"row"}, bgcolor:"white", my:{xs:2, sm:2} }} style={{border:"unset"}} >
       {/** L'image est sur la gauche, les données de l'action à coté */}
       <CardMedia
-        sx={{aligSelf:"flex-start", borderRadius:{xs:"20px 20px 0px 0px", sm:"20px 0px 0px 20px"}, width:{sm:"100%", md:"300px"}}}
+        sx={{aligSelf:"flex-start", width:{sm:"100%", md:"300px"}}}
         component="img"
         height="300px"
         image={image}

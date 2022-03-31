@@ -79,9 +79,10 @@ function Child() {
             color="primary.main"
             sx={{ mt: 4, fontSize: '2rem' }}
           >
-            Nos enfants parrainés <BasicModal />{' '}
+            Nos enfants parrainés
           </Typography>
         </ThemeProvider>
+        <BasicModal />{' '}
         <Divider sx={{ my: 4, mx: 'auto' }} />
 
         <Grid className="align" container spacing={1} sx={{ mx: 'auto' }}>
@@ -98,7 +99,6 @@ function Child() {
               display="flex"
               alignItems="center"
               justifyContent="center"
-              alignItems="flex-end"
               className="premier"
               style={{
                 backgroundImage: `url(/uploads/${premierephoto})`,
@@ -171,7 +171,6 @@ function Child() {
               display="flex"
               alignItems="center"
               justifyContent="center"
-              alignItems="flex-end"
               className="premier"
               style={{
                 backgroundImage: `url(/uploads/${sixiemephoto})`,
