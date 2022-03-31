@@ -161,6 +161,35 @@ function Child() {
           <Grid
             container
             spacing={1}
+            sx={{ display: 'flex', flexDirection: 'column', maxWidth: 345 }}
+            item
+            lg={4}
+            xs={10}
+            md={4}
+          >
+            <Grid
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              alignItems="flex-end"
+              className="premier"
+              style={{
+                backgroundImage: `url(/uploads/${sixiemephoto})`,
+              }}
+            >
+              <Typography
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                {' '}
+                {premierephoto_nom}{' '}
+              </Typography>
+            </Grid>
+          </Grid>
+          {/*       <Grid
+            container
+            spacing={1}
             sx={{ display: 'flex', flexDirection: 'column' }}
             item
             xs={10}
@@ -173,8 +202,8 @@ function Child() {
                 backgroundImage: `url(/uploads/${sixiemephoto})`,
               }}
             ></Grid>
-          </Grid>
-          <Grid
+          </Grid> */}
+          {/*         <Grid
             container
             spacing={1}
             sx={{
@@ -198,7 +227,7 @@ function Child() {
                 backgroundImage: `url(/uploads/${huitiemephoto})`,
               }}
             ></Grid>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
     </div>
