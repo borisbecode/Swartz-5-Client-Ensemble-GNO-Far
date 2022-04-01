@@ -181,12 +181,12 @@ router.put('/update/:id', upload.single('articleImage'), (req, res) => {
 
 
 //REQUEST FIND ARTICLE BY ID AND DELETE
-// router.delete("/:id", (req, res) => {
-//     Articles.findByIdAndDelete(req.params.id)
-//         .then(() => res.json("The article is deleted!!"))
-//         .catch(error => res.status(400).json(`Error: ${error}`))
+router.delete("/:id", (req, res) => {
+  Articles.findByIdAndDelete(req.params.id)
+    .then(() => res.json("The article is deleted!!"))
+    .catch(error => res.status(400).json(`Error: ${error}`))
 
-// })
+})
 
 // Find action by id and delete = true (reste en backup dans la db)
 router.put('/delete/:id', upload.single("articleImage"), (req, res) => {
