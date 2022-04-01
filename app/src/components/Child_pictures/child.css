@@ -5,6 +5,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .fileUploadButton > input {
@@ -22,6 +24,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .troisieme {
   margin-top: 1vh;
@@ -31,6 +35,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .quattrieme {
@@ -41,6 +47,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .cinquieme {
   margin-top: 1vh;
@@ -51,6 +59,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .sixieme {
@@ -59,6 +69,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 @media screen and (max-width: 900px) {
@@ -126,6 +138,7 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.25s;
+  border-radius: 5px;
 }
 
 .image__overlay--blur {
