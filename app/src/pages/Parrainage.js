@@ -12,7 +12,7 @@ const Parrainage = () => {
         m: 0 /* bgcolor: 'primary.main'  */,
       }}
     >
-      Blah
+      Blahkk
     </Box>
   )
 }
