@@ -8,6 +8,12 @@ import { ThemeTitres } from '../../theme/ThemeTitres'
 import Grid from '@mui/material/Grid'
 import './child.css'
 import axios from 'axios'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import CardActions from '@mui/material/CardActions'
+
+import { CardActionArea } from '@mui/material'
 
 import BasicModal from './modal'
 /* import Dashboard from './settingtest' */
@@ -93,7 +99,7 @@ function Child() {
             xs={10}
             md={4}
           >
-            <Grid
+            {/*  <Grid
               display="flex"
               alignItems="center"
               justifyContent="center"
@@ -102,6 +108,7 @@ function Child() {
                 backgroundImage: `url(/uploads/${premierephoto})`,
               }}
             >
+            
               <Typography
                 display="flex"
                 alignItems="center"
@@ -110,7 +117,39 @@ function Child() {
                 {' '}
                 {premierephoto_nom}{' '}
               </Typography>
-            </Grid>
+            </Grid> */}
+            {/*    <Card
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              alignItems="flex-end"
+              className="premier"
+              style={{
+                backgroundImage: `url(/uploads/${premierephoto})`,
+              }}
+            >
+              {' '} 
+              <Typography
+                className="background1"
+                alignItems="center"
+                justifyContent="center"
+              >
+                {' '}
+                {premierephoto_nom}{' '}
+              </Typography>
+            </Card> */}
+            <Box
+              style={{
+                backgroundImage: `url(/uploads/${premierephoto})`,
+              }}
+              class="premier"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {premierephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
           <Grid
             container
@@ -121,12 +160,18 @@ function Child() {
             lg={2}
             md={2}
           >
-            <Grid
-              className="deuxieme"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${deuxiemephoto})`,
               }}
-            ></Grid>
+              class="deuxieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {deuxiemephoto_nom}</Box>
+              </Box>
+            </Box>
             <Grid
               className="troisieme"
               style={{

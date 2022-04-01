@@ -4,6 +4,7 @@
   /*  background-color: darkslateblue; */
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 .fileUploadButton > input {
@@ -20,6 +21,7 @@
   margin-bottom: 1vh;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 .troisieme {
   margin-top: 1vh;
@@ -28,6 +30,7 @@
   width: 12vw;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 .quattrieme {
@@ -37,6 +40,7 @@
   width: 12vw;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 .cinquieme {
   margin-top: 1vh;
@@ -46,6 +50,7 @@
   margin-bottom: 1vh;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 .sixieme {
@@ -131,4 +136,61 @@
     padding: 0;
     margin-left: 2vw;
   }
+}
+
+.image {
+  height: 40vh;
+  margin-right: 1.5vw;
+  /*  background-color: darkslateblue; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* .image__img {
+  display: block;
+  width: 100%;
+} */
+
+.image__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.image__overlay--blur {
+  backdrop-filter: blur(5px);
+}
+
+.image__overlay--primary {
+  background: #00000034;
+}
+
+.image__overlay > * {
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.image__overlay:hover {
+  opacity: 1;
+}
+
+.image__overlay:hover > * {
+  transform: translateY(0);
+}
+
+.image__title {
+  font-size: 2em;
+  font-weight: bold;
 }
