@@ -79,16 +79,22 @@ function Child() {
   return (
     <div>
       <Box sx={{ flexGrow: 1, width: '80vw', mx: 'auto' }}>
-        <ThemeProvider theme={ThemeTitres}>
-          <Typography
-            variant="h1"
-            color="primary.main"
-            sx={{ mt: 4, fontSize: '2rem' }}
-          >
-            Nos enfants parrainés
-          </Typography>
-        </ThemeProvider>
-        <BasicModal /> <Divider sx={{ my: 4, mx: 'auto' }} />
+        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+          <ThemeProvider theme={ThemeTitres}>
+            <Typography
+              variant="h1"
+              color="primary.main"
+              sx={{ mt: 4, fontSize: '2rem' }}
+            >
+              Nos enfants parrainés
+            </Typography>
+          </ThemeProvider>
+          <Box sx={{ ml: 2, mt: 3 }}>
+            {' '}
+            <BasicModal />
+          </Box>
+        </Box>
+        <Divider sx={{ my: 4, mx: 'auto' }} />
         <Grid className="align" container spacing={1} sx={{ mx: 'auto' }}>
           <Grid
             container
