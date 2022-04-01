@@ -99,45 +99,6 @@ function Child() {
             xs={10}
             md={4}
           >
-            {/*  <Grid
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              className="premier"
-              style={{
-                backgroundImage: `url(/uploads/${premierephoto})`,
-              }}
-            >
-            
-              <Typography
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                {' '}
-                {premierephoto_nom}{' '}
-              </Typography>
-            </Grid> */}
-            {/*    <Card
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              alignItems="flex-end"
-              className="premier"
-              style={{
-                backgroundImage: `url(/uploads/${premierephoto})`,
-              }}
-            >
-              {' '} 
-              <Typography
-                className="background1"
-                alignItems="center"
-                justifyContent="center"
-              >
-                {' '}
-                {premierephoto_nom}{' '}
-              </Typography>
-            </Card> */}
             <Box
               style={{
                 backgroundImage: `url(/uploads/${premierephoto})`,
@@ -172,12 +133,18 @@ function Child() {
                 <Box class="image__title"> {deuxiemephoto_nom}</Box>
               </Box>
             </Box>
-            <Grid
-              className="troisieme"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${troisiemephoto})`,
               }}
-            ></Grid>
+              class="troisieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {troisiemephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
           <Grid
             container
@@ -188,18 +155,30 @@ function Child() {
             lg={2}
             md={2}
           >
-            <Grid
-              className="quattrieme"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${quattriemephoto})`,
               }}
-            ></Grid>
-            <Grid
-              className="cinquieme"
+              class="quattrieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {quattriemephoto_nom}</Box>
+              </Box>
+            </Box>
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${cinquiemephoto})`,
               }}
-            ></Grid>
+              class="cinquieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {cinquiemephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
           <Grid
             container
@@ -210,66 +189,19 @@ function Child() {
             xs={10}
             md={4}
           >
-            <Grid
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              className="premier"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${sixiemephoto})`,
               }}
+              class="sixieme"
             >
-              <Typography
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                {' '}
-                {premierephoto_nom}{' '}
-              </Typography>
-            </Grid>
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {sixiemephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
-          {/*       <Grid
-            container
-            spacing={1}
-            sx={{ display: 'flex', flexDirection: 'column' }}
-            item
-            xs={10}
-            lg={2}
-            md={2}
-          >
-            <Grid
-              className="sixieme"
-              style={{
-                backgroundImage: `url(/uploads/${sixiemephoto})`,
-              }}
-            ></Grid>
-          </Grid> */}
-          {/*         <Grid
-            container
-            spacing={1}
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'row', lg: 'column' },
-            }}
-            item
-            xs={12}
-            lg={1}
-            md={2}
-          >
-            <Grid
-              className="septieme"
-              style={{
-                backgroundImage: `url(/uploads/${septiemephoto})`,
-              }}
-            ></Grid>
-            <Grid
-              className="huitieme"
-              style={{
-                backgroundImage: `url(/uploads/${huitiemephoto})`,
-              }}
-            ></Grid>
-          </Grid> */}
         </Grid>
       </Box>
     </div>
