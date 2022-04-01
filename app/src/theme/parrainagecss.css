@@ -1,5 +1,12 @@
 .background {
-  background-color: rgba(172, 17, 17, 0.397);
+  /*  background-image: url('https://zupimages.net/up/22/13/dfa5.jpg'); */
+  background: linear-gradient(rgba(0, 0, 0, 0.739), rgba(0, 0, 0, 0.705)),
+    url('https://zupimages.net/up/22/13/dfa5.jpg');
   background-position: bottom;
   background-repeat: no-repeat;
+}
+
+.howto {
+  text-decoration: underline;
+  text-shadow: 0.1em 0.1em 0.2em #ffffff;
 }

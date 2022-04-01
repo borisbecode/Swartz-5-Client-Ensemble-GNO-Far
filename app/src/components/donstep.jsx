@@ -33,7 +33,7 @@ function Don_etape() {
           <Typography
             variant="h3"
             color="primary.main"
-            sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
+            sx={{ mt: 4, fontSize: '1.250rem', fontWeight: 'bold' }}
           >
             Telecharger le fichier en bas de page <br /> <br />
           </Typography>
@@ -58,7 +58,7 @@ function Don_etape() {
           <Typography
             variant="h3"
             color="primary.main"
-            sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
+            sx={{ mt: 4, fontSize: '1.250rem', fontWeight: 'bold' }}
           >
             L'envoyer à l'adresse email : <br /> <br />
             Ensemblegnofar@test.test
@@ -84,7 +84,7 @@ function Don_etape() {
           <Typography
             variant="h3"
             color="primary.main"
-            sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
+            sx={{ mt: 4, fontSize: '1.250rem', fontWeight: 'bold' }}
           >
             Nous revenons vers vous <br /> <br />
             Merci !

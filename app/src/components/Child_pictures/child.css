@@ -137,7 +137,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.25s;
+  transition: opacity 0.33s;
   border-radius: 5px;
 }
 
@@ -151,7 +151,7 @@
 
 .image__overlay > * {
   transform: translateY(20px);
-  transition: transform 0.25s;
+  transition: transform 0.33s;
 }
 
 .image__overlay:hover {

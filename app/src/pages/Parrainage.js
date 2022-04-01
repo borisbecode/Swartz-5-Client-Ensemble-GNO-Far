@@ -49,7 +49,7 @@ const Parrainage = () => {
             <Typography
               variant="h1"
               color="primary.main"
-              sx={{ mt: 4, fontSize: '1.5rem' }}
+              sx={{ mt: 4, fontSize: '1.750rem' }}
             >
               Nous avons besoin de vous
             </Typography>
@@ -60,7 +60,7 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4 }}
+              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
             >
               Grace à vos dons , nous pouvons offrir une assurance santé ,
               lutter contre la malnutrition , offrir des colis alimentaires ,
@@ -73,7 +73,7 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4 }}
+              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
             >
               Grâce à une caisse de solidarité, alimentée par vos dons, nous
               pouvons permettre à certains enfants d'avoir accès à des soins
@@ -87,7 +87,7 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4 }}
+              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
             >
               Nous garantissons une transparence totale sur les dons récoltés ,
               chaque euros récoltés est intégralement consacré à nos actions.
@@ -99,7 +99,13 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
+              sx={{
+                mt: 4,
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                color: 'white',
+                fontSize: '1.125rem',
+              }}
               /* sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }} */
             >
               Les dons sont déductibles d'impot.
@@ -112,7 +118,7 @@ const Parrainage = () => {
             <Typography
               variant="h1"
               color="primary.main"
-              sx={{ mt: 5, fontSize: '1.5rem' }}
+              sx={{ mt: 5, fontSize: '1.750rem' }}
             >
               Comment se parrainer ?
             </Typography>
@@ -124,7 +130,13 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 5, fontSize: '1rem', fontWeight: 'bold' }}
+              sx={{
+                mt: 5,
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                color: 'white',
+                fontSize: '1.125rem',
+              }}
             >
               Vous pouvez aussi réaliser un don spontané sur le compte de
               l’association <br /> Ensemble-Gno Far : BE74 0018 2376 5607
@@ -133,7 +145,7 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4 }}
+              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
             >
               N'oubliez pas , chaque don compte .
             </Typography>
