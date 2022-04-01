@@ -11,11 +11,11 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
+  width: {xs:"300", sm:"400", md:"auto", lg:"auto"},
   bgcolor: 'background.paper',
-  border: '1px solid #000',
-  boxShadow: 24,
-  p: 1,
+  border: 'none',
+  boxShadow: 15,
+  p: 4,
 }
 
 export default function BasicModal() {
@@ -25,18 +25,21 @@ export default function BasicModal() {
 
   return (
     <div>
-      <SettingsIcon onClick={handleOpen} />
+      <SettingsIcon onClick={handleOpen} sx={{color:"primary.main", mt:2}}/>
 
       <Modal
+        
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="ajout photo d'enfant"
+        aria-describedby="l'admin peut ajouter ici les photos d'enfants pour la page principale"
       >
         <Box sx={style}>
-          <Settings />
+        <Settings />
           {/*  <Settingstest /> */}
         </Box>
+          
+        
       </Modal>
     </div>
   )
