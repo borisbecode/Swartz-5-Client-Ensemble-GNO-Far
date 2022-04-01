@@ -11,8 +11,11 @@ import { ThemeTitres } from '../theme/ThemeTitres'
 import ActionModele from '../components/ActionModele'
 import axios from 'axios'
 import Button from '@mui/material/Button'
-import donstep from '../components/donstep'
+
 import Don_etape from '../components/donstep'
+import Link from '@mui/material/Link'
+
+import Downloadfile from '../components/Downloadfile'
 
 const Parrainage = () => {
   return (
@@ -96,8 +99,8 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4 }}
-              sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }}
+              sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
+              /* sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }} */
             >
               Les dons sont déductibles d'impot.
             </Typography>
@@ -121,23 +124,32 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4 }}
+              sx={{ mt: 5, fontSize: '1rem', fontWeight: 'bold' }}
             >
               Vous pouvez aussi réaliser un don spontané sur le compte de
               l’association <br /> Ensemble-Gno Far : BE74 0018 2376 5607
-              <br /> <br /> N'oubliez pas , chaque don compte .
+            </Typography>
+            <Typography
+              align="center"
+              variant="body1"
+              gutterBottom
+              sx={{ mt: 4 }}
+            >
+              N'oubliez pas , chaque don compte .
             </Typography>
           </Box>
-          <Grid align="center" sx={{ mt: 5 }}>
+          {/*  <Grid align="center" sx={{ mt: 5 }}>
             {' '}
             <Button
               variant="contained"
               sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }}
               href="/parrainage"
             >
-              <Typography> Télécharger le PDF </Typography>{' '}
+              <Typography>Telecharger le pddf</Typography>
             </Button>
-          </Grid>
+            <Downloadfile />
+          </Grid> */}
+          <Downloadfile />
         </Box>
       </Box>
     </Box>

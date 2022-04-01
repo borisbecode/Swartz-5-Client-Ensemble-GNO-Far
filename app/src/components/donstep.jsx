@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import { ThemeProvider } from '@mui/material/styles'
 import { ThemeTitres } from '../theme/ThemeTitres'
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline'
+import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead'
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
 
 function Don_etape() {
   return (
@@ -24,17 +27,15 @@ function Don_etape() {
             textAlign: 'center',
           }}
         >
-          <Avatar
-            alt="Prénom Nom"
-            src="https://picsum.photos/id/42/800/800"
-            sx={{ width: 200, height: 200 }}
+          <DownloadForOfflineIcon
+            sx={{ width: 80, height: 80, color: 'primary.main' }}
           />
           <Typography
             variant="h3"
             color="primary.main"
             sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
           >
-            Telecharger le fichier
+            Telecharger le fichier en bas de page <br /> <br />
           </Typography>
         </Grid>
 
@@ -51,17 +52,16 @@ function Don_etape() {
             textAlign: 'center',
           }}
         >
-          <Avatar
-            alt="Prénom Nom"
-            src="https://picsum.photos/id/122/800/800"
-            sx={{ width: 200, height: 200 }}
+          <MarkEmailReadIcon
+            sx={{ width: 80, height: 80, color: 'primary.main' }}
           />
           <Typography
             variant="h3"
             color="primary.main"
             sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
           >
-            L'envoyer à l'adresse email :
+            L'envoyer à l'adresse email : <br /> <br />
+            Ensemblegnofar@test.test
           </Typography>
         </Grid>
 
@@ -78,16 +78,15 @@ function Don_etape() {
             textAlign: 'center',
           }}
         >
-          <Avatar
-            alt="Prénom Nom"
-            src="https://picsum.photos/id/34/800/800"
-            sx={{ width: 200, height: 200 }}
+          <VolunteerActivismIcon
+            sx={{ width: 80, height: 80, color: 'primary.main' }}
           />
           <Typography
             variant="h3"
             color="primary.main"
             sx={{ mt: 4, fontSize: '1rem', fontWeight: 'bold' }}
           >
+            Nous revenons vers vous <br /> <br />
             Merci !
           </Typography>
         </Grid>
