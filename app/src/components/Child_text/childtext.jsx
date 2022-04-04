@@ -18,7 +18,7 @@ function Childtext() {
         justifyContent: 'space-between',
         display: 'flex',
         flexDirection: { xs: 'column', lg: 'row' },
-        mb:5
+        mb: 5,
       }}
     >
       <Grid item xs={12} lg={10}>
@@ -42,10 +42,10 @@ function Childtext() {
         {' '}
         <Button
           variant="contained"
-          sx={{ bgcolor: 'secondary.main', color: 'white', m:4 }}
+          sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }}
           href="/parrainage"
         >
-          <Typography> Parrainer un enfant</Typography>{' '}
+          <Typography> Je parraine ! </Typography>{' '}
         </Button>
       </Grid>
     </Box>

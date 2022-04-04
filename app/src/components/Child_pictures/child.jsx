@@ -8,6 +8,12 @@ import { ThemeTitres } from '../../theme/ThemeTitres'
 import Grid from '@mui/material/Grid'
 import './child.css'
 import axios from 'axios'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import CardActions from '@mui/material/CardActions'
+
+import { CardActionArea } from '@mui/material'
 
 import BasicModal from './modal'
 /* import Dashboard from './settingtest' */
@@ -73,18 +79,22 @@ function Child() {
   return (
     <div>
       <Box sx={{ flexGrow: 1, width: '80vw', mx: 'auto' }}>
-        <ThemeProvider theme={ThemeTitres}>
-          <Typography
-            variant="h1"
-            color="primary.main"
-            sx={{ mt: 4, fontSize: '2rem' }}
-          >
-            Nos enfants parrainés
-          </Typography>
-        </ThemeProvider>
-        <BasicModal />{' '}
+        <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+          <ThemeProvider theme={ThemeTitres}>
+            <Typography
+              variant="h1"
+              color="primary.main"
+              sx={{ mt: 4, fontSize: '2rem' }}
+            >
+              Nos enfants parrainés
+            </Typography>
+          </ThemeProvider>
+          <Box sx={{ ml: 2, mt: 3 }}>
+            {' '}
+            <BasicModal />
+          </Box>
+        </Box>
         <Divider sx={{ my: 4, mx: 'auto' }} />
-
         <Grid className="align" container spacing={1} sx={{ mx: 'auto' }}>
           <Grid
             container
@@ -95,24 +105,18 @@ function Child() {
             xs={10}
             md={4}
           >
-            <Grid
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              className="premier"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${premierephoto})`,
               }}
+              class="premier"
             >
-              <Typography
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                {' '}
-                {premierephoto_nom}{' '}
-              </Typography>
-            </Grid>
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {premierephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
           <Grid
             container
@@ -123,18 +127,30 @@ function Child() {
             lg={2}
             md={2}
           >
-            <Grid
-              className="deuxieme"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${deuxiemephoto})`,
               }}
-            ></Grid>
-            <Grid
-              className="troisieme"
+              class="deuxieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {deuxiemephoto_nom}</Box>
+              </Box>
+            </Box>
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${troisiemephoto})`,
               }}
-            ></Grid>
+              class="troisieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {troisiemephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
           <Grid
             container
@@ -145,18 +161,30 @@ function Child() {
             lg={2}
             md={2}
           >
-            <Grid
-              className="quattrieme"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${quattriemephoto})`,
               }}
-            ></Grid>
-            <Grid
-              className="cinquieme"
+              class="quattrieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {quattriemephoto_nom}</Box>
+              </Box>
+            </Box>
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${cinquiemephoto})`,
               }}
-            ></Grid>
+              class="cinquieme"
+            >
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {cinquiemephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
           <Grid
             container
@@ -167,66 +195,19 @@ function Child() {
             xs={10}
             md={4}
           >
-            <Grid
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              className="premier"
+            <Box
               style={{
                 backgroundImage: `url(/uploads/${sixiemephoto})`,
               }}
+              class="sixieme"
             >
-              <Typography
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                {' '}
-                {premierephoto_nom}{' '}
-              </Typography>
-            </Grid>
+              <Box class="image__img"></Box>
+
+              <Box class="image__overlay image__overlay--primary">
+                <Box class="image__title"> {sixiemephoto_nom}</Box>
+              </Box>
+            </Box>
           </Grid>
-          {/*       <Grid
-            container
-            spacing={1}
-            sx={{ display: 'flex', flexDirection: 'column' }}
-            item
-            xs={10}
-            lg={2}
-            md={2}
-          >
-            <Grid
-              className="sixieme"
-              style={{
-                backgroundImage: `url(/uploads/${sixiemephoto})`,
-              }}
-            ></Grid>
-          </Grid> */}
-          {/*         <Grid
-            container
-            spacing={1}
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'row', lg: 'column' },
-            }}
-            item
-            xs={12}
-            lg={1}
-            md={2}
-          >
-            <Grid
-              className="septieme"
-              style={{
-                backgroundImage: `url(/uploads/${septiemephoto})`,
-              }}
-            ></Grid>
-            <Grid
-              className="huitieme"
-              style={{
-                backgroundImage: `url(/uploads/${huitiemephoto})`,
-              }}
-            ></Grid>
-          </Grid> */}
         </Grid>
       </Box>
     </div>
