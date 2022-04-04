@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider } from '@mui/material/styles';
 import { ThemeTitres } from '../theme/ThemeTitres';
+import { bgcolor } from '@mui/material/node_modules/@mui/system';
 
 function LesMembres() {
   return (
@@ -28,7 +29,7 @@ function LesMembres() {
             <Typography
              variant="h3"
              color="primary.main"
-             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold" }}>Prénom Nom</Typography>
+             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold"}}>Prénom Nom</Typography>
              <Typography
              variant="body2" gutterBottom
              sx={{ mt: 2 }}>Petit texte personnalisé. Ut venenatis sapien interdum eleifend tristique. Suspendisse varius libero vitae ante bibendum, nec interdum quam auctor. Fusce gravida erat libero, a maximus lectus auctor non. </Typography>
