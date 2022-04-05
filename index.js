@@ -51,14 +51,16 @@ if (process.env.NODE_ENV === "production") {
     res.status(200).sendFile(path.join(__dirname, "app/build", "index.html"));
   });
 }
+/* if (process.env.NODE_ENV === "production") {
+  app.use(express.static("app/build"));
+  const path = require("path");
+  app.get("*", function (req, res) {
+    res
+      .status(200)
+      .sendFile(path.resolve(__dirname, "app", "build", "index.html"));
+  });
+} */
 
-/* if (process.env.NODE_ENV === 'production') {
-  app.use(express.static("app/build"))
-  const path = require('path')
-  app.get('*', function (req, res) {
-    res.status(200).sendFile(path.resolve(__dirname,"app","build","index.html"))
-  })
- */
 /* const swaggerSpec = swaggerJSDoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec)); */
 
