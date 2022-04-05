@@ -36,7 +36,7 @@ function useFetch(url) {
 const Actions = () => {
 
   const {data, loading, error } = useFetch(
-    `http://localhost:5000/api/actions`
+    `http://localhost:5000/api/actions/actif`
   );
 
   if (loading) return (<Box>Loading</Box>);

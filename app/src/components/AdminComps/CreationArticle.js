@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import PhotoCamera from '@mui/icons-material/PhotoCamera'
 import { styled } from '@mui/material/styles'
+import { AuthContext } from '../../context/auth'
 import axios from 'axios'
 
 const Input = styled('input')({
@@ -15,6 +16,10 @@ const Input = styled('input')({
 })
 
 const CreationArticle = () => {
+
+  // recup les infos user
+  const { user } = useContext(AuthContext)
+
   const [titre, setTitre] = useState('')
   const [soustitre, setSoustitre] = useState('')
   const [contenu, setContenu] = useState('')
@@ -59,6 +64,10 @@ const CreationArticle = () => {
     formData.append('subTitle', soustitre)
     formData.append('contenu', contenu)
     formData.append('articleImage', articleImage)
+    formData.append('id', user._id)
+    formData.append('firstName', user.firstName)
+    formData.append('lastName', user.lastName)
+    formData.append('email', user.email)
 
     axios
       .post(`${process.env.REACT_APP_API_URL}api/articles/add`, formData)

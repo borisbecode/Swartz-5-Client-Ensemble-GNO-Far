@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
@@ -9,12 +9,18 @@ import Button from '@mui/material/Button'
 import PhotoCamera from '@mui/icons-material/PhotoCamera'
 import { styled } from '@mui/material/styles'
 import axios from 'axios'
+import { AuthContext } from '../../context/auth'
 
 const Input = styled('input')({
   display: 'none',
 })
 
 const CreationAction = () => {
+
+  // recup les infos user
+  const { user } = useContext(AuthContext)
+  console.log(user)
+
   const [titre, setTitre] = useState('')
   const [contenu, setContenu] = useState('')
   const [lieu, setLieu] = useState("");
@@ -75,10 +81,10 @@ const CreationAction = () => {
     formData.append('location', lieu)
     formData.append('link', lien)
     formData.append('image', actionImage)
-    formData.append('id', "13748362640")
-    formData.append('firstName', "Clara")
-    formData.append('lastName', "Potter")
-    formData.append('email', "clara@gmail.com")
+    formData.append('id', user._id)
+    formData.append('firstName', user.firstName)
+    formData.append('lastName', user.lastName)
+    formData.append('email', user.email)
 
     axios
       .post(`${process.env.REACT_APP_API_URL}api/actions/add`, formData)
