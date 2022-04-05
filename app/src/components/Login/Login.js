@@ -48,6 +48,7 @@ export default function Login() {
 
         axios.post(`${process.env.REACT_APP_API_URL}api/auth`, data)
         .then(function (res) {
+            console.log(res);
             localStorage.setItem("token", res.data.data);
             //window.location = "/";  
         })

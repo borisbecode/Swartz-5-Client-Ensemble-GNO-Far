@@ -22,7 +22,7 @@ const ActionModele = ({
       <CardMedia
         sx={{aligSelf:"flex-start", width:{sm:"100%", md:"300px"}}}
         component="img"
-        height="300px"
+        height="100%"
         image={image}
         alt={title}
       />

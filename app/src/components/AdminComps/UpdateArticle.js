@@ -192,6 +192,11 @@ const UpdateArticle = ({data}) => {
                         variant="contained" 
                         sx={{color: "white"}}
                         size="large">Mettre à jour</Button>
+                    
+                    <Button 
+                        variant="contained" 
+                        sx={{color: "white", bgcolor:"secondary.main"}}
+                        size="large">Supprimer</Button>
                 
                 </Box>
             </Box>
