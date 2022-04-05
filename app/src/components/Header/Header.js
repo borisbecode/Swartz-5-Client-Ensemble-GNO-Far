@@ -112,11 +112,9 @@ const Header = () => {
                     Espace Admin
                   </Typography>
                 </MenuItem>
-              ) : (
-                <></>
-              )}
+              ) : null}
 
-              {user ? (
+              {user && (
                 <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2 }}>
                   <Typography
                     onClick={logout}
@@ -129,8 +127,6 @@ const Header = () => {
                     Se Déconnecter
                   </Typography>
                 </MenuItem>
-              ) : (
-                <></>
               )}
             </Menu>
           </Box>
@@ -178,9 +174,7 @@ const Header = () => {
               >
                 Espace Admin
               </Button>
-            ) : (
-              <></>
-            )}
+            ) : null}
 
             {user ? (
               <Button
@@ -190,9 +184,7 @@ const Header = () => {
               >
                 Se Déconnecter
               </Button>
-            ) : (
-              <></>
-            )}
+            ) : null}
           </Box>
 
           <Box
