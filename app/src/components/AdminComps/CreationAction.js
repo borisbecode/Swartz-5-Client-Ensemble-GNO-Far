@@ -19,7 +19,7 @@ const CreationAction = () => {
 
   // recup les infos user
   const { user } = useContext(AuthContext)
-  console.log(user.firstName)
+  console.log(user)
 
   const [titre, setTitre] = useState('')
   const [contenu, setContenu] = useState('')
@@ -81,7 +81,7 @@ const CreationAction = () => {
     formData.append('location', lieu)
     formData.append('link', lien)
     formData.append('image', actionImage)
-    formData.append('id', user.id)
+    formData.append('id', user._id)
     formData.append('firstName', user.firstName)
     formData.append('lastName', user.lastName)
     formData.append('email', user.email)

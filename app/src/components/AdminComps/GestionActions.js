@@ -13,12 +13,12 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined'
 import Stack from '@mui/material/Stack'
 import IconButton from '@mui/material/IconButton'
 import Modal from '@mui/material/Modal'
-import UpdateArticle from './UpdateArticle'
+import UpdateAction from './UpdateAction'
 
-const GestionArticles = () => {
+const GestionActions= () => {
   let [fetchedData, setFetchedData] = useState([])
 
-  let api = `${process.env.REACT_APP_API_URL}api/articles/actif`
+  let api = `${process.env.REACT_APP_API_URL}api/actions/actif`
 
   useEffect(() => {
     // IIFE: immediately invoked function expression
@@ -40,11 +40,11 @@ const GestionArticles = () => {
           component="div"
           sx={{ mt: 4, fontSize: '2rem' }}
         >
-          Actualiser ou effacez les articles ici
+          Actualiser ou effacez les actions ici
         </Typography>
       </ThemeProvider>
       <Typography variant="body1" gutterBottom component="div">
-        Retrouvez vos articles par titre, actualisez les données ou effacez l'article de votre choix.
+        Retrouvez vos actions par titre, actualisez les données ou effacez l'action de votre choix.
       </Typography>
       <Divider sx={{ my: 4 }} />
 
@@ -79,7 +79,7 @@ const GestionArticles = () => {
                 <Typography sx={{ pr: 3, pl: 1, overflow: 'hidden' }}>
                   {data.title}
                 </Typography>
-                <UpdateArticle data={data} />
+                <UpdateAction data={data} />
               </Box>
             ))
         ) : (
@@ -92,4 +92,4 @@ const GestionArticles = () => {
   )
 }
 
-export default GestionArticles
+export default GestionActions

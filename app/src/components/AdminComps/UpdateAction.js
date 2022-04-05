@@ -32,7 +32,7 @@ const Input = styled('input')({
   });
 
 
-const UpdateArticle = ({data}) => {
+const UpdateAction = ({data}) => {
 
     // recup les infos user
     const { user } = useContext(AuthContext)
@@ -42,21 +42,17 @@ const UpdateArticle = ({data}) => {
     const handleClose = () => setOpen(false);
 
   const [titre, setTitre] = useState(data.title? data.title: "");
-  const [soustitre, setSoustitre] = useState(data.subTitle? data.subTitle:"");
-  const [contenu, setContenu] = useState(data.contenu?data.contenu:"");
-  const [imageNom, setImageNom] = useState(data.articleImage?data.articleImage:"");
-  const [articleImage, setArticleImage] = useState(data.articleImage?data.articleImage:"");
+  const [contenu, setContenu] = useState(data.content?data.content:"");
+  const [imageNom, setImageNom] = useState(data.image?data.image:"");
+  const [actionImage, setActionImage] = useState(data.image?data.image:"");
 
   const [titreError, setTitreError] = useState(false);  
-  const [soustitreError, setSoustitreError] = useState(false);
   const [contenuError, setContenuError] = useState(false);
 
   const [titreHelper, setTitreHelper] = useState("");  
-  const [soustitreHelper, setSoustitreHelper] = useState("");
   const [contenuHelper, setContenuHelper] = useState("");
 
   const [titreColor, setTitreColor] = useState("primary");  
-  const [soustitreColor, setSoustitreColor] = useState("primary");
   const [contenuColor, setContenuColor] = useState("primary");
 
   // à la soumission du form
@@ -68,11 +64,6 @@ const UpdateArticle = ({data}) => {
       setTitreHelper("Ce champ est obligatoire.");
       setTitreColor("secondary");
     }
-    if (soustitre === "") {
-      setSoustitreError(true);
-      setSoustitreHelper("Ce champ est obligatoire.");
-      setSoustitreColor("secondary");
-    }
     if (contenu === "") {
         setContenuError(true);
         setContenuHelper("Ce champ est obligatoire.");
@@ -82,18 +73,17 @@ const UpdateArticle = ({data}) => {
       const formData = new FormData();
 
       formData.append("title", titre)
-      formData.append("subTitle", soustitre)
-      formData.append("contenu", contenu)
-      formData.append("articleImage", articleImage);
+      formData.append("content", contenu)
+      formData.append("image", actionImage);
       formData.append('id', user._id)
       formData.append('firstName', user.firstName)
       formData.append('lastName', user.lastName)
       formData.append('email', user.email)
 
 
-      axios.put(`${process.env.REACT_APP_API_URL}api/articles/update/${data._id}`, formData)
+      axios.put(`${process.env.REACT_APP_API_URL}api/actions/update/${data._id}`, formData)
         .then(function (response) {
-            setContenuHelper(response.data.ok)
+            window.location = '/admin'
             
         })
         .catch(function (error) {
@@ -113,14 +103,14 @@ const UpdateArticle = ({data}) => {
         formData.append('email', user.email)
 
         event.preventDefault();
-        axios.put(`${process.env.REACT_APP_API_URL}api/articles/delete/${data._id}`, formData)
+        axios.put(`${process.env.REACT_APP_API_URL}api/actions/delete/${data._id}`, formData)
         .then(function () {
             window.location = '/admin'
         })
         .catch(function (error) {
             console.log(error);
             setContenuHelper(
-            "L'article n'a pas pu être ajouté."
+            "L'action n'a pas pu être ajouté."
             )})
     }
 
@@ -143,7 +133,7 @@ const UpdateArticle = ({data}) => {
                 {/** Titre création article */}
                 <ThemeProvider theme={ThemeTitres}>
                     <Typography variant="h1" color="primary.main" sx={{mt:4, fontSize:"2rem"}}>
-                        Actualiser l'article
+                        Actualiser l'action
                     </Typography>
                 </ThemeProvider>
                 <Divider sx={{my:4}}/>
@@ -176,16 +166,6 @@ const UpdateArticle = ({data}) => {
                     color={titreColor}
                     helperText={titreHelper}
                     />
-                    <TextField
-                    required
-                    label="Sous-titre"
-                    value={soustitre}
-                    onChange={(event) => {
-                        setSoustitre(event.target.value);}}
-                    error={soustitreError}
-                    color={soustitreColor}
-                    helperText={soustitreHelper}
-                    />
                     
                     <TextField
                     value={contenu}
@@ -206,7 +186,7 @@ const UpdateArticle = ({data}) => {
                     >
                         <Input accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" filename="articleImage" onChange={(event) => {
                             setImageNom(event.target.value);
-                            setArticleImage(event.target.files[0]);
+                            setActionImage(event.target.files[0]);
                             }}  />
                         
                         <Button variant="contained" component="span" endIcon={<PhotoCamera />} sx={{color:"white"}}>
@@ -234,4 +214,4 @@ const UpdateArticle = ({data}) => {
   )
 }
 
-export default UpdateArticle
+export default UpdateAction

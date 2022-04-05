@@ -64,7 +64,7 @@ const CreationArticle = () => {
     formData.append('subTitle', soustitre)
     formData.append('contenu', contenu)
     formData.append('articleImage', articleImage)
-    formData.append('id', user.id)
+    formData.append('id', user._id)
     formData.append('firstName', user.firstName)
     formData.append('lastName', user.lastName)
     formData.append('email', user.email)

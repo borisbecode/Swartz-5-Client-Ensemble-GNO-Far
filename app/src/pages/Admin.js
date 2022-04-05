@@ -5,6 +5,7 @@ import BannerAdmin from '../components/AdminComps/BannerAdmin';
 import GestionArticles from '../components/AdminComps/GestionArticles';
 import CreationAction from '../components/AdminComps/CreationAction';
 import { AuthContext } from '../context/auth'
+import GestionActions from '../components/AdminComps/GestionActions';
 
 const Admin = () => {
   const { user } = useContext(AuthContext)
@@ -15,6 +16,7 @@ const Admin = () => {
       <CreationArticle />
       <CreationAction />
       <GestionArticles />
+      <GestionActions />
 
 
     </Box>
