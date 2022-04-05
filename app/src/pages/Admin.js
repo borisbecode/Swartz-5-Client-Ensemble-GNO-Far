@@ -8,14 +8,14 @@ import { AuthContext } from '../context/auth'
 
 const Admin = () => {
   const { user } = useContext(AuthContext)
-  console.log(user)
+
   return (
-    <Box id="accueil" sx={{width:"100%", m:0}}>
-        <BannerAdmin />
-        <CreationArticle />
-        <CreationAction />
-        <GestionArticles />
-        
+    <Box id="accueil" sx={{ width: "100%", m: 0 }}>
+      <BannerAdmin />
+      <CreationArticle />
+      <CreationAction />
+      <GestionArticles />
+
 
     </Box>
   )

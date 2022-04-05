@@ -16,6 +16,7 @@ import Signup from './components/Signup/Signup'
 import Login from './components/Login/Login'
 import { AuthContext, AuthProvider } from './context/auth'
 import RequireAuth from './Routes_Auth/RequireAuth'
+import ConnectingAuth from './Routes_Auth/ConnectingAuth'
 
 function App() {
   // const user = localStorage.getItem('token')
@@ -35,12 +36,16 @@ function App() {
             <Route path="/admin" exact element={<Admin />} />
           </Route>
 
+          {/* Routes si connecté redirige vers home */}
+          <Route element={<ConnectingAuth />}>
+            <Route path="/connexion" exact element={<Login />} />
+          </Route>
+
           {/* Routes public */}
           <Route path="/" exact element={<Accueil />} />
           <Route path="/actions" exact element={<Actions />} />
           <Route path="/parrainage" exact element={<Parrainage />} />
           <Route path="/quisommesnous" exact element={<About />} />
-          <Route path="/connexion" exact element={<Login />} />
           <Route path="/introuvable" exact element={<NotFound />} />
           <Route path="/test" exact element={<Login />} />
           <Route path="/sign" exact element={<Signup />} />
