@@ -6,14 +6,17 @@ import React from 'react'
 import './App.css'
 import { Route, Routes, Navigate } from 'react-router-dom'
 // import Signup from "./components/Signup/Signup";
-import Login from './components/Login/Login'
 import Box from '@mui/material/Box'
 import Header from './components/Header/Header'
 import Accueil from './pages/Accueil'
 import Parrainage from './pages/Parrainage'
 import Footer from './components/Footer/Footer'
+<<<<<<< HEAD
 import Signup from './components/Signup/Signup'
 
+=======
+import Login from './components/Login/Login'
+>>>>>>> 6f308f1357d6d769c283495ff91c441c4d815c7b
 
 function App() {
   const user = localStorage.getItem('token')
