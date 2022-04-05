@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 // import './login.css'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
@@ -9,8 +9,11 @@ import { ThemeTitres } from '../../theme/ThemeTitres'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import axios from 'axios'
-
+import { AuthContext } from '../../context/auth'
 export default function Login() {
+  // context pour data user
+  const context = useContext(AuthContext)
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -47,8 +50,10 @@ export default function Login() {
     axios
       .post(`${process.env.REACT_APP_API_URL}api/auth`, data)
       .then(function (res) {
-        localStorage.setItem('token', res.data.data)
-        //window.location = "/";
+        // localStorage.setItem("token", res.data.data);
+        context.login(res.data.data)
+
+        window.location = '/admin'
       })
       .catch(function (error) {
         setPasswordHelper(
