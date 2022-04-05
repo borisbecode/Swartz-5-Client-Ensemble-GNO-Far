@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 // import './login.css'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
@@ -9,101 +9,106 @@ import { ThemeTitres } from '../../theme/ThemeTitres'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import axios from 'axios'
-
+import { AuthContext } from '../../context/auth'
 export default function Login() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  // context pour data user 
+  const context = useContext(AuthContext)
 
-    // gestion email 
-    const [emailError, setEmailError] = useState(false);
-    const [emailColor, setEmailColor] = useState('primary');
-    const [emailHelper, setEmailHelper] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    // gestion password
-    const [passwordError, setPasswordError] = useState(false);
-    const [passwordColor, setPasswordColor] = useState('primary');
-    const [passwordHelper, setPasswordHelper] = useState("");
+  // gestion email 
+  const [emailError, setEmailError] = useState(false);
+  const [emailColor, setEmailColor] = useState('primary');
+  const [emailHelper, setEmailHelper] = useState("");
 
-
-    // handle la soumission du form
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-        if(email === "") {
-            setEmailError(true);
-            setEmailColor("secondary");
-            setEmailHelper('Ce champ est obligatoire.')
-        }
-        if(password === "") {
-            setPasswordError(true);
-            setPasswordColor("secondary");
-            setPasswordHelper('Ce champ est obligatoire.')
-        }
-
-        const data = {
-            email: email,
-            password: password,
-          }
-
-        axios.post(`${process.env.REACT_APP_API_URL}api/auth`, data)
-        .then(function (res) {
-            localStorage.setItem("token", res.data.data);
-            //window.location = "/";  
-        })
-        .catch(function (error) {
-            setPasswordHelper(
-            "Le mot de passe ou l'adresse email est incorrect(e)."
-            );
-        })
-
-	};
+  // gestion password
+  const [passwordError, setPasswordError] = useState(false);
+  const [passwordColor, setPasswordColor] = useState('primary');
+  const [passwordHelper, setPasswordHelper] = useState("");
 
 
-    // détecter si le format de l'email est ok + le placer dans le useState
-    const handleEmailChange = (e) => {
-        setEmail(e);
-        if (
-          e === "" ||
-          !e.match(
-            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          )
-        ) {
-          setEmailError(true);
-          setEmailHelper("Ecrivez un format d'adresse email correct. [*@.*]");
-          setEmailColor("secondary");
-        } else {
-          setEmailError(false);
-          setEmailHelper("");
-          setEmailColor("primary");
-        }
-      };
+  // handle la soumission du form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (email === "") {
+      setEmailError(true);
+      setEmailColor("secondary");
+      setEmailHelper('Ce champ est obligatoire.')
+    }
+    if (password === "") {
+      setPasswordError(true);
+      setPasswordColor("secondary");
+      setPasswordHelper('Ce champ est obligatoire.')
+    }
+
+    const data = {
+      email: email,
+      password: password,
+    }
+
+    axios.post(`${process.env.REACT_APP_API_URL}api/auth`, data)
+      .then(function (res) {
+        // localStorage.setItem("token", res.data.data);
+        context.login(res.data.data)
+
+        window.location = "/admin";
+      })
+      .catch(function (error) {
+        setPasswordHelper(
+          "Le mot de passe ou l'adresse email est incorrect(e)."
+        );
+      })
+
+  };
 
 
-      // détecter si le format du password est ok + le placer dans le useState
-      const handlePasswordChange = (e) => {
-        setPassword(e);
-        if (
-          e === "" ||
-          // le mot de passe doit contenir au moins 8 caractères, une min, une maj, un chiffre ainsi qu'un caractère spécial
-          !e.match(/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/)
-        ) {
-          setPasswordError(true);
-          setPasswordColor('secondary');
-          setPasswordHelper(
-            "Le mot de passe doit contenir au moins 8 caractères dont au moins un chiffre, une majuscule, une minuscule et un caractère spécial. "
-          );
-        } else {
-          setPasswordError(false);
-          setPasswordHelper("")
-          setPasswordColor("primary");
-        }
-      };
+  // détecter si le format de l'email est ok + le placer dans le useState
+  const handleEmailChange = (e) => {
+    setEmail(e);
+    if (
+      e === "" ||
+      !e.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+    ) {
+      setEmailError(true);
+      setEmailHelper("Ecrivez un format d'adresse email correct. [*@.*]");
+      setEmailColor("secondary");
+    } else {
+      setEmailError(false);
+      setEmailHelper("");
+      setEmailColor("primary");
+    }
+  };
+
+
+  // détecter si le format du password est ok + le placer dans le useState
+  const handlePasswordChange = (e) => {
+    setPassword(e);
+    if (
+      e === "" ||
+      // le mot de passe doit contenir au moins 8 caractères, une min, une maj, un chiffre ainsi qu'un caractère spécial
+      !e.match(/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/)
+    ) {
+      setPasswordError(true);
+      setPasswordColor('secondary');
+      setPasswordHelper(
+        "Le mot de passe doit contenir au moins 8 caractères dont au moins un chiffre, une majuscule, une minuscule et un caractère spécial. "
+      );
+    } else {
+      setPasswordError(false);
+      setPasswordHelper("")
+      setPasswordColor("primary");
+    }
+  };
 
 
 
-	return (
-		<Box sx={{ flexGrow: 1, width: '80%', mx: 'auto', my:5 }}>
+  return (
+    <Box sx={{ flexGrow: 1, width: '80%', mx: 'auto', my: 5 }}>
       {/** Titre création article */}
       <ThemeProvider theme={ThemeTitres}>
         <Typography
@@ -115,12 +120,12 @@ export default function Login() {
         </Typography>
       </ThemeProvider>
       <Typography
-          variant="body1" 
-          gutterBottom
-          sx={{ mt: 2 }}
-        >
-          Cet espace est réservé aux administrateurs. Veuillez vous connecter afin d'accéder à la page Admin et pouvoir gérer le contenu du site.
-        </Typography>
+        variant="body1"
+        gutterBottom
+        sx={{ mt: 2 }}
+      >
+        Cet espace est réservé aux administrateurs. Veuillez vous connecter afin d'accéder à la page Admin et pouvoir gérer le contenu du site.
+      </Typography>
       <Divider sx={{ my: 4 }} />
       {/** Se connecter */}
       <Box
@@ -176,7 +181,7 @@ export default function Login() {
 
       </Box>
     </Box>
-	);
+  );
 
 }
 
