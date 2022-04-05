@@ -68,8 +68,9 @@ const Actions = () => {
               title={action.title}
               content={action.content}
               location={action.location}
-              link="https://www.google.com/maps/place/S%C3%A9n%C3%A9gal/@14.4362166,-19.0140526,6z/data=!3m1!4b1!4m5!3m4!1s0xec172f5b3c5bb71:0x5a46a55099615940!8m2!3d14.497401!4d-14.452362"
-              image="https://picsum.photos/id/237/500/500" />
+              link={action.link}
+              image={action.image ? `/uploads/${action.image}`
+              : 'https://picsum.photos/id/173/400/800'} />
             </Grid>
           }) :
           <div>On a un soucis!</div>}
@@ -79,5 +80,6 @@ const Actions = () => {
     </Box>
   )
 }
+
 
 export default Actions
