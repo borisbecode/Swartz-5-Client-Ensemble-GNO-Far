@@ -45,7 +45,7 @@ function Childtext() {
           sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }}
           href="/parrainage"
         >
-          <Typography> Je parraine ! </Typography>{' '}
+          <Typography> Je parraine! </Typography>{' '}
         </Button>
       </Grid>
     </Box>

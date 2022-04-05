@@ -62,9 +62,9 @@ const Parrainage = () => {
               gutterBottom
               sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
             >
-              Grace à vos dons , nous pouvons offrir une assurance santé ,
-              lutter contre la malnutrition , offrir des colis alimentaires ,
-              des lits, des lunettes ...
+              Grace à vos dons, nous pouvons offrir une assurance santé, lutter
+              contre la malnutrition, offrir des colis alimentaires, des lits,
+              des lunettes...
             </Typography>
           </Box>
           <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
@@ -89,7 +89,7 @@ const Parrainage = () => {
               gutterBottom
               sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
             >
-              Nous garantissons une transparence totale sur les dons récoltés ,
+              Nous garantissons une transparence totale sur les dons récoltés,
               chaque euros récoltés est intégralement consacré à nos actions.
             </Typography>
           </Box>
@@ -147,7 +147,7 @@ const Parrainage = () => {
               gutterBottom
               sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
             >
-              N'oubliez pas , chaque don compte .
+              N'oubliez pas, chaque don compte .
             </Typography>
           </Box>
           {/*  <Grid align="center" sx={{ mt: 5 }}>

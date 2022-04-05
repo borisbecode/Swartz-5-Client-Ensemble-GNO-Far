@@ -109,12 +109,12 @@ function Child() {
               style={{
                 backgroundImage: `url(/uploads/${premierephoto})`,
               }}
-              class="premier"
+              className="premier"
             >
-              <Box class="image__img"></Box>
+              <Box className="image__img"></Box>
 
-              <Box class="image__overlay image__overlay--primary">
-                <Box class="image__title"> {premierephoto_nom}</Box>
+              <Box className="image__overlay image__overlay--primary">
+                <Box className="image__title"> {premierephoto_nom}</Box>
               </Box>
             </Box>
           </Grid>
@@ -131,24 +131,24 @@ function Child() {
               style={{
                 backgroundImage: `url(/uploads/${deuxiemephoto})`,
               }}
-              class="deuxieme"
+              className="deuxieme"
             >
-              <Box class="image__img"></Box>
+              <Box className="image__img"></Box>
 
-              <Box class="image__overlay image__overlay--primary">
-                <Box class="image__title"> {deuxiemephoto_nom}</Box>
+              <Box className="image__overlay image__overlay--primary">
+                <Box className="image__title"> {deuxiemephoto_nom}</Box>
               </Box>
             </Box>
             <Box
               style={{
                 backgroundImage: `url(/uploads/${troisiemephoto})`,
               }}
-              class="troisieme"
+              className="troisieme"
             >
-              <Box class="image__img"></Box>
+              <Box className="image__img"></Box>
 
-              <Box class="image__overlay image__overlay--primary">
-                <Box class="image__title"> {troisiemephoto_nom}</Box>
+              <Box className="image__overlay image__overlay--primary">
+                <Box className="image__title"> {troisiemephoto_nom}</Box>
               </Box>
             </Box>
           </Grid>
@@ -165,24 +165,24 @@ function Child() {
               style={{
                 backgroundImage: `url(/uploads/${quattriemephoto})`,
               }}
-              class="quattrieme"
+              className="quattrieme"
             >
-              <Box class="image__img"></Box>
+              <Box className="image__img"></Box>
 
-              <Box class="image__overlay image__overlay--primary">
-                <Box class="image__title"> {quattriemephoto_nom}</Box>
+              <Box className="image__overlay image__overlay--primary">
+                <Box className="image__title"> {quattriemephoto_nom}</Box>
               </Box>
             </Box>
             <Box
               style={{
                 backgroundImage: `url(/uploads/${cinquiemephoto})`,
               }}
-              class="cinquieme"
+              className="cinquieme"
             >
-              <Box class="image__img"></Box>
+              <Box className="image__img"></Box>
 
-              <Box class="image__overlay image__overlay--primary">
-                <Box class="image__title"> {cinquiemephoto_nom}</Box>
+              <Box className="image__overlay image__overlay--primary">
+                <Box className="image__title"> {cinquiemephoto_nom}</Box>
               </Box>
             </Box>
           </Grid>
@@ -199,12 +199,12 @@ function Child() {
               style={{
                 backgroundImage: `url(/uploads/${sixiemephoto})`,
               }}
-              class="sixieme"
+              className="sixieme"
             >
-              <Box class="image__img"></Box>
+              <Box className="image__img"></Box>
 
-              <Box class="image__overlay image__overlay--primary">
-                <Box class="image__title"> {sixiemephoto_nom}</Box>
+              <Box className="image__overlay image__overlay--primary">
+                <Box className="image__title"> {sixiemephoto_nom}</Box>
               </Box>
             </Box>
           </Grid>
