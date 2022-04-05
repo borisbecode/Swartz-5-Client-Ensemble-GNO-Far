@@ -12,6 +12,8 @@ import Header from './components/Header/Header'
 import Accueil from './pages/Accueil'
 import Parrainage from './pages/Parrainage'
 import Footer from './components/Footer/Footer'
+import Signup from './components/Signup/Signup'
+
 
 function App() {
   const user = localStorage.getItem('token')
@@ -27,6 +29,8 @@ function App() {
         <Route path="/connexion" exact element={<Login />} />
         <Route path="/admin" exact element={<Admin />} />
         <Route path="/introuvable" exact element={<NotFound />} />
+        <Route path="/test" exact element={<Login />} />
+        <Route path="/sign" exact element={<Signup />} />
       </Routes>
       <Footer />
     </Box>
