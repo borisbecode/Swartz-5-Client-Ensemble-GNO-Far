@@ -2,11 +2,12 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 const Parraines = require('../models/parraines')
+require('dotenv').config({ path: '../.env' })
 
 // definis le storage pour l'image
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, 'app/build/uploads/')
+    callback(null, CHEMINPHOTO)
   },
   filename: (req, file, callback) => {
     callback(null, Date.now() + file.originalname)
