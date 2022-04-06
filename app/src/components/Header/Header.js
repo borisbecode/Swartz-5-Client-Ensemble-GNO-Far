@@ -56,58 +56,58 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2 }}>
+              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2, ":hover": {backgroundColor: 'transparent'} }}>
                 <Typography
                   color="#2B2B2B"
                   component="a"
                   href="/"
                   textAlign="center"
-                  sx={{ fontSize: '20px', textDecoration: 'none' }}
+                  sx={{ fontSize: '20px', textDecoration: 'none', ":hover": {color:"primary.main", fontWeight:700} }}
                 >
                   Accueil
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2 }}>
+              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2, ":hover": {backgroundColor: 'transparent'} }}>
                 <Typography
                   color="#2B2B2B"
                   component="a"
                   href="/actions"
                   textAlign="center"
-                  sx={{ fontSize: '20px', textDecoration: 'none' }}
+                  sx={{ fontSize: '20px', textDecoration: 'none', ":hover": {color:"primary.main", fontWeight:700} }}
                 >
                   Actions
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2 }}>
+              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2, ":hover": {backgroundColor: 'transparent'} }}>
                 <Typography
                   color="#2B2B2B"
                   component="a"
                   href="/parrainage"
                   textAlign="center"
-                  sx={{ fontSize: '20px', textDecoration: 'none' }}
+                  sx={{ fontSize: '20px', textDecoration: 'none', ":hover": {color:"primary.main", fontWeight:700} }}
                 >
                   Parrainage
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2 }}>
+              <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2, ":hover": {backgroundColor: 'transparent'} }}>
                 <Typography
                   color="#2B2B2B"
                   component="a"
                   href="/quisommesnous"
                   textAlign="center"
-                  sx={{ fontSize: '20px', textDecoration: 'none' }}
+                  sx={{ fontSize: '20px', textDecoration: 'none', ":hover": {color:"primary.main", fontWeight:700} }}
                 >
                   Qui sommes-nous
                 </Typography>
               </MenuItem>
               {user ? (
-                <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2 }}>
+                <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2, ":hover": {backgroundColor: 'transparent'} }}>
                   <Typography
                     color="#2B2B2B"
                     component="a"
                     href="/admin"
                     textAlign="center"
-                    sx={{ fontSize: '20px', textDecoration: 'none' }}
+                    sx={{ fontSize: '20px', textDecoration: 'none', ":hover": {color:"primary.main", fontWeight:700} }}
                   >
                     Espace Admin
                   </Typography>
@@ -115,14 +115,14 @@ const Header = () => {
               ) : null}
 
               {user && (
-                <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2 }}>
+                <MenuItem onClick={handleCloseNavMenu} sx={{ m: 2, ":hover": {backgroundColor: 'transparent'} }}>
                   <Typography
                     onClick={logout}
                     color="#2B2B2B"
                     component="a"
                     href="/"
                     textAlign="center"
-                    sx={{ fontSize: '20px', textDecoration: 'none' }}
+                    sx={{ fontSize: '20px', textDecoration: 'none', ":hover": {color:"primary.main", fontWeight:700} }}
                   >
                     Se Déconnecter
                   </Typography>
@@ -141,28 +141,28 @@ const Header = () => {
             <Button
               href="/"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: '#2B2B2B', display: 'block' }}
+              sx={{ my: 2, color: '#2B2B2B', display: 'block', ":hover": {color:"primary.main", backgroundColor: 'transparent', fontWeight:700} }}
             >
               Accueil
             </Button>
             <Button
               href="/actions"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: '#2B2B2B', display: 'block' }}
+              sx={{ my: 2, color: '#2B2B2B', display: 'block', ":hover": {color:"primary.main", backgroundColor: 'transparent', fontWeight:700} }}
             >
               Actions
             </Button>
             <Button
               href="/parrainage"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: '#2B2B2B', display: 'block' }}
+              sx={{ my: 2, color: '#2B2B2B', display: 'block', ":hover": {color:"primary.main", backgroundColor: 'transparent', fontWeight:700} }}
             >
               Parrainage
             </Button>
             <Button
               href="quisommesnous"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: '#2B2B2B', display: 'block' }}
+              sx={{ my: 2, color: '#2B2B2B', display: 'block', ":hover": {color:"primary.main", backgroundColor: 'transparent', fontWeight:700} }}
             >
               Qui sommes-nous
             </Button>
@@ -170,7 +170,7 @@ const Header = () => {
               <Button
                 href="/admin"
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#2B2B2B', display: 'block' }}
+                sx={{ my: 2, color: '#2B2B2B', display: 'block', ":hover": {color:"primary.main", backgroundColor: 'transparent', fontWeight:700} }}
               >
                 Espace Admin
               </Button>
@@ -180,7 +180,7 @@ const Header = () => {
               <Button
                 href="/"
                 onClick={logout}
-                sx={{ my: 2, color: '#2B2B2B', display: 'block' }}
+                sx={{ my: 2, color: '#2B2B2B', display: 'block', ":hover": {color:"primary.main", backgroundColor: 'transparent', fontWeight:700} }}
               >
                 Se Déconnecter
               </Button>

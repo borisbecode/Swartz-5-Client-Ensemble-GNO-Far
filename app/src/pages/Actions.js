@@ -56,13 +56,13 @@ const Actions = () => {
         </ThemeProvider>
         {/** Texte explicatif actions */}
         <Typography variant="body1" gutterBottom sx={{mt:4}}>
-        Etiam in convallis diam. Sed convallis non arcu a consequat. Nulla facilisi. Suspendisse commodo risus ac malesuada tincidunt. Suspendisse in tincidunt ex, non fermentum velit. Sed lacinia elementum viverra. Pellentesque ornare auctor purus eget volutpat. Integer eget ultricies dui, nec ullamcorper magna. Pellentesque pharetra vitae mi ut tincidunt. 
+        Découvrez dans cette rubrique les actions entreprises par Ensemble Gno-Far.
             </Typography>
     <Divider sx={{my:4}}/>
     {/** Actions "cards" */}
       <Grid container sx={{mx:"auto"}}>
         { data ?
-          data.map((action) => {
+          data.slice(0).reverse().map((action) => {
             return <Grid key={action._id} item xs={12} >
               <ActionModele
               title={action.title}
