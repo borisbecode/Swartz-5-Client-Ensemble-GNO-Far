@@ -18,35 +18,6 @@ const Input = styled('input')({
 const CreationAction = () => {
   // recup les infos user
   const { user } = useContext(AuthContext)
-<<<<<<< HEAD
-
-
-  const [titre, setTitre] = useState('')
-  const [contenu, setContenu] = useState('')
-  const [lieu, setLieu] = useState("");
-  const [lien, setLien] = useState("");
-  const [imageNomAction, setImageNomAction] = useState('Choisissez une image');
-  const [actionImage, setActionImage] = useState('');
-
-  const [titreError, setTitreError] = useState(false);
-  const [contenuError, setContenuError] = useState(false);
-  const [lieuError, setLieuError] = useState(false);
-  const [lienError, setLienError] = useState(false);
-  const [imageError, setImageError] = useState(false);
-
-  const [titreHelper, setTitreHelper] = useState('');
-  const [contenuHelper, setContenuHelper] = useState('');
-  const [lieuHelper, setLieuHelper] = useState("");
-  const [lienHelper, setLienHelper] = useState("");
-  const [imageHelper, setImageHelper] = useState("");
-
-
-  const [titreColor, setTitreColor] = useState('primary');
-  const [contenuColor, setContenuColor] = useState('primary');
-  const [lieuColor, setLieuColor] = useState('primary');
-  const [lienColor, setLienColor] = useState('primary');
-  const [imageColor, setImageColor] = useState('primary');
-=======
 
   const [titre, setTitre] = useState('')
   const [contenu, setContenu] = useState('')
@@ -72,7 +43,6 @@ const CreationAction = () => {
   const [lieuColor, setLieuColor] = useState('primary')
   const [lienColor, setLienColor] = useState('primary')
   const [imageColor, setImageColor] = useState('primary')
->>>>>>> e579392a293f010dc5151155a3bf79393c494016
 
   // à la soumission du form
   const handleSubmit = async (event) => {
