@@ -16,36 +16,33 @@ const Input = styled('input')({
 })
 
 const CreationAction = () => {
-
   // recup les infos user
   const { user } = useContext(AuthContext)
-  console.log(user)
 
   const [titre, setTitre] = useState('')
   const [contenu, setContenu] = useState('')
-  const [lieu, setLieu] = useState("");
-  const [lien, setLien] = useState("");
-  const [imageNomAction, setImageNomAction] = useState('Choisissez une image');
-  const [actionImage, setActionImage] = useState('');
+  const [lieu, setLieu] = useState('')
+  const [lien, setLien] = useState('')
+  const [imageNomAction, setImageNomAction] = useState('Choisissez une image')
+  const [actionImage, setActionImage] = useState('')
 
-  const [titreError, setTitreError] = useState(false);
-  const [contenuError, setContenuError] = useState(false);
-  const [lieuError, setLieuError] = useState(false);
-  const [lienError, setLienError] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  const [titreError, setTitreError] = useState(false)
+  const [contenuError, setContenuError] = useState(false)
+  const [lieuError, setLieuError] = useState(false)
+  const [lienError, setLienError] = useState(false)
+  const [imageError, setImageError] = useState(false)
 
-  const [titreHelper, setTitreHelper] = useState('');
-  const [contenuHelper, setContenuHelper] = useState('');
-  const [lieuHelper, setLieuHelper] = useState("");
-  const [lienHelper, setLienHelper] = useState("");
-  const [imageHelper, setImageHelper] = useState("");
-  
+  const [titreHelper, setTitreHelper] = useState('')
+  const [contenuHelper, setContenuHelper] = useState('')
+  const [lieuHelper, setLieuHelper] = useState('')
+  const [lienHelper, setLienHelper] = useState('')
+  const [imageHelper, setImageHelper] = useState('')
 
-  const [titreColor, setTitreColor] = useState('primary');
-  const [contenuColor, setContenuColor] = useState('primary');
-  const [lieuColor, setLieuColor] = useState('primary');
-  const [lienColor, setLienColor] = useState('primary');
-  const [imageColor, setImageColor] = useState('primary');
+  const [titreColor, setTitreColor] = useState('primary')
+  const [contenuColor, setContenuColor] = useState('primary')
+  const [lieuColor, setLieuColor] = useState('primary')
+  const [lienColor, setLienColor] = useState('primary')
+  const [imageColor, setImageColor] = useState('primary')
 
   // à la soumission du form
   const handleSubmit = async (event) => {
@@ -63,15 +60,15 @@ const CreationAction = () => {
     }
 
     if (lieu === '') {
-        setLieuError(true)
-        setLieuHelper('Ce champ est obligatoire.')
-        setLieuColor('secondary')
+      setLieuError(true)
+      setLieuHelper('Ce champ est obligatoire.')
+      setLieuColor('secondary')
     }
 
     if (lien === '') {
-    setLienError(true)
-    setLienHelper('Ce champ est obligatoire.')
-    setLienColor('secondary')
+      setLienError(true)
+      setLienHelper('Ce champ est obligatoire.')
+      setLienColor('secondary')
     }
 
     const formData = new FormData()
@@ -145,7 +142,7 @@ const CreationAction = () => {
           color={titreColor}
           helperText={titreHelper}
         />
-        
+
         <TextField
           required
           label="Contenu"
@@ -159,7 +156,7 @@ const CreationAction = () => {
           helperText={contenuHelper}
         />
 
-<TextField
+        <TextField
           label="Lieu"
           onChange={(event) => {
             setLieu(event.target.value)
@@ -169,7 +166,7 @@ const CreationAction = () => {
           helperText={lieuHelper}
         />
 
-<TextField
+        <TextField
           label="Lien carte"
           onChange={(event) => {
             setLien(event.target.value)
@@ -187,8 +184,8 @@ const CreationAction = () => {
             type="file"
             filename="imageNomAction"
             onChange={(event) => {
-              setImageNomAction(event.target.value);
-              setActionImage(event.target.files[0]);
+              setImageNomAction(event.target.value)
+              setActionImage(event.target.files[0])
             }}
           />
 
