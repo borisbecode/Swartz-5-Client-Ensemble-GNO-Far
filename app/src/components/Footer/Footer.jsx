@@ -31,7 +31,7 @@ function Footer() {
         <Grid item xs={12} lg={4} sx={{ pb: 2 }}>
           {' '}
           <Typography gutterBottom component="div" sx={{fontWeight:"600"}}>Soutenez notre projet</Typography>{' '}
-          <Button sx={{my:2}} color="inherit" variant="outlined" href="/parrainage" endIcon={<FavoriteIcon />}>
+          <Button sx={{my:2, ":hover": {color:"#a5e6c2"}}} color="inherit" variant="outlined" href="/parrainage" endIcon={<FavoriteIcon />}>
             Je parraine
           </Button>
           
@@ -40,12 +40,13 @@ function Footer() {
         <Grid item lg={4}>
           {' '}
           <Typography gutterBottom component="div" sx={{fontWeight:"600"}}>Suivez nous sur Facebook </Typography>
-          <IconButton sx={{my:1, color:"white"}} href="https://www.facebook.com/groups/809911975835319" target="_black">
+          <IconButton sx={{my:1, p:0, color:"white", ":hover": {color:"#a5e6c2"}}} href="https://www.facebook.com/groups/809911975835319" target="_black">
             <FacebookRoundedIcon color="inherit" sx={{height:"40px", width:"auto"}}/>
           </IconButton>
         </Grid>
       </Container>
 
+    
       <Container
         sx={{ pt: 3, alignItems: 'center', justifyContent: 'center' }}
       >

@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider';
 import Histoire from '../components/Histoire';
 import LesMembres from '../components/LesMembres';
 import Parrains from '../components/Parrains';
+import Equipe from "../Assets/toutelequipe.jpg";
 
 
 
@@ -25,10 +26,10 @@ function Quinoussommes() {
     
         <Box sx={{ flexGrow: 1, width:"80%", mx:"auto", my:3 }}>
         <Histoire 
-          title="L'histoire de Gno-Far"
-          content="Proin nibh velit, elementum sed ante at, pretium venenatis dolor. Integer commodo rutrum neque. Morbi ante metus, ultricies nec tempor vel, ornare a enim. Fusce tincidunt consequat sem, eu ornare erat varius a. Sed vitae tristique dolor. Suspendisse maximus erat at sapien consectetur, porta rutrum libero mollis. Donec scelerisque condimentum nisl, eget ultricies dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras sapien sapien, laoreet id est eget, vestibulum aliquet sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque sed faucibus mi, nec sodales nisl. Nullam placerat nulla nec quam cursus feugiat. Morbi euismod, arcu eget bibendum bibendum, augue lectus eleifend tortor, eu dignissim dui felis quis odio. Fusce sed convallis tellus. Integer in finibus dolor."
-          content2="Curabitur mollis massa sed auctor sagittis. Vestibulum vehicula tempor lectus, non elementum tortor auctor quis. Nullam in posuere odio. Vivamus ac aliquam ante. Sed nec tortor eu dui egestas dignissim. Donec volutpat augue eu turpis interdum imperdiet. Proin euismod dapibus lorem quis sodales. Morbi ac elit metus. Quisque quis enim augue. Duis id eleifend diam, molestie gravida purus. Donec maximus massa eros, sit amet varius orci condimentum sit amet."
-          image="https://picsum.photos/id/237/800/800" />
+          title="Comment notre ASBL est-elle née?"
+          content="Trois randonneurs répondent à une proposition de randonnées au Sénégal et tombent sous le charme de l'accueil chaleureux des sénégalais mais sont surtout frappés par le nombre d'enfants traînant dans les rues alors que des écoles sont là pour les accueillir mais qui, fautes de moyens des parents, n'y ont pas accès."
+          content2="Après des mois de réflexion, nous décidons de créer une ASBL afin de permettre à un maximum d'enfants d'avoir accès à l'éducation mais également aux soins en les affiliant à l'assurance santé."
+          image={Equipe} />
 
           <LesMembres />
           <Parrains />

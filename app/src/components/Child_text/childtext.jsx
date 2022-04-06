@@ -24,12 +24,10 @@ function Childtext() {
       <Grid item xs={12} lg={10}>
         {' '}
         <Typography sx={{ mt: 2 }}>
-          ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-          molestiae quas vel sint commodi repudiandae consequuntur voluptatum
-          laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto
-          fuga praesentium optio, eaque rerum! Provident similique accusantium
-          nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias
-          architecto voluptate aliquam
+        Chaque année nous sommes sollicités par de nombreux parents qui souhaiteraient voir leurs enfants fréquenter l'école. Cette année scolaire 2021-2022 ce ne sont pas moins de 172 enfants qui sont parrainés : 21 à Mbour et 151 à Foundiougne.
+        </Typography>
+        <Typography sx={{ mt: 2 }}>
+        La plus grande difficulté que nous rencontrons est la diversité des types d'enseignements (publics ou privés) et des villes dans lesquels vivent ces enfants, dans une ville comme Mbour, il est courant d'avoir une centaine d'enfants par classe et là, l'achat des manuels scolaires sont une évidence, de même que le paiement de cours de renforcement.. Cela nous obligent à fixer les montants des parrainages selon ces différents critères, ceux-ci peuvent varier de 65€ à 200€ par an.
         </Typography>
       </Grid>
       <Grid
@@ -37,15 +35,14 @@ function Childtext() {
         item
         xs={12}
         lg={2}
-        sx={{ pr: 0, mr: 0, alignItems: 'flex-end' }}
+        sx={{ pr: 0, mr: 0, alignItems: 'flex-end', alignSelf:"flex-end" }}
       >
         {' '}
         <Button
           variant="contained"
-          sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }}
+          sx={{ bgcolor: 'secondary.main', color: 'white', alignSelf:"flex-end", whiteSpace:"nowrap", my:4, ml:{lg:4}}}
           href="/parrainage"
-        >
-          <Typography> Je parraine! </Typography>{' '}
+        >Je parraine!
         </Button>
       </Grid>
     </Box>

@@ -13,7 +13,8 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import Modal from '@mui/material/Modal';
-import { AuthContext } from '../../context/auth'
+import { AuthContext } from '../../context/auth';
+import Tooltip from '@mui/material/Tooltip';
 
 const style = {
     position: 'absolute',
@@ -119,9 +120,11 @@ const UpdateAction = ({data}) => {
   return (
     <Box>
         <Stack direction="column" alignItems="start-end" >
-            <IconButton onClick={handleOpen} aria-label="delete" size="large" sx={{"&:hover": { color: "primary.main" }}} >
-                <EditOutlinedIcon />
-            </IconButton>
+            <Tooltip title="Modifiez ou effacez cette action">
+                <IconButton onClick={handleOpen} aria-label="delete" size="large" sx={{"&:hover": { color: "primary.main" }}} >
+                    <EditOutlinedIcon />
+                </IconButton>
+            </Tooltip>
         </Stack>
         <Modal
             open={open}

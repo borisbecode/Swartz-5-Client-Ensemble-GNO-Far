@@ -7,62 +7,65 @@ import Grid from '@mui/material/Grid';
 import { ThemeProvider } from '@mui/material/styles';
 import { ThemeTitres } from '../theme/ThemeTitres';
 import { bgcolor } from '@mui/material/node_modules/@mui/system';
+import JL from "../Assets/Jean-Luc_Nef.jpg";
+import Annie from "../Assets/Annie_Tilmant.jpg";
+import MC from "../Assets/Marie-Chantal_Fena.jpg";
 
 function LesMembres() {
   return (
     <Box sx={{pt:5}}>
         <ThemeProvider theme={ThemeTitres}>
               <Typography variant="h1" sx={{fontSize:"1.5rem", mt:4}}>
-                  L'équipe Gno-Far
+                Les trois membres fondateurs, leur fonction, leur parcours.
               </Typography>
           </ThemeProvider>
         
         <Divider sx={{my:4}}/>
 
-        <Grid container spacing={4}>
-        <Grid item xs={12} sm={12} md={4} sx={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", textAlign:"center"}}>
+        <Grid container spacing={4} >
+        <Grid item xs={12} sm={12} md={4} sx={{display:"flex", flexDirection:"column", justifyContent:"flex-start", alignItems:"center", textAlign:"center"}}>
         <Avatar
-            alt="Prénom Nom"
-            src="https://picsum.photos/id/42/800/800"
+            alt="Marie-Chantal Fena"
+            src={MC}
             sx={{ width: 200, height: 200 }}
             />
             <Typography
              variant="h3"
              color="primary.main"
-             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold"}}>Prénom Nom</Typography>
+             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold"}}>Marie-Chantal Fena</Typography>
              <Typography
              variant="body2" gutterBottom
-             sx={{ mt: 2 }}>Petit texte personnalisé. Ut venenatis sapien interdum eleifend tristique. Suspendisse varius libero vitae ante bibendum, nec interdum quam auctor. Fusce gravida erat libero, a maximus lectus auctor non. </Typography>
+             sx={{ mt: 2 }}>Employée du groupe Mesdagh et résidente depuis 2019 au Sénégal, elle est notre relais incontournable au Sénégal et surtout à Foundiougne.</Typography>
         </Grid>
 
-        <Grid item xs={12} sm={12} md={4} sx={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", textAlign:"center"}}>
+        <Grid item xs={12} sm={12} md={4} sx={{display:"flex", flexDirection:"column", justifyContent:"flex-start", alignItems:"center", textAlign:"center"}}>
         <Avatar
-            alt="Prénom Nom"
-            src="https://picsum.photos/id/122/800/800"
+            alt="Jean-Luc Nef"
+            src={JL}
             sx={{ width: 200, height: 200 }}
             />
             <Typography
              variant="h3"
              color="primary.main"
-             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold" }}>Prénom Nom</Typography>
+             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold" }}>Jean-Luc Nef</Typography>
              <Typography
              variant="body2" gutterBottom
-             sx={{ mt: 2 }}>Petit texte personnalisé. Ut venenatis sapien interdum eleifend tristique. Suspendisse varius libero vitae ante bibendum, nec interdum quam auctor. Fusce gravida erat libero, a maximus lectus auctor non. </Typography>
+             sx={{ mt: 2 }}>Ingénieur agronome et retraité, vice-président et trésorier de l'ASBL</Typography>
         </Grid>
 
-        <Grid item xs={12} sm={12} md={4} sx={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", textAlign:"center"}}>
+        <Grid item xs={12} sm={12} md={4} sx={{display:"flex", flexDirection:"column", justifyContent:"flex-start", alignItems:"center", textAlign:"center"}}>
         <Avatar
-            alt="Prénom Nom"
-            src="https://picsum.photos/id/34/800/800"
+            alt="Annie Tilmant"
+            src={Annie}
             sx={{ width: 200, height: 200 }}
             />
             <Typography
              variant="h3"
              color="primary.main"
-             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold" }}>Prénom Nom</Typography>
+             sx={{ mt: 4, fontSize: '1rem', fontWeight:"bold" }}>Annie Tilmant</Typography>
              <Typography
              variant="body2" gutterBottom
-             sx={{ mt: 2 }}>Petit texte personnalisé. Ut venenatis sapien interdum eleifend tristique. Suspendisse varius libero vitae ante bibendum, nec interdum quam auctor. Fusce gravida erat libero, a maximus lectus auctor non. </Typography>
+             sx={{ mt: 2 }}>Directrice honoraire de l'école des CRACS à Houdeng-Goegnies et présidente et secrétaire de l'ASBL.</Typography>
         </Grid>
 
         </Grid>
