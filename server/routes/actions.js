@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const multer = require("multer")
 const Actions = require("../models/actions")
+const checkAuth = require('../utils/checkAuth')
 
 // definis le storage pour l'image
 const storage = multer.diskStorage({
@@ -57,6 +58,9 @@ router.get("/actif", (req, res) => {
 
 // Add new action
 router.post('/add', upload.single("image"), (req, res) => {
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
 
   const IS_PUBLISHED = 'published'
 
@@ -78,6 +82,7 @@ router.post('/add', upload.single("image"), (req, res) => {
     users: [newUser],
     // image: req.file.filename
   }
+
   // pour que l'image ne soit pas required
   if (req.file && req.file.filename) action.image = req.file.filename
 
@@ -103,6 +108,10 @@ router.get('/:id', (req, res) => {
 
 // Find action by id and update
 router.put('/update/:id', upload.single("image"), (req, res) => {
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
+
   Actions.findById(req.params.id)
     .then(action => {
       const IS_EDITED = 'edited'
@@ -133,6 +142,12 @@ router.put('/update/:id', upload.single("image"), (req, res) => {
 
 // Find action by id and delete of db
 router.delete('/:id', (req, res) => {
+
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
+
+
   Actions.findByIdAndDelete(req.params.id)
     .then(() => res.json("L'action est supprimée"))
     .catch(err => res.status(400).json(`Error: ${err}`))
@@ -140,6 +155,12 @@ router.delete('/:id', (req, res) => {
 
 // Find action by id and delete = true (reste en backup dans la db)
 router.put('/delete/:id', upload.single("image"), (req, res) => {
+
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
+
+
   Actions.findById(req.params.id)
     .then(action => {
       const IS_DELETED = true

@@ -25,15 +25,15 @@ const style = {
     border: 'none',
     boxShadow: 24,
     p: 4,
-  };
+};
 
 
 const Input = styled('input')({
     display: 'none',
-  });
+});
 
 
-const UpdateAction = ({data}) => {
+const UpdateAction = ({ data }) => {
 
     // recup les infos user
     const { user } = useContext(AuthContext)
@@ -42,61 +42,72 @@ const UpdateAction = ({data}) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-  const [titre, setTitre] = useState(data.title? data.title: "");
-  const [contenu, setContenu] = useState(data.content?data.content:"");
-  const [imageNom, setImageNom] = useState(data.image?data.image:"");
-  const [actionImage, setActionImage] = useState(data.image?data.image:"");
+    const [titre, setTitre] = useState(data.title ? data.title : "");
+    const [contenu, setContenu] = useState(data.content ? data.content : "");
+    const [imageNom, setImageNom] = useState(data.image ? data.image : "");
+    const [actionImage, setActionImage] = useState(data.image ? data.image : "");
 
-  const [titreError, setTitreError] = useState(false);  
-  const [contenuError, setContenuError] = useState(false);
+    const [titreError, setTitreError] = useState(false);
+    const [contenuError, setContenuError] = useState(false);
 
-  const [titreHelper, setTitreHelper] = useState("");  
-  const [contenuHelper, setContenuHelper] = useState("");
+    const [titreHelper, setTitreHelper] = useState("");
+    const [contenuHelper, setContenuHelper] = useState("");
 
-  const [titreColor, setTitreColor] = useState("primary");  
-  const [contenuColor, setContenuColor] = useState("primary");
+    const [titreColor, setTitreColor] = useState("primary");
+    const [contenuColor, setContenuColor] = useState("primary");
 
-  // à la soumission du form
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    // à la soumission du form
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-    if (titre === "") {
-      setTitreError(true);
-      setTitreHelper("Ce champ est obligatoire.");
-      setTitreColor("secondary");
+        const { user } = useContext(AuthContext)
+
+        if (titre === "") {
+            setTitreError(true);
+            setTitreHelper("Ce champ est obligatoire.");
+            setTitreColor("secondary");
+        }
+        if (contenu === "") {
+            setContenuError(true);
+            setContenuHelper("Ce champ est obligatoire.");
+            setContenuColor("secondary");
+        }
+
+        const formData = new FormData();
+
+        formData.append("title", titre)
+        formData.append("content", contenu)
+        formData.append("image", actionImage);
+        formData.append('id', user._id)
+        formData.append('firstName', user.firstName)
+        formData.append('lastName', user.lastName)
+        formData.append('email', user.email)
+
+
+        axios.put(`${process.env.REACT_APP_API_URL}api/actions/update/${data._id}`, formData,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        )
+            .then(function (response) {
+                window.location = '/admin'
+
+            })
+            .catch(function (error) {
+                console.log(error);
+                setContenuHelper(
+                    "L'article n'a pas pu être ajouté."
+                )
+            })
     }
-    if (contenu === "") {
-        setContenuError(true);
-        setContenuHelper("Ce champ est obligatoire.");
-        setContenuColor("secondary");
-      }
-
-      const formData = new FormData();
-
-      formData.append("title", titre)
-      formData.append("content", contenu)
-      formData.append("image", actionImage);
-      formData.append('id', user._id)
-      formData.append('firstName', user.firstName)
-      formData.append('lastName', user.lastName)
-      formData.append('email', user.email)
-
-
-      axios.put(`${process.env.REACT_APP_API_URL}api/actions/update/${data._id}`, formData)
-        .then(function (response) {
-            window.location = '/admin'
-            
-        })
-        .catch(function (error) {
-            console.log(error);
-            setContenuHelper(
-            "L'article n'a pas pu être ajouté."
-            )})
- }
 
     const handleDelete = async (event) => {
 
         const formData = new FormData();
+
+        const { user } = useContext(AuthContext)
 
         formData.append('id', user._id)
         formData.append('firstName', user.firstName)
@@ -104,117 +115,126 @@ const UpdateAction = ({data}) => {
         formData.append('email', user.email)
 
         event.preventDefault();
-        axios.put(`${process.env.REACT_APP_API_URL}api/actions/delete/${data._id}`, formData)
-        .then(function () {
-            window.location = '/admin'
-        })
-        .catch(function (error) {
-            console.log(error);
-            setContenuHelper(
-            "L'action n'a pas pu être ajouté."
-            )})
+        axios.put(`${process.env.REACT_APP_API_URL}api/actions/delete/${data._id}`, formData,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+        )
+            .then(function () {
+                window.location = '/admin'
+            })
+            .catch(function (error) {
+                console.log(error);
+                setContenuHelper(
+                    "L'action n'a pas pu être ajouté."
+                )
+            })
     }
 
 
 
-  return (
-    <Box>
-        <Stack direction="column" alignItems="start-end" >
-            <Tooltip title="Modifiez ou effacez cette action">
-                <IconButton onClick={handleOpen} aria-label="delete" size="large" sx={{"&:hover": { color: "primary.main" }}} >
-                    <EditOutlinedIcon />
-                </IconButton>
-            </Tooltip>
-        </Stack>
-        <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
-            <Box sx={style}>
-                {/** Titre création article */}
-                <ThemeProvider theme={ThemeTitres}>
-                    <Typography variant="h1" color="primary.main" sx={{mt:4, fontSize:"2rem"}}>
-                        Actualiser l'action
-                    </Typography>
-                </ThemeProvider>
-                <Divider sx={{my:4}}/>
-                {/** Form pour créer nouvel article */}
-                <Box
-                component="form"
-                encType='multipart/form-data'
-                onSubmit={handleSubmit}
-                sx={{
-                    display:"flex", flexDirection:"column",
-                    maxWidth:"600px",
-                    '& .MuiTextField-root': { m: 1 },
-                    '& .MuiButton-root': { m: 1 },
-                    justifyContent:"center",
-                    mx:"auto",
-                    encType:'multipart/form-data'
-                }}
-                noValidate
-                autoComplete="off"
-                >
-                
-                    <TextField
-                    autoFocus
-                    required
-                    label="Titre"
-                    value={titre}
-                    onChange={(event) => {
-                        setTitre(event.target.value);}}
-                    error={titreError}
-                    color={titreColor}
-                    helperText={titreHelper}
-                    />
-                    
-                    <TextField
-                    value={contenu}
-                    required
-                    label="Contenu article"
-                    multiline
-                    rows={8}
-                    onChange={(event) => {
-                        setContenu(event.target.value);}}
-                    error={contenuError}
-                    color={contenuColor}
-                    helperText={contenuHelper}
-                    />
-
-                    {/** Option ajout image */}
-                    <label 
-                        htmlFor="contained-button-file" 
+    return (
+        <Box>
+            <Stack direction="column" alignItems="start-end" >
+                <Tooltip title="Modifiez ou effacez cette action">
+                    <IconButton onClick={handleOpen} aria-label="delete" size="large" sx={{ "&:hover": { color: "primary.main" } }} >
+                        <EditOutlinedIcon />
+                    </IconButton>
+                </Tooltip>
+            </Stack>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    {/** Titre création article */}
+                    <ThemeProvider theme={ThemeTitres}>
+                        <Typography variant="h1" color="primary.main" sx={{ mt: 4, fontSize: "2rem" }}>
+                            Actualiser l'action
+                        </Typography>
+                    </ThemeProvider>
+                    <Divider sx={{ my: 4 }} />
+                    {/** Form pour créer nouvel article */}
+                    <Box
+                        component="form"
+                        encType='multipart/form-data'
+                        onSubmit={handleSubmit}
+                        sx={{
+                            display: "flex", flexDirection: "column",
+                            maxWidth: "600px",
+                            '& .MuiTextField-root': { m: 1 },
+                            '& .MuiButton-root': { m: 1 },
+                            justifyContent: "center",
+                            mx: "auto",
+                            encType: 'multipart/form-data'
+                        }}
+                        noValidate
+                        autoComplete="off"
                     >
-                        <Input accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" filename="articleImage" onChange={(event) => {
-                            setImageNom(event.target.value);
-                            setActionImage(event.target.files[0]);
-                            }}  />
-                        
-                        <Button variant="contained" component="span" endIcon={<PhotoCamera />} sx={{color:"white"}}>
-                        Image
-                        </Button>
-                        <Typography variant="caption" gutterBottom>{imageNom}</Typography>
-                    </label>
 
-                    <Button 
-                        type="submit" 
-                        variant="contained" 
-                        sx={{color: "white"}}
-                        size="large">Mettre à jour</Button>
-                    
-                    <Button 
-                        variant="contained" 
-                        onClick={handleDelete}
-                        sx={{color: "white", bgcolor:"secondary.main"}}
-                        size="large">Supprimer</Button>
-                
+                        <TextField
+                            autoFocus
+                            required
+                            label="Titre"
+                            value={titre}
+                            onChange={(event) => {
+                                setTitre(event.target.value);
+                            }}
+                            error={titreError}
+                            color={titreColor}
+                            helperText={titreHelper}
+                        />
+
+                        <TextField
+                            value={contenu}
+                            required
+                            label="Contenu article"
+                            multiline
+                            rows={8}
+                            onChange={(event) => {
+                                setContenu(event.target.value);
+                            }}
+                            error={contenuError}
+                            color={contenuColor}
+                            helperText={contenuHelper}
+                        />
+
+                        {/** Option ajout image */}
+                        <label
+                            htmlFor="contained-button-file"
+                        >
+                            <Input accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" filename="articleImage" onChange={(event) => {
+                                setImageNom(event.target.value);
+                                setActionImage(event.target.files[0]);
+                            }} />
+
+                            <Button variant="contained" component="span" endIcon={<PhotoCamera />} sx={{ color: "white" }}>
+                                Image
+                            </Button>
+                            <Typography variant="caption" gutterBottom>{imageNom}</Typography>
+                        </label>
+
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            sx={{ color: "white" }}
+                            size="large">Mettre à jour</Button>
+
+                        <Button
+                            variant="contained"
+                            onClick={handleDelete}
+                            sx={{ color: "white", bgcolor: "secondary.main" }}
+                            size="large">Supprimer</Button>
+
+                    </Box>
                 </Box>
-            </Box>
-        </Modal>   
-    </Box>
-  )
+            </Modal>
+        </Box>
+    )
 }
 
 export default UpdateAction

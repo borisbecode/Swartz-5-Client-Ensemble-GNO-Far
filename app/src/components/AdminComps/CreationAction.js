@@ -48,6 +48,8 @@ const CreationAction = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
+    const token = localStorage.getItem('jwtToken')
+
     if (titre === '') {
       setTitreError(true)
       setTitreHelper('Ce champ est obligatoire.')
@@ -84,7 +86,13 @@ const CreationAction = () => {
     formData.append('email', user.email)
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}api/actions/add`, formData)
+      .post(`${process.env.REACT_APP_API_URL}api/actions/add`, formData,
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        }
+      )
       .then(function () {
         window.location.reload()
         setContenuHelper("L'article a été publié avec succès!")
@@ -93,8 +101,8 @@ const CreationAction = () => {
         // setContenu("");
         // setImageNom("Choisissez une image");
       })
-      .catch(function (error) {
-        console.log(error)
+      .catch(function (Error) {
+        console.log(Error)
         setContenuHelper("L'article n'a pas pu être ajouté.")
       })
   }

@@ -5,6 +5,8 @@ const multer = require('multer')
 const { application } = require('express')
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
+const checkAuth = require('../utils/checkAuth')
+
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
@@ -82,6 +84,10 @@ router.get("/actif", (req, res) => {
 //REQUESTS ADD NEW ARTICLE
 router.post('/add', upload.single('articleImage'), (req, res) => {
 
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
+
   const IS_PUBLISHED = 'published'
 
   let newUser = {
@@ -122,6 +128,11 @@ router.get('/:id', (req, res) => {
 
 //REQUEST FIND ARTICLE BY ID AND UPDATE
 router.put('/update/:id', upload.single('articleImage'), (req, res) => {
+
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
+
   Articles.findById(req.params.id)
 
     .then((article) => {
@@ -182,6 +193,11 @@ router.put('/update/:id', upload.single('articleImage'), (req, res) => {
 
 //REQUEST FIND ARTICLE BY ID AND DELETE
 router.delete("/:id", (req, res) => {
+
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
+
   Articles.findByIdAndDelete(req.params.id)
     .then(() => res.json("The article is deleted!!"))
     .catch(error => res.status(400).json(`Error: ${error}`))
@@ -190,6 +206,11 @@ router.delete("/:id", (req, res) => {
 
 // Find action by id and delete = true (reste en backup dans la db)
 router.put('/delete/:id', upload.single("articleImage"), (req, res) => {
+
+  // protected routes
+  context = req.headers
+  const { username } = checkAuth(context)
+
   Articles.findById(req.params.id)
     .then(article => {
       const IS_DELETED = true
