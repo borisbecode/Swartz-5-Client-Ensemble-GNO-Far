@@ -42,6 +42,8 @@ const CreationArticle = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
+    const token = localStorage.getItem('jwtToken')
+
     if (titre === '') {
       setTitreError(true)
       setTitreHelper('Ce champ est obligatoire.')
@@ -70,7 +72,13 @@ const CreationArticle = () => {
     formData.append('email', user.email)
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}api/articles/add`, formData)
+      .post(`${process.env.REACT_APP_API_URL}api/articles/add`, formData,
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        }
+      )
       .then(function () {
         window.location.reload()
         setContenuHelper("L'article a été publié avec succès!")

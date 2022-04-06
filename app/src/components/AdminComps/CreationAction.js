@@ -19,7 +19,7 @@ const CreationAction = () => {
 
   // recup les infos user
   const { user } = useContext(AuthContext)
-  console.log(user)
+
 
   const [titre, setTitre] = useState('')
   const [contenu, setContenu] = useState('')
@@ -39,7 +39,7 @@ const CreationAction = () => {
   const [lieuHelper, setLieuHelper] = useState("");
   const [lienHelper, setLienHelper] = useState("");
   const [imageHelper, setImageHelper] = useState("");
-  
+
 
   const [titreColor, setTitreColor] = useState('primary');
   const [contenuColor, setContenuColor] = useState('primary');
@@ -50,6 +50,8 @@ const CreationAction = () => {
   // à la soumission du form
   const handleSubmit = async (event) => {
     event.preventDefault()
+
+    const token = localStorage.getItem('jwtToken')
 
     if (titre === '') {
       setTitreError(true)
@@ -63,15 +65,15 @@ const CreationAction = () => {
     }
 
     if (lieu === '') {
-        setLieuError(true)
-        setLieuHelper('Ce champ est obligatoire.')
-        setLieuColor('secondary')
+      setLieuError(true)
+      setLieuHelper('Ce champ est obligatoire.')
+      setLieuColor('secondary')
     }
 
     if (lien === '') {
-    setLienError(true)
-    setLienHelper('Ce champ est obligatoire.')
-    setLienColor('secondary')
+      setLienError(true)
+      setLienHelper('Ce champ est obligatoire.')
+      setLienColor('secondary')
     }
 
     const formData = new FormData()
@@ -87,7 +89,13 @@ const CreationAction = () => {
     formData.append('email', user.email)
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}api/actions/add`, formData)
+      .post(`${process.env.REACT_APP_API_URL}api/actions/add`, formData,
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        }
+      )
       .then(function () {
         window.location.reload()
         setContenuHelper("L'article a été publié avec succès!")
@@ -96,8 +104,8 @@ const CreationAction = () => {
         // setContenu("");
         // setImageNom("Choisissez une image");
       })
-      .catch(function (error) {
-        console.log(error)
+      .catch(function (Error) {
+        console.log(Error)
         setContenuHelper("L'article n'a pas pu être ajouté.")
       })
   }
@@ -145,7 +153,7 @@ const CreationAction = () => {
           color={titreColor}
           helperText={titreHelper}
         />
-        
+
         <TextField
           required
           label="Contenu"
@@ -159,7 +167,7 @@ const CreationAction = () => {
           helperText={contenuHelper}
         />
 
-<TextField
+        <TextField
           label="Lieu"
           onChange={(event) => {
             setLieu(event.target.value)
@@ -169,7 +177,7 @@ const CreationAction = () => {
           helperText={lieuHelper}
         />
 
-<TextField
+        <TextField
           label="Lien carte"
           onChange={(event) => {
             setLien(event.target.value)
