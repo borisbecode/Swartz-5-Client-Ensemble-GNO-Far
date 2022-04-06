@@ -25,9 +25,7 @@ function App() {
 
   return (
     <Box id="principal" sx={{ bgcolor: 'fourth' }}>
-
       <AuthProvider>
-
         <Header />
 
         {/* Routes protégées */}
@@ -48,13 +46,9 @@ function App() {
           <Route path="/quisommesnous" exact element={<About />} />
           <Route path="/introuvable" exact element={<NotFound />} />
           <Route path="/test" exact element={<Login />} />
-          <Route path="/sign" exact element={<Signup />} />
-
         </Routes>
         <Footer />
-
       </AuthProvider>
-
     </Box>
   )
 }

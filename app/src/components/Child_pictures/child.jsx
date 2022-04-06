@@ -12,6 +12,7 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import CardActions from '@mui/material/CardActions'
+import { AuthContext } from '../../context/auth'
 
 import { CardActionArea } from '@mui/material'
 
@@ -58,6 +59,7 @@ function Child() {
 
   /* const lastHero = data && data.pop()
   console.log(lastHero) */
+  const { user, logout } = React.useContext(AuthContext)
 
   var premierephoto = data && data[data.length - 1]
   var premierephoto_nom = name && name[name.length - 1]
@@ -89,10 +91,7 @@ function Child() {
               Nos enfants parrainés
             </Typography>
           </ThemeProvider>
-          <Box sx={{ ml: 2, mt: 3 }}>
-            {' '}
-            <BasicModal />
-          </Box>
+          <Box sx={{ ml: 2, mt: 3 }}> {user && <BasicModal />}</Box>
         </Box>
         <Divider sx={{ my: 4, mx: 'auto' }} />
         <Grid className="align" container spacing={1} sx={{ mx: 'auto' }}>
