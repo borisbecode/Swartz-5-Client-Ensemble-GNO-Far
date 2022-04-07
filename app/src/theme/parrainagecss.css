@@ -1,9 +1,15 @@
 .background {
   /*  background-image: url('https://zupimages.net/up/22/13/dfa5.jpg'); */
-  background: linear-gradient(rgba(0, 0, 0, 0.739), rgba(0, 0, 0, 0.705)),
-    url('https://zupimages.net/up/22/13/dfa5.jpg');
-  background-position: bottom;
+  background-color: #ffffff9e;
+}
+.background2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.217), rgba(0, 0, 0, 0.251)),
+    url('https://zupimages.net/up/22/14/lrc7.jpg');
   background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+
+  height: 40vh;
 }
 
 .howto {
@@ -13,6 +19,16 @@
 
 @media screen and (max-width: 900px) {
   .background {
-    background: #000000ba;
+    background-color: #ffffff9e;
+  }
+
+  .background2 {
+    background: url('https://zupimages.net/up/22/14/lrc7.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    background-position: center;
+
+    height: 40vh;
   }
 }
