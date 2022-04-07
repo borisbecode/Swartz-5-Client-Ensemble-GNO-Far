@@ -1,4 +1,5 @@
-import React from 'react'
+import * as React from 'react'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 import Box from '@mui/material/Box'
 
@@ -10,6 +11,7 @@ import StepButton from '@mui/material/StepButton'
 import Button from '@mui/material/Button'
 
 function Don_etape() {
+  const matches = useMediaQuery('(min-width:900px)')
   const steps = [
     {
       label: 'Télécharger le PDF',
@@ -76,7 +78,11 @@ function Don_etape() {
 
   return (
     <Box sx={{ width: '100%', mt: 5, pt: 5 }}>
-      <Stepper nonLinear activeStep={activeStep}>
+      <Stepper
+        nonLinear
+        activeStep={activeStep}
+        orientation={matches ? '' : 'vertical'}
+      >
         {steps.map((step, index) => (
           <Step key={step.label} completed={completed[index]}>
             <StepButton color="inherit" onClick={handleStep(index)}>
@@ -86,37 +92,25 @@ function Don_etape() {
         ))}
       </Stepper>
       <div>
-        {allStepsCompleted() ? (
-          <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleReset}>Reset</Button>
-            </Box>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <Typography sx={{ mt: 4, mb: 1 }}>
-              {' '}
-              {steps[activeStep].description}
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 5 }}>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}
-              >
-                Précédent
-              </Button>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Suivant
-              </Button>
-            </Box>
-          </React.Fragment>
-        )}
+        <React.Fragment>
+          <Typography sx={{ mt: 4, mb: 1 }}>
+            {' '}
+            {steps[activeStep].description}
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 5 }}>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Précédent
+            </Button>
+            <Box sx={{ flex: '1 1 auto' }} />
+            <Button onClick={handleNext} sx={{ mr: 1 }}>
+              Suivant
+            </Button>
+          </Box>
+        </React.Fragment>
       </div>
     </Box>
   )
