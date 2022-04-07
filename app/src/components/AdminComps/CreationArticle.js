@@ -17,7 +17,6 @@ const Input = styled('input')({
 })
 
 const CreationArticle = () => {
-
   // recup les infos user
   const { user } = useContext(AuthContext)
 
@@ -73,17 +72,15 @@ const CreationArticle = () => {
     formData.append('email', user.email)
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}api/articles/add`, formData,
-        {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        }
-      )
+      .post(`${process.env.REACT_APP_API_URL}api/articles/add`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(function () {
         window.location.reload()
         setContenuHelper("L'article a été publié avec succès!")
-        <SimpleSnackbar/>
+
         // setTitre("");
         // setSoustitre("");
         // setContenu("");
