@@ -10,6 +10,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera'
 import { styled } from '@mui/material/styles'
 import { AuthContext } from '../../context/auth'
 import axios from 'axios'
+import SimpleSnackbar from './snackbar'
 
 const Input = styled('input')({
   display: 'none',
@@ -82,6 +83,7 @@ const CreationArticle = () => {
       .then(function () {
         window.location.reload()
         setContenuHelper("L'article a été publié avec succès!")
+        <SimpleSnackbar/>
         // setTitre("");
         // setSoustitre("");
         // setContenu("");
