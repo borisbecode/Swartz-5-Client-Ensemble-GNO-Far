@@ -20,7 +20,7 @@ function Don_etape() {
     {
       label: "Nous l'envoyer",
       description:
-        "Vous pouvez nous l'envoyer à l'adresse email : ensemblegnofar@gmail.com",
+        "Vous pouvez nous l'envoyer à l'adresse email : jeanluc.nef@skynet.be",
     },
     {
       label: 'Merci ! ',

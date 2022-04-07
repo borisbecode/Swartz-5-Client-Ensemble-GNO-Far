@@ -6,11 +6,12 @@ const { application } = require('express')
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
 const checkAuth = require('../utils/checkAuth')
+const path = require('path')
 require('dotenv').config({ path: '../.env' })
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, 'app/build/uploads/')
+    callback(null, process.env.CHEMINPHOTO)
   },
   filename: (req, file, callback) => {
     callback(null, Date.now() + file.originalname)

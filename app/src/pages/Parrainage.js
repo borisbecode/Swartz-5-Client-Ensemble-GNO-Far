@@ -111,9 +111,9 @@ const Parrainage = () => {
               gutterBottom
               sx={{ mt: 4, fontSize: '1.125rem' }}
             >
-              Grace à vos dons, nous pouvons offrir une assurance santé, lutter
-              contre la malnutrition, offrir des colis alimentaires, des lits,
-              des lunettes...
+              Grace à vos parrainages, nous pouvons offrir une assurance santé,
+              lutter contre la malnutrition, offrir des colis alimentaires, des
+              lits, des lunettes...
             </Typography>
           </Box>
           <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
