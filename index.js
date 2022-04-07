@@ -45,15 +45,15 @@ app.use("/api/actions", actionRoutes);
 app.use("/api/articles", articlesRoutes);
 app.use("/api/parraines", parrainesRoutes);
 
-if (process.env.NODE_ENV === "production") {
+/* if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "app/build")));
   app.get("*", function (req, res) {
     res.status(200).sendFile(path.join(__dirname, "app/build", "index.html"));
   });
-}
+} */
 
 //LIGNEPOURHEROKU
-/* if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("app/build"));
   const path = require("path");
   app.get("*", function (req, res) {
@@ -61,7 +61,7 @@ if (process.env.NODE_ENV === "production") {
       .status(200)
       .sendFile(path.resolve(__dirname, "app", "build", "index.html"));
   });
-} */
+}
 
 /* const swaggerSpec = swaggerJSDoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec)); */
