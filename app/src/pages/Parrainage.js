@@ -51,7 +51,7 @@ const Parrainage = () => {
               color="primary.main"
               sx={{ mt: 2, pt: 3, fontSize: '1.750rem' }}
             >
-              Comment se parrainer ?
+              Comment parrainer un enfant ?
             </Typography>
           </ThemeProvider>
           <Don_etape />
