@@ -237,10 +237,10 @@ const UpdateAction = ({ data }) => {
             />
 
             {/** Option ajout image */}
-            <label htmlFor="contained-button-file">
+            <label htmlFor="contained-button-file4">
               <Input
                 accept=".jpg,.jpeg,.png"
-                id="contained-button-file"
+                id="contained-button-file4"
                 type="file"
                 filename="articleImage"
                 onChange={(event) => {

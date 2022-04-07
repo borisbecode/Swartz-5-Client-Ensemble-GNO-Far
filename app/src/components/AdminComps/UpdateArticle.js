@@ -45,9 +45,7 @@ const UpdateArticle = ({ data }) => {
   const [imageNom, setImageNom] = useState(
     data.articleImage ? data.articleImage : ''
   )
-  const [articleImage, setArticleImage] = useState(
-    data.articleImage ? data.articleImage : ''
-  )
+  const [articleImage, setArticleImage] = useState('')
 
   const [titreError, setTitreError] = useState(false)
   const [soustitreError, setSoustitreError] = useState(false)
@@ -106,6 +104,7 @@ const UpdateArticle = ({ data }) => {
       )
       .then(function (response) {
         setContenuHelper(response.data.ok)
+        window.location = '/admin'
       })
       .catch(function (error) {
         console.log(error)
@@ -233,10 +232,10 @@ const UpdateArticle = ({ data }) => {
             />
 
             {/** Option ajout image */}
-            <label htmlFor="contained-button-file">
+            <label htmlFor="contained-button-file3">
               <Input
                 accept=".jpg,.jpeg,.png"
-                id="contained-button-file"
+                id="contained-button-file3"
                 type="file"
                 filename="articleImage"
                 onChange={(event) => {
