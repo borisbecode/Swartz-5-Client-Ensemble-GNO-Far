@@ -44,9 +44,12 @@ function OldCreationAdmin() {
   const [ConfirmAdminPasswordColor, setConfirmAdminPasswordColor] =
     useState('primary')
 
+  const [EmailBackendError, setEmailBackendError] = useState('')
+
   // à la soumission du form
   const handleSubmit = async (event) => {
     event.preventDefault()
+    const token = localStorage.getItem('jwtToken')
 
     if (EmailAdmin === '') {
       setEmailAdminError(true)
@@ -83,18 +86,27 @@ function OldCreationAdmin() {
     /* console.log(Adminprenom) */
     if (ConfirmAdminPassword === AdminPassword) {
       axios
-        .post(`${process.env.REACT_APP_API_URL}api/users`, {
-          firstName: Adminprenom,
-          lastName: AdminNom,
-          password: AdminPassword,
-          email: EmailAdmin,
-        })
+        .post(
+          `${process.env.REACT_APP_API_URL}api/users`,
+          {
+            firstName: Adminprenom,
+            lastName: AdminNom,
+            password: AdminPassword,
+            email: EmailAdmin,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then(function () {
           window.location.reload()
           setEmailAdminHelper("L'admin à été ajouté avec succès")
         })
         .catch(function (error) {
           console.log(error)
+          setEmailBackendError(error.response.data.message)
           setEmailAdminHelper("L'admin n'a pas pu etre ajouté")
         })
     } else {
@@ -237,6 +249,15 @@ function OldCreationAdmin() {
         >
           Notez bien le mot de passe et l'email du futur administrateur avant de
           confirmer.
+        </Typography>
+
+        <Typography
+          variant="h3"
+          color="secondary.main"
+          fontWeight="bold"
+          sx={{ mt: 2, ml: 1, mb: 2, fontSize: '1rem' }}
+        >
+          {EmailBackendError}
         </Typography>
 
         <Button

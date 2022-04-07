@@ -94,6 +94,9 @@ function CreationAdmin() {
       })
   } */
 
+  // recup les infos user
+  const { user } = useContext(AuthContext)
+
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -108,9 +111,14 @@ function CreationAdmin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const token = localStorage.getItem('jwtToken')
     try {
       const url = 'http://localhost:5000/api/users'
-      const { data: res } = await axios.post(url, data)
+      const { data: res } = await axios.post(url, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
     } catch (error) {
       if (
         error.response &&
