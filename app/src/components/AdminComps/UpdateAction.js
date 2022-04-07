@@ -25,6 +25,7 @@ const style = {
   border: 'none',
   boxShadow: 24,
   p: 4,
+
 }
 
 const Input = styled('input')({
@@ -41,6 +42,8 @@ const UpdateAction = ({ data }) => {
 
   const [titre, setTitre] = useState(data.title ? data.title : '')
   const [contenu, setContenu] = useState(data.content ? data.content : '')
+  const [lieu, setLieu] = useState(data.location ? data.location : '')
+  const [lien, setLien] = useState(data.link ? data.link : '')
   const [imageNom, setImageNom] = useState(data.image ? data.image : '')
   const [actionImage, setActionImage] = useState(data.image ? data.image : '')
 
@@ -57,7 +60,7 @@ const UpdateAction = ({ data }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const { user } = useContext(AuthContext)
+    const token = localStorage.getItem('jwtToken')
 
     if (titre === '') {
       setTitreError(true)
@@ -74,6 +77,8 @@ const UpdateAction = ({ data }) => {
 
     formData.append('title', titre)
     formData.append('content', contenu)
+    formData.append('location', lieu)
+    formData.append('link', lien)
     formData.append('image', actionImage)
     formData.append('id', user._id)
     formData.append('firstName', user.firstName)
@@ -91,6 +96,7 @@ const UpdateAction = ({ data }) => {
         }
       )
       .then(function (response) {
+        setContenuHelper(response.data.ok)
         window.location = '/admin'
       })
       .catch(function (error) {
@@ -102,7 +108,7 @@ const UpdateAction = ({ data }) => {
   const handleDelete = async (event) => {
     const formData = new FormData()
 
-    const { user } = useContext(AuthContext)
+    const token = localStorage.getItem('jwtToken')
 
     formData.append('id', user._id)
     formData.append('firstName', user.firstName)
@@ -148,6 +154,7 @@ const UpdateAction = ({ data }) => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        sx={{ overflowY: "scroll" }}
       >
         <Box sx={style}>
           {/** Titre création article */}
@@ -155,12 +162,12 @@ const UpdateAction = ({ data }) => {
             <Typography
               variant="h1"
               color="primary.main"
-              sx={{ mt: 4, fontSize: '2rem' }}
+              sx={{ mt: 9, fontSize: '2rem' }}
             >
               Actualiser l'action
             </Typography>
           </ThemeProvider>
-          <Divider sx={{ my: 4 }} />
+          <Divider sx={{ my: 2 }} />
           {/** Form pour créer nouvel article */}
           <Box
             component="form"
@@ -205,6 +212,28 @@ const UpdateAction = ({ data }) => {
               error={contenuError}
               color={contenuColor}
               helperText={contenuHelper}
+            />
+
+            <TextField
+              autoFocus
+              required
+              label="Lieu"
+              value={lieu}
+              onChange={(event) => {
+                setLieu(event.target.value)
+              }}
+
+            />
+
+            <TextField
+              autoFocus
+              required
+              label="Lien du lieu"
+              value={lien}
+              onChange={(event) => {
+                setLien(event.target.value)
+              }}
+
             />
 
             {/** Option ajout image */}
@@ -252,8 +281,8 @@ const UpdateAction = ({ data }) => {
             </Button>
           </Box>
         </Box>
-      </Modal>
-    </Box>
+      </Modal >
+    </Box >
   )
 }
 
