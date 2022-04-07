@@ -81,7 +81,7 @@ router.post('/add', upload.single('image'), (req, res) => {
     title: req.body.title,
     content: req.body.content,
     location: req.body.location,
-    link: req.body.location,
+    link: req.body.link,
     status: IS_PUBLISHED,
     isDeleted: req.body.isDeleted,
     users: [newUser],
