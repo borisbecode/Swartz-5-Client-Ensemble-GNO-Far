@@ -10,7 +10,7 @@ require('dotenv').config({ path: '../.env' })
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, process.env.CHEMINPHOTO)
+    callback(null, 'app/build/uploads/')
   },
   filename: (req, file, callback) => {
     callback(null, Date.now() + file.originalname)
