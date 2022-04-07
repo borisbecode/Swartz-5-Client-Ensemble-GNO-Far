@@ -38,87 +38,18 @@ const Parrainage = () => {
           la plus puissante qui puisse changer le monde".
         </Typography>
         <Divider sx={{ my: 4 }} />{' '}
-      </Box>
+      </Box>{' '}
       <Box
         className="background"
         sx={{ flexGrow: 1, width: '80%', mx: 'auto', mb: 5 }}
       >
-        <Box sx={{ flexGrow: 1, width: '90%', mx: 'auto', pt: 2, mb: 3 }}>
-          {' '}
-          <ThemeProvider theme={ThemeTitres}>
-            <Typography
-              variant="h1"
-              color="primary.main"
-              sx={{ mt: 4, fontSize: '1.750rem' }}
-            >
-              Nous avons besoin de vous
-            </Typography>
-          </ThemeProvider>
-          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
-            {' '}
-            <Typography
-              align="center"
-              variant="body1"
-              gutterBottom
-              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
-            >
-              Grace à vos dons, nous pouvons offrir une assurance santé, lutter
-              contre la malnutrition, offrir des colis alimentaires, des lits,
-              des lunettes...
-            </Typography>
-          </Box>
-          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
-            {' '}
-            <Typography
-              align="center"
-              variant="body1"
-              gutterBottom
-              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
-            >
-              Grâce à une caisse de solidarité, alimentée par vos dons, nous
-              pouvons permettre à certains enfants d'avoir accès à des soins
-              plus onéreux (chaussures orthopédiques, opérations chirurgicales,
-              membres fracturés).
-            </Typography>
-          </Box>
-          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
-            {' '}
-            <Typography
-              align="center"
-              variant="body1"
-              gutterBottom
-              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
-            >
-              Nous garantissons une transparence totale sur les dons récoltés,
-              chaque euros récoltés est intégralement consacré à nos actions.
-            </Typography>
-          </Box>
-          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
-            {' '}
-            <Typography
-              align="center"
-              variant="body1"
-              gutterBottom
-              sx={{
-                mt: 4,
-                fontSize: '1rem',
-                fontWeight: 'bold',
-                color: 'white',
-                fontSize: '1.125rem',
-              }}
-              /* sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }} */
-            >
-              Les dons sont déductibles d'impot.
-            </Typography>
-          </Box>
-        </Box>
         <Box sx={{ flexGrow: 1, width: '90%', mx: 'auto' }}>
           {' '}
           <ThemeProvider theme={ThemeTitres}>
             <Typography
               variant="h1"
               color="primary.main"
-              sx={{ mt: 5, fontSize: '1.750rem' }}
+              sx={{ mt: 2, pt: 3, fontSize: '1.750rem' }}
             >
               Comment se parrainer ?
             </Typography>
@@ -134,7 +65,7 @@ const Parrainage = () => {
                 mt: 5,
                 fontSize: '1rem',
                 fontWeight: 'bold',
-                color: 'white',
+
                 fontSize: '1.125rem',
               }}
             >
@@ -145,23 +76,91 @@ const Parrainage = () => {
               align="center"
               variant="body1"
               gutterBottom
-              sx={{ mt: 4, color: 'white', fontSize: '1.125rem' }}
+              sx={{ mt: 4, fontSize: '1.125rem' }}
             >
               N'oubliez pas, chaque don compte .
             </Typography>
           </Box>
-          {/*  <Grid align="center" sx={{ mt: 5 }}>
-            {' '}
-            <Button
-              variant="contained"
-              sx={{ bgcolor: 'secondary.main', color: 'white', m: 4 }}
-              href="/parrainage"
-            >
-              <Typography>Telecharger le pddf</Typography>
-            </Button>
-            <Downloadfile />
-          </Grid> */}
           <Downloadfile />
+        </Box>
+      </Box>
+      <Box
+        className="background2"
+        sx={{ flexGrow: 1, width: '80%', mx: 'auto', mb: 5 }}
+      ></Box>
+      <Box
+        className="background"
+        sx={{ flexGrow: 1, width: '80%', mx: 'auto', mb: 5 }}
+      >
+        <Box sx={{ flexGrow: 1, width: '90%', mx: 'auto', pt: 2, mb: 3 }}>
+          {' '}
+          <ThemeProvider theme={ThemeTitres}>
+            <Typography
+              variant="h1"
+              color="primary.main"
+              sx={{ mt: 2, fontSize: '1.750rem' }}
+            >
+              Nous avons besoin de vous
+            </Typography>
+          </ThemeProvider>
+          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
+            {' '}
+            <Typography
+              align="center"
+              variant="body1"
+              gutterBottom
+              sx={{ mt: 4, fontSize: '1.125rem' }}
+            >
+              Grace à vos dons, nous pouvons offrir une assurance santé, lutter
+              contre la malnutrition, offrir des colis alimentaires, des lits,
+              des lunettes...
+            </Typography>
+          </Box>
+          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
+            {' '}
+            <Typography
+              align="center"
+              variant="body1"
+              gutterBottom
+              sx={{ mt: 4, fontSize: '1.125rem' }}
+            >
+              Grâce à une caisse de solidarité, alimentée par vos dons, nous
+              pouvons permettre à certains enfants d'avoir accès à des soins
+              plus onéreux (chaussures orthopédiques, opérations chirurgicales,
+              membres fracturés).
+            </Typography>
+          </Box>
+          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
+            {' '}
+            <Typography
+              align="center"
+              variant="body1"
+              gutterBottom
+              sx={{ mt: 4, fontSize: '1.125rem' }}
+            >
+              Nous garantissons une transparence totale sur les dons récoltés,
+              chaque euros récoltés est intégralement consacré à nos actions.
+            </Typography>
+          </Box>
+          <Box sx={{ flexGrow: 1, width: '60%', mx: 'auto', pt: 2, mb: 3 }}>
+            {' '}
+            <Typography
+              align="center"
+              variant="body1"
+              gutterBottom
+              sx={{
+                mt: 4,
+                pb: 4,
+                fontSize: '1rem',
+                fontWeight: 'bold',
+
+                fontSize: '1.125rem',
+              }}
+              /* sx={{ bgcolor: 'secondary.main',  m: 4 }} */
+            >
+              Les dons sont déductibles d'impot.
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

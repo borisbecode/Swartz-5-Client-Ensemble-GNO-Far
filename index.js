@@ -51,6 +51,8 @@ if (process.env.NODE_ENV === "production") {
     res.status(200).sendFile(path.join(__dirname, "app/build", "index.html"));
   });
 }
+
+//LIGNEPOURHEROKU
 /* if (process.env.NODE_ENV === "production") {
   app.use(express.static("app/build"));
   const path = require("path");

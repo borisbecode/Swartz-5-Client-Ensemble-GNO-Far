@@ -1,96 +1,123 @@
 import React from 'react'
-import Divider from '@mui/material/Divider'
+
 import Box from '@mui/material/Box'
-import Avatar from '@mui/material/Avatar'
+
 import Typography from '@mui/material/Typography'
-import Grid from '@mui/material/Grid'
-import { ThemeProvider } from '@mui/material/styles'
-import { ThemeTitres } from '../theme/ThemeTitres'
-import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline'
-import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead'
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism'
+
+import Stepper from '@mui/material/Stepper'
+import Step from '@mui/material/Step'
+import StepButton from '@mui/material/StepButton'
+import Button from '@mui/material/Button'
 
 function Don_etape() {
+  const steps = [
+    {
+      label: 'Télécharger le PDF',
+      description: `Télécharger le PDF en bas de page.`,
+    },
+    {
+      label: "Nous l'envoyer",
+      description:
+        "Vous pouvez nous l'envoyer à l'adresse email : ensemblegnofar@gmail.com",
+    },
+    {
+      label: 'Merci ! ',
+      description: `Merci ! Nous revenons vers vous.`,
+    },
+  ]
+  const [activeStep, setActiveStep] = React.useState(0)
+  const [completed, setCompleted] = React.useState({})
+
+  const totalSteps = () => {
+    return steps.length
+  }
+
+  const completedSteps = () => {
+    return Object.keys(completed).length
+  }
+
+  const isLastStep = () => {
+    return activeStep === totalSteps() - 1
+  }
+
+  const allStepsCompleted = () => {
+    return completedSteps() === totalSteps()
+  }
+
+  const handleNext = () => {
+    const newActiveStep =
+      isLastStep() && !allStepsCompleted()
+        ? // It's the last step, but not all steps have been completed,
+          // find the first step that has been completed
+          steps.findIndex((step, i) => !(i in completed))
+        : activeStep + 1
+    setActiveStep(newActiveStep)
+  }
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1)
+  }
+
+  const handleStep = (step) => () => {
+    setActiveStep(step)
+  }
+
+  const handleComplete = () => {
+    const newCompleted = completed
+    newCompleted[activeStep] = true
+    setCompleted(newCompleted)
+    handleNext()
+  }
+
+  const handleReset = () => {
+    setActiveStep(0)
+    setCompleted({})
+  }
+
   return (
-    <Box sx={{ pt: 5 }}>
-      <Grid container spacing={4}>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={4}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textAlign: 'center',
-          }}
-        >
-          <DownloadForOfflineIcon
-            sx={{ width: 80, height: 80, color: 'primary.main' }}
-          />
-          <Typography
-            variant="h3"
-            color="primary.main"
-            sx={{ mt: 4, fontSize: '1.250rem', fontWeight: 'bold' }}
-          >
-            Telecharger le fichier en bas de page <br /> <br />
-          </Typography>
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={4}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textAlign: 'center',
-          }}
-        >
-          <MarkEmailReadIcon
-            sx={{ width: 80, height: 80, color: 'primary.main' }}
-          />
-          <Typography
-            variant="h3"
-            color="primary.main"
-            sx={{ mt: 4, fontSize: '1.250rem', fontWeight: 'bold' }}
-          >
-            L'envoyer à l'adresse email : <br /> <br />
-            Ensemblegnofar@test.test
-          </Typography>
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={4}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textAlign: 'center',
-          }}
-        >
-          <VolunteerActivismIcon
-            sx={{ width: 80, height: 80, color: 'primary.main' }}
-          />
-          <Typography
-            variant="h3"
-            color="primary.main"
-            sx={{ mt: 4, fontSize: '1.250rem', fontWeight: 'bold' }}
-          >
-            Nous revenons vers vous <br /> <br />
-            Merci !
-          </Typography>
-        </Grid>
-      </Grid>
+    <Box sx={{ width: '100%', mt: 5, pt: 5 }}>
+      <Stepper nonLinear activeStep={activeStep}>
+        {steps.map((step, index) => (
+          <Step key={step.label} completed={completed[index]}>
+            <StepButton color="inherit" onClick={handleStep(index)}>
+              {step.label}
+            </StepButton>
+          </Step>
+        ))}
+      </Stepper>
+      <div>
+        {allStepsCompleted() ? (
+          <React.Fragment>
+            <Typography sx={{ mt: 2, mb: 1 }}>
+              All steps completed - you&apos;re finished
+            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+              <Box sx={{ flex: '1 1 auto' }} />
+              <Button onClick={handleReset}>Reset</Button>
+            </Box>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <Typography sx={{ mt: 4, mb: 1 }}>
+              {' '}
+              {steps[activeStep].description}
+            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 5 }}>
+              <Button
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                sx={{ mr: 1 }}
+              >
+                Précédent
+              </Button>
+              <Box sx={{ flex: '1 1 auto' }} />
+              <Button onClick={handleNext} sx={{ mr: 1 }}>
+                Suivant
+              </Button>
+            </Box>
+          </React.Fragment>
+        )}
+      </div>
     </Box>
   )
 }

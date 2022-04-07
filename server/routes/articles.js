@@ -6,7 +6,7 @@ const { application } = require('express')
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
 const checkAuth = require('../utils/checkAuth')
-
+require('dotenv').config({ path: '../.env' })
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
@@ -36,8 +36,6 @@ const storage = multer.diskStorage({
   })
 } */
 
-
-
 // PARAM MULTER
 const upload = multer({
   storage: storage,
@@ -66,7 +64,7 @@ router.get('/', (req, res) => {
 })
 
 // Get  actions  delete
-router.get("/inactif", (req, res) => {
+router.get('/inactif', (req, res) => {
   Articles.find({ isDeleted: true }, function (err, article) {
     if (err) res.status(400).json(`Error: ${err}`)
     res.json(article)
@@ -74,7 +72,7 @@ router.get("/inactif", (req, res) => {
 })
 
 // Get  actions  not delete
-router.get("/actif", (req, res) => {
+router.get('/actif', (req, res) => {
   Articles.find({ isDeleted: false }, function (err, article) {
     if (err) res.status(400).json(`Error: ${err}`)
     res.json(article)
@@ -83,7 +81,6 @@ router.get("/actif", (req, res) => {
 
 //REQUESTS ADD NEW ARTICLE
 router.post('/add', upload.single('articleImage'), (req, res) => {
-
   // protected routes
   context = req.headers
   const { username } = checkAuth(context)
@@ -95,7 +92,7 @@ router.post('/add', upload.single('articleImage'), (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    status: IS_PUBLISHED
+    status: IS_PUBLISHED,
   }
 
   let article = {
@@ -128,7 +125,6 @@ router.get('/:id', (req, res) => {
 
 //REQUEST FIND ARTICLE BY ID AND UPDATE
 router.put('/update/:id', upload.single('articleImage'), (req, res) => {
-
   // protected routes
   context = req.headers
   const { username } = checkAuth(context)
@@ -136,7 +132,6 @@ router.put('/update/:id', upload.single('articleImage'), (req, res) => {
   Articles.findById(req.params.id)
 
     .then((article) => {
-
       const IS_EDITED = 'edited'
 
       let newUser = {
@@ -144,7 +139,7 @@ router.put('/update/:id', upload.single('articleImage'), (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        status: IS_EDITED
+        status: IS_EDITED,
       }
 
       article.title = req.body.title
@@ -156,13 +151,12 @@ router.put('/update/:id', upload.single('articleImage'), (req, res) => {
       article.updatedAt = Date.now()
       article.users.push(newUser)
 
-
       article
         .save()
         .then(() =>
           res
             .status(200)
-            .json({ article: article, ok: 'L\'article est mise à jour' })
+            .json({ article: article, ok: "L'article est mise à jour" })
         )
         .catch((error) => res.status(400).json(`Error: ${error}`))
     })
@@ -189,30 +183,25 @@ router.put('/update/:id', upload.single('articleImage'), (req, res) => {
 //     .catch((error) => res.status(400).json(`Error: ${error}`))
 // })
 
-
-
 //REQUEST FIND ARTICLE BY ID AND DELETE
-router.delete("/:id", (req, res) => {
-
+router.delete('/:id', (req, res) => {
   // protected routes
   context = req.headers
   const { username } = checkAuth(context)
 
   Articles.findByIdAndDelete(req.params.id)
-    .then(() => res.json("The article is deleted!!"))
-    .catch(error => res.status(400).json(`Error: ${error}`))
-
+    .then(() => res.json('The article is deleted!!'))
+    .catch((error) => res.status(400).json(`Error: ${error}`))
 })
 
 // Find action by id and delete = true (reste en backup dans la db)
-router.put('/delete/:id', upload.single("articleImage"), (req, res) => {
-
+router.put('/delete/:id', upload.single('articleImage'), (req, res) => {
   // protected routes
   context = req.headers
   const { username } = checkAuth(context)
 
   Articles.findById(req.params.id)
-    .then(article => {
+    .then((article) => {
       const IS_DELETED = true
       const DELETED = 'deleted'
 
@@ -221,7 +210,7 @@ router.put('/delete/:id', upload.single("articleImage"), (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        status: DELETED
+        status: DELETED,
       }
 
       article.status = DELETED
@@ -230,10 +219,14 @@ router.put('/delete/:id', upload.single("articleImage"), (req, res) => {
       article.users.push(newUser)
       article
         .save()
-        .then(() => res.status(200).json({ article: article, ok: "L'article est supprimée" }))
-        .catch(err => res.status(400).json(`Error: ${err}`))
+        .then(() =>
+          res
+            .status(200)
+            .json({ article: article, ok: "L'article est supprimée" })
+        )
+        .catch((err) => res.status(400).json(`Error: ${err}`))
     })
-    .catch(err => res.status(400).json(`Error: ${err}`))
+    .catch((err) => res.status(400).json(`Error: ${err}`))
 })
 
 module.exports = router
