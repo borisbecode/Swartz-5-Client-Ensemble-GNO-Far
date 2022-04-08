@@ -40,11 +40,12 @@ const GestionArticles = () => {
           component="div"
           sx={{ mt: 4, fontSize: '2rem' }}
         >
-          Actualiser ou effacez les articles ici
+          Actualiser ou effacer les articles ici
         </Typography>
       </ThemeProvider>
       <Typography variant="body1" gutterBottom component="div">
-        Retrouvez vos articles par titre, actualisez les données ou effacez l'article de votre choix.
+        Retrouvez vos articles par titre, actualisez les données ou effacez
+        l'article de votre choix.
       </Typography>
       <Divider sx={{ my: 4 }} />
 

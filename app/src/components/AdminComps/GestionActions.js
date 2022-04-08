@@ -15,7 +15,7 @@ import IconButton from '@mui/material/IconButton'
 import Modal from '@mui/material/Modal'
 import UpdateAction from './UpdateAction'
 
-const GestionActions= () => {
+const GestionActions = () => {
   let [fetchedData, setFetchedData] = useState([])
 
   let api = `${process.env.REACT_APP_API_URL}api/actions/actif`
@@ -40,11 +40,12 @@ const GestionActions= () => {
           component="div"
           sx={{ mt: 4, fontSize: '2rem' }}
         >
-          Actualiser ou effacez les actions ici
+          Actualiser ou effacer les actions ici
         </Typography>
       </ThemeProvider>
       <Typography variant="body1" gutterBottom component="div">
-        Retrouvez vos actions par titre, actualisez les données ou effacez l'action de votre choix.
+        Retrouvez vos actions par titre, actualisez les données ou effacez
+        l'action de votre choix.
       </Typography>
       <Divider sx={{ my: 4 }} />
 
