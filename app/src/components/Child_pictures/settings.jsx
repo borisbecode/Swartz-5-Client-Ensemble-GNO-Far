@@ -1,10 +1,10 @@
-import { Box } from '@mui/material/node_modules/@mui/system'
+import Box from '@mui/material/Box'
 import React, { useState } from 'react'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import axios from 'axios'
 import TextField from '@mui/material/TextField'
-import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto'
 
 class Settings extends React.Component {
   state = {
@@ -62,10 +62,10 @@ class Settings extends React.Component {
           <Button
             onClick={() => this.fileInput.click()}
             variant="contained"
-            sx={{ bgcolor: 'secondary.main',color: 'white', mt: 5, mr: 3 }}
+            sx={{ bgcolor: 'secondary.main', color: 'white', mt: 5, mr: 3 }}
             startIcon={<AddAPhotoIcon />}
           >
-             Choisir une image
+            Choisir une image
           </Button>
           <Box sx={{ mt: 4 }}>
             {' '}
